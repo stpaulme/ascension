@@ -1,0 +1,58 @@
+{
+    "key": "group_5b2bd3c59d786",
+    "title": "Announcements",
+    "fields": [
+        {
+            "key": "field_5b2bd46eb9599",
+            "label": "Announcement",
+            "name": "ann_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b2bd58691d44",
+            "label": "Link",
+            "name": "ann_link",
+            "type": "link",
+            "instructions": "Add a link to make the entire announcement bar clickable.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-announcements"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529601952
+}

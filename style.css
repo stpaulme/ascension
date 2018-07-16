@@ -1,0 +1,312 @@
+/*
+Theme Name: Ascension
+Theme URI: http://www.stpaulmedia.com/
+Author: Jonathan Hatch
+Author URI: http://www.stpaulmedia.com
+Description: Starter Theme for Ascension sites. (_S and Bootstrap 3.3.6)
+Version: 1.3
+*/
+
+/*/////////////////////////////////////////
+Colors
+Dark Gray: #1a1a1a;
+Light Gray: #e4e4e4;
+Blue: #019fc4;
+Red: #ef3e36;
+Orange: #ffb60f;
+Green: #c1bb00;
+/////////////////////////////////////////*/
+
+/*/////////////////////////////////////////
+Project Specific Resets
+/////////////////////////////////////////*/
+/* Font-Family */
+body {font-family: 'Roboto', sans-serif;}
+
+
+/*/////////////////////////////////////////
+Project Specific Bootstrap
+/////////////////////////////////////////*/
+@media (min-width: 576px) {} /* .col-sm- */
+@media (min-width: 768px) {} /* .col-md- */
+@media (min-width: 992px) {} /* .col-lg- */
+@media (min-width: 1200px) {} /* .col-xl- */
+
+/*/////////////////////////////////////////
+Header
+/////////////////////////////////////////*/
+.ann-link, .ann-link:hover {color: inherit;}
+.ann-bar {background-color: #ffc107; font-weight:bold; padding: 10px 0; text-align: center;}
+.ann-text {margin: 0;}
+
+#headerLogo a {display:block;background-image:url(/wp-content/themes/spm_x/img/proto-logo.png);background-size:contain;background-repeat:no-repeat;content:' ';width:200px;height:150px;}
+
+.page-nav {
+    margin: 25px 0;
+}
+.page-nav ul {
+    list-style: none;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+.page-nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+.page-nav ul li:last-child {
+    margin-right: 0;
+}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Content
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Sidebar
+/////////////////////////////////////////*/
+.page-sidebar aside {margin-bottom: 25px;}
+.page-sidebar aside:last-child {margin-bottom: 0;}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Footer
+/////////////////////////////////////////*/
+#attribution {
+    background:#333;
+    color:#fff;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+    margin-bottom: 0;
+}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////
+                                Modular Styles
+//////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*// Three Boxes //*/
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+/*// News Feed //*/
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+/*// Events Feed //*/
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*// Hero //*/
+
+/*// Side-by-Side CTAs //*/
+.side-by-side-repeater div[class^=col] {
+    padding-top: 15px;
+}
+
+.side-by-side-repeater div[class^=col]:nth-child(1) {
+    background-color: #eee;
+}
+.side-by-side-repeater div[class^=col]:nth-child(2) {
+    background-color: #ddd;
+}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {
+    .side-by-side-repeater {
+        /* Faux column effect with horizontal gradient */
+        background: #eee; /* Old browsers */
+        background: -moz-linear-gradient(left, #eee 50%, #ddd 50%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #eee 50%,#ddd 50%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #eee 50%,#ddd 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eee', endColorstr='#ddd',GradientType=1 ); /* IE6-9 */
+    }
+}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+.side-by-side-repeater img, .side-by-side-repeater h2, .side-by-side-repeater p, .side-by-side-repeater a {
+    margin-bottom: 15px;
+}
+
+p[class^=dir]{
+    margin-bottom: 0;
+}
+
+p.dir-position {
+    font-style: italic;
+}
+
+p.dir-department, p.dir-email, p.dir-phone {
+    font-size: 0.875em;
+}
+
+p.dir-email a, p.dir-phone a {
+    text-decoration: none !important;
+}
+
+p.dir-biography {
+    margin-top: 20px;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////
+                                Static Page Styles
+//////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////
+Homepage
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+About
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Resources
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Services
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Impact
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Newsletter
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Contact
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+404
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////
+                                Dynamic Page Styles
+//////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////
+Blog
+/////////////////////////////////////////*/
+
+.entry {margin-bottom: 40px;}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Blog - Single
+/////////////////////////////////////////*/
+
+a.back {color: #fff;}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Archive
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Archive - Single
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Search
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+.page-nav li.current_page_item {font-weight: bold;}

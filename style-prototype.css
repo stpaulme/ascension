@@ -1,0 +1,347 @@
+/*
+Theme Name: Patterns
+Theme URI: http://www.stpaulmedia.com/
+Author: Jonathan Hatch
+Author URI: http://www.stpaulmedia.com
+Description: Starter Theme for all Saint Paul Media projects. (_S and Bootstrap 3.3.6)
+Version: 1.0
+
+*/
+
+/*/////////////////////////////////////////
+Colors
+Dark Gray: #1a1a1a;
+Light Gray: #e4e4e4;
+Blue: #019fc4;
+Red: #ef3e36;
+Orange: #ffb60f;
+Green: #c1bb00;
+/////////////////////////////////////////*/
+
+/*/////////////////////////////////////////
+Project Specific Resets
+/////////////////////////////////////////*/
+
+/*/ Font-Family /*/
+html {height:100% !important;font-family: 'Roboto', sans-serif;}
+body {height:100% !important;font-family: 'Roboto', sans-serif;}
+#page {height:100% !important;margin-bottom:35px;}
+.box {background:#f1f1f1;border:1px solid #CCCCCC;padding:15px;}
+a.button, span.button a {background:#0275d8;color:#FFFFFF;display:inline-block;font-weight:400;line-height:1.2;text-align:center;white-space:nowrap;vertical-align:middle;-webkit-user-select: none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid transparent;padding:8px 16px;font-size:1rem;border-radius:.25rem;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;transition:all .2s ease-in-out;}
+a:hover {text-decoration:none;opacity:.6;transition:opacity .4s linear;}
+a.skip-link {display:none;}
+img {max-width:100%;height:auto;}
+
+/*/ Typography /*/
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {margin-bottom:20px;font-weight:500;line-height:1.1;}
+h1, .h1 {font-size:2em;margin-bottom:12px;}
+h2, .h2 {font-size:1.5em;margin-bottom:9px;color:#333333;}
+h3, .h3 {font-size:1.4em;margin-bottom:6px;}
+h4, .h4 {font-size:1em;margin-bottom:6px;}
+p, ol, ul {margin-bottom:20px;}
+p {line-height:1.6;}
+ol, ul, blockquote {line-height:1.4;}
+
+
+/*/ Bootstrap Typography /*/
+.card-header p {margin-bottom:0;}
+.card-title {margin:0 0 8px 0;}
+.card-text {}
+.card-subtitle {margin:0 0 8px 0;line-height:1.4;font-style:italic;}
+.text-muted {color:#666666 !important;}
+
+/*/////////////////////////////////////////
+Project Specific Bootstrap
+/////////////////////////////////////////*/
+.container {max-width:none;}
+.card-body {padding:1rem;}
+
+@media (min-width: 576px) { 
+    .container {max-width:none;} 
+} /* .col-sm- */
+
+@media (min-width: 768px) { 
+    .container {max-width:none;padding-left:30px;padding-right:30px;}
+    .container-fluid {padding-left:30px;padding-right:30px;}
+} /* .col-md- */
+
+@media (min-width: 992px) { 
+    .container {max-width:none;} 
+} /* .col-lg- */
+
+@media (min-width: 1200px) { 
+    .container {max-width:1200px;} 
+} /* .col-xl- */
+
+/*/////////////////////////////////////////
+Header
+/////////////////////////////////////////*/
+#mobile-only {display:none;}
+#masthead {padding-top:15px;padding-bottom:15px;height:100px;}
+#header-logo a {display:block;background-size:contain;background-repeat:no-repeat;background-position:left center;content:' ';width:80px;height:80px;float:left;}
+#mobile-menu {font-size:30px;}
+#mobile-menu {color:#0275d8;font-size:30px;}
+#mobile-menu:hover {cursor:pointer;}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {
+    #masthead {padding-top:30px;padding-bottom:30px;height:180px;}
+}
+@media (min-width: 992px) {
+    #header-logo a {width:100%;height:auto;}
+    #header-nav ul {list-style:none;line-height:1;text-align:right;margin:0;padding:0;}
+    #header-nav ul li {display:inline-block;}
+    #search {margin-bottom:25px;}
+    #social {}
+    #social ul {font-size:20px;} 
+    #social ul li {margin-left:5px;}
+    #secondary {margin-bottom:25px;}
+    #primary {font-size:1.25em;}
+    #secondary li, #primary li {margin-left:20px;}
+    #search form {width:100%;float:right;position:relative;margin-left:18px;}
+    .search-global {color:#616161;border: 1px solid #5C93BC;padding:3px 5px;height:24px;font-size:12px;float:right;width:100%;font-style:italic;}
+    .search-icon {border:0;width:16px;height:16px;position:absolute;right:3px;top:3px;background-color:transparent;display:block;content:' ';color:#000000;z-index:2;}
+    .search-icon:hover {cursor:pointer;}
+    .search-button {width:16px;height:16px;font-size:15px;display:block;content:' ';color:#000000;position:absolute;z-index:1;right:3px;top:3px;}
+}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Body
+/////////////////////////////////////////*/
+.content-wrapper {padding-top: 20px; padding-bottom: 20px;}
+#content p a {font-weight:700;text-decoration:underline;}
+#content p a.card-link {text-decoration:none;}
+.page-header {background:#1b1464;padding-top:15px;padding-bottom:15px;}
+.page-header h1 {color:#FFFFFF;margin-bottom:0;}
+.page-content a {text-decoration:underline;}
+#sidebar-primary {}
+#sidebar-secondary {}
+#page-footer {}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {
+    .page-header {padding-top:60px;padding-bottom:20px;}
+}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////
+                                Modular Styles
+//////////////////////////////////////////////////////////////////////////////////////*/
+
+body.home #content section {padding-top:30px;padding-bottom:30px;}
+body.home #content section:first-child {padding-top:0;padding-bottom:0;}
+
+/*//  Hero //*/
+.hero {position:relative;margin-bottom:30px;}
+.hero-image {display:block; margin-bottom: 20px;}
+.hero .col-12 {padding-left:0;padding-right:0;}
+
+.hero-content a {margin-right:20px;}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {
+    .hero .container {max-width:none;}
+}
+@media (min-width: 992px) {
+    .hero-content {position:absolute;bottom:40px;left:60px;background:#F1F1F1;padding:20px;}
+}
+@media (min-width: 1200px) {
+    .hero .col-12 {padding-left:15px;padding-right:15px;}
+    .hero .container {max-width:1200px;}
+    .hero .container .row {display:block;position:relative;}
+    .hero .hero-content {width:500px;}
+}
+
+/*/////////////////////////////////////////
+Card Styles
+/////////////////////////////////////////*/
+.card-deck .card {margin-bottom: 20px;}
+@media (min-width: 576px) {}
+@media (min-width: 768px) {
+    .card-deck .card {margin-bottom: 30px;}
+}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*// Calls to Action //*/
+section.content-cta {margin-bottom:-20px;}
+@media (min-width: 768px) {section.content-cta {margin-bottom:-30px;}}
+
+/*// Basic Content //*/
+@media (min-width: 768px) {.basic-copy {column-count:2;column-gap:30px;}}
+@media (min-width: 1200px) {.basic-copy {column-count:3;}}
+
+/*// Post Feed //*/
+section.content-feed {margin-bottom:-20px;}
+@media (min-width: 576px) {}
+@media (min-width: 768px) {section.content-feed {margin-bottom:-30px;}}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////
+                                Static Page Styles
+//////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////
+Homepage
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+About
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Resources
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Services
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Impact
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Newsletter
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Contact
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+404
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////
+                                Dynamic Page Styles
+//////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////
+Blog
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Blog - Single
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Archive
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Archive - Single
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+/*/////////////////////////////////////////
+Search
+/////////////////////////////////////////*/
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+
+
+
+/*/////////////////////////////////////////
+Big Chunks of Stuff
+/////////////////////////////////////////*/
+.hero-vignette {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.hero-vignette img {
+    margin-bottom: 0;
+}
+
+.hero-vignette:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 120%;
+    padding-bottom: 120%;
+    box-shadow: inset 0px 0px 150px 60px rgba(0,0,0,0.8);
+    border-radius: 50%;
+}
+
+#content p.text-muted a {
+    font-weight: normal;
+    color: inherit;
+    text-decoration: none;
+}

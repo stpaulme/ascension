@@ -1,0 +1,118 @@
+{
+    "key": "group_59cd16973ec89",
+    "title": "Below",
+    "fields": [
+        {
+            "key": "field_59cd17b0b572a",
+            "label": "Lower Layout",
+            "name": "lower_layout",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5b350d69da2c0": {
+                    "key": "5b350d69da2c0",
+                    "name": "side_by_side",
+                    "label": "Side by Side",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b350d6ec9536",
+                            "label": "Side-by-Side",
+                            "name": "side_by_side",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5b2c0aa6014c4",
+                                "field_5b2c0a8e014c3",
+                                "field_5b2c0b78014c5"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b3513a7244e0": {
+                    "key": "5b3513a7244e0",
+                    "name": "feed",
+                    "label": "Post Feed",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b3513c4244e1",
+                            "label": "Post Feed",
+                            "name": "feed",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5a2854b369c05",
+                                "field_5a28435ad4382",
+                                "field_5a28487ba4798",
+                                "field_5a284bdae524b",
+                                "field_5a28501569c00",
+                                "field_5a28505069c01",
+                                "field_5b35248c8097a",
+                                "field_5a28580164696",
+                                "field_5a2850d969c02",
+                                "field_5a285b9896056",
+                                "field_5a2852a469c03",
+                                "field_5a28542e69c04"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Block",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 4,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1530209569
+}
