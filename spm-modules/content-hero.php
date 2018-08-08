@@ -3,14 +3,14 @@
         <div class="container">
         <?php endif; ?>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 hero-image-container">
                     <?php if( get_sub_field('vignette_filter') ): ?><div class="hero-vignette"><?php endif; ?>
                     <?php echo wp_get_attachment_image(get_sub_field('image'), 'widescreen-desktop', 0, array('class' => 'hero-image')); ?>
                     <?php if( get_sub_field('vignette_filter') ): ?></div><?php endif; ?>
                 </div>
                 <div class="container">
                   <div class="row">
-                    <div class="hero-content col col-lg-6">
+                    <div class="hero-content col-12 col-lg-6">
                       <?php if( get_sub_field('heading') ): ?>
                           <h2 id="hero-title"><?php the_sub_field('heading'); ?></h2>
                       <?php endif; ?>

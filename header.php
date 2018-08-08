@@ -6,12 +6,6 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" />
 	<?php wp_head(); ?>
-    <!-- <link rel="stylesheet" type="text/css" media="all" href="<?php autoVer('style.css'); ?>" /> -->
-    <?php
-		if(is_front_page()) {include_once('spm-schema/schema-home.php');}
-		if(is_singular('services')){include_once('spm-schema/schema-service.php');}
-		if(is_singular('post')){include_once('spm-schema/schema-service.php');}
-	?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -44,7 +38,7 @@
             <?php if( get_field('fluid_header', 'option') ): ?>
             <div class="container h-100" style="max-width:none !important;">
             <?php else: ?>
-            <div class="container h-100"> 
+            <div class="container h-100">
             <?php endif; ?>
                 <div class="row h-100">
                     <div id="header-logo" class="col-6 col-lg-2">

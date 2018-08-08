@@ -56,21 +56,21 @@ Project Specific Bootstrap
 .container {max-width:none;}
 .card-body {padding:1rem;}
 
-@media (min-width: 576px) { 
-    .container {max-width:none;} 
+@media (min-width: 576px) {
+    .container {max-width:none;}
 } /* .col-sm- */
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .container {max-width:none;padding-left:30px;padding-right:30px;}
     .container-fluid {padding-left:30px;padding-right:30px;}
 } /* .col-md- */
 
-@media (min-width: 992px) { 
-    .container {max-width:none;} 
+@media (min-width: 992px) {
+    .container {max-width:none;}
 } /* .col-lg- */
 
-@media (min-width: 1200px) { 
-    .container {max-width:1200px;} 
+@media (min-width: 1200px) {
+    .container {max-width:1200px;}
 } /* .col-xl- */
 
 /*/////////////////////////////////////////
@@ -93,7 +93,7 @@ Header
     #header-nav ul li {display:inline-block;}
     #search {margin-bottom:25px;}
     #social {}
-    #social ul {font-size:20px;} 
+    #social ul {font-size:20px;}
     #social ul li {margin-left:5px;}
     #secondary {margin-bottom:25px;}
     #primary {font-size:1.25em;}
@@ -131,14 +131,13 @@ Body
                                 Modular Styles
 //////////////////////////////////////////////////////////////////////////////////////*/
 
-body.home #content section {padding-top:30px;padding-bottom:30px;}
-body.home #content section:first-child {padding-top:0;padding-bottom:0;}
+body.home div#content section {padding-top:30px;padding-bottom:30px;}
+body.home div#content section:nth-child(1) {padding-top:0;padding-bottom:0;}
 
 /*//  Hero //*/
-.hero {position:relative;margin-bottom:30px;}
+.hero {position:relative;margin-bottom:0;}
 .hero-image {display:block; margin-bottom: 20px;}
-.hero .col-12 {padding-left:0;padding-right:0;}
-
+.hero-content {padding-left:30px;padding-right:30px;}
 .hero-content a {margin-right:20px;}
 
 @media (min-width: 576px) {}

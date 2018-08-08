@@ -1,8 +1,7 @@
 <?php get_header(); ?>
-<?php include_once('spm-schema/schema-graph.php'); ?>
 
 <section id="page-wrapper" class="site-content" role="document" aria-labelledby="page-title" aria-describedby="content">
-        
+
     <header class="page-header">
         <div class="container">
             <div class="row">
@@ -39,7 +38,7 @@
             </main>
             <aside role="complementary" class="page-sidebar col-lg-4 offset-lg-1">
                 <?php get_template_part( 'spm-layouts/layout', 'secondary' ); ?>
-            </aside> 
+            </aside>
         </div>
     </div>
 
