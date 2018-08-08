@@ -407,3 +407,12 @@ require get_template_directory() . '/spm-filters/acf-options.php';
 require get_template_directory() . '/spm-filters/trim-excerpt.php';
 require get_template_directory() . '/spm-filters/hide-acf-admin.php';
 require get_template_directory() . '/spm-filters/acf-load-post-type-choices.php';
+
+add_filter( 'github_updater_set_options',
+	function () {
+		return array( 
+			'github_access_token' => '18164438e3ca4c3538340185e854c88f71d45b50',
+		);
+	} );
+
+
