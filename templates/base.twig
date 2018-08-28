@@ -7,38 +7,68 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header" >
-			{% block header %}
-				<div class="wrapper">
-					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-					</h1>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'menu': menu.get_items} %}
-					</nav><!-- #nav -->
-				</div>
-			{% endblock %}
-		</header>
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
+		
+
+			<div class="container">
+				<header>
+					{% block header %}
+					<div class="row">
+						<div class="col-md-6">
+							<h1 role="banner">
+								<a href="{{site.url}}" rel="home">{{site.name}}</a>
+							</h1>
+						</div>
+						<div class="col-md-6 text-right">
+							<nav role="navigation">
+								{% include 'menu.twig' with {'menu': header_secondary.get_items, 'ul_class': 'list-inline', 'li_class': 'list-inline-item'} %}
+							</nav>
+							<nav role="navigation">
+								{% include 'menu.twig' with {'menu': header_primary.get_items, 'ul_class': 'list-inline', 'li_class': 'list-inline-item'} %}
+							</nav>
+						</div>
+					{% endblock %}
+				</header>
+			</div>
+
+			
+				
+				<section role="main">
+					{% if menu_items %}
+					<div class="menu-items">
+						<div class="container">
+							<ul class="list-inline">
+								{% for item in menu_items %}
+								<li class="list-inline-item {{item.id == current ? 'current'}}"><a href="{{item.link}}">{{item.name}}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					{% endif %}
+
+					{% if title %}
+					<div class="container">
+						<h1 class="title">{{title}}</h1>
+					</div>
+					{% endif %}
+
+					{% block content %}
 					Sorry, no content
+					{% endblock %}
+					
+				</section>
+
+			
+
+			<div class="container">
+				{% block footer %}
+					<footer>
+						{% include 'footer-primary.twig' %}
+						{% include 'footer-secondary.twig' %}
+					</footer>
+					{{ function('wp_footer') }}
 				{% endblock %}
 			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
-
-		{% block footer %}
-			<footer id="footer">
-				{% include 'footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
+		
 	</body>
 </html>

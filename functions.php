@@ -19,28 +19,49 @@ class StarterSite extends TimberSite {
 	function __construct() {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'menus' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'spm_register_nav_menus' ) );
+		add_action( 'init', array( $this, 'spm_register_post_types' ) );
+		add_action( 'init', array( $this, 'spm_register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'spm_enqueue' ) );
+		
 		parent::__construct();
 	}
 
-	function register_post_types() {
+	function spm_register_nav_menus() {
+		//this is where you can register custom nav menus
+		register_nav_menus( array(
+			'header_primary' => 'Header Primary',
+			'header_secondary' => 'Header Secondary',
+			'footer_primary' => 'Footer Primary',
+			'footer_secondary' => 'Footer Secondary',
+		) );
+	}
+
+	function spm_register_post_types() {
 		//this is where you can register custom post types
 	}
 
-	function register_taxonomies() {
+	function spm_register_taxonomies() {
 		//this is where you can register custom taxonomies
 	}
+
+	function spm_enqueue() {
+		//this is where you can enqueue styles and scripts
+		wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/static/css/bootstrap.css' );
+		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/static/js/bootstrap.bundle.min.js', array(), '4.0.3', true );
+    }
 
 	function add_to_context( $context ) {
 		$context['foo'] = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new TimberMenu();
+		$context['header_primary'] = new TimberMenu( 'header_primary' );
+		$context['header_secondary'] = new TimberMenu( 'header_secondary' );
+		$context['footer_primary'] = new TimberMenu( 'footer_primary' );
+		$context['footer_secondary'] = new TimberMenu( 'footer_secondary' );
 		$context['site'] = $this;
 		return $context;
 	}

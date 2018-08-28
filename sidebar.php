@@ -7,4 +7,7 @@
  * @subpackage  Timber
  */
 
-Timber::render( array( 'sidebar.twig' ), $data );
+$context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
+Timber::render('sidebar.twig', $context);
