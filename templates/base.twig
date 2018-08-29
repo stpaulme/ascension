@@ -20,10 +20,10 @@
 							</h1>
 						</div>
 						<div class="col-md-6 text-right">
-							<nav role="navigation">
+							<nav role="navigation" class="header-secondary">
 								{% include 'menu.twig' with {'menu': header_secondary.get_items, 'ul_class': 'list-inline', 'li_class': 'list-inline-item'} %}
 							</nav>
-							<nav role="navigation">
+							<nav role="navigation" class="header-primary">
 								{% include 'menu.twig' with {'menu': header_primary.get_items, 'ul_class': 'list-inline', 'li_class': 'list-inline-item'} %}
 							</nav>
 						</div>

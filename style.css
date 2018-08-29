@@ -140,12 +140,12 @@ nav ul {
     border-radius: 0 !important;
 }
 
-.current-menu-item, .current-page-ancestor {
+.header-primary .current-menu-item, .header-primary .current-page-ancestor {
     position: relative;
 }
 
 
-.current-menu-item:after, .current-page-ancestor:after {
+.header-primary .current-menu-item:after, .header-primary .current-page-ancestor:after {
     display: block;
     content: '';
     width: 0; 
