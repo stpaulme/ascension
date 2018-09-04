@@ -311,3 +311,4 @@ Search
 @media (min-width: 1200px) {}
 
 .page-nav li.current_page_item {font-weight: bold;}
+#google_translate_element {display:none;}
