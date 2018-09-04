@@ -9,6 +9,11 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <a class="skip-link screen-reader-text" href="#content" tabindex="-1">Skip to Main Content</a>
     <div id="page" class="site">
     <?php
