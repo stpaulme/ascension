@@ -77,6 +77,7 @@ class StarterSite extends TimberSite {
 		//this is where you can enqueue styles and scripts
 		wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/static/css/bootstrap.css' );
 		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/static/js/bootstrap.bundle.min.js', array(), '4.0.3', true );
+		wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700', false );
     }
 
 	function add_to_context( $context ) {
