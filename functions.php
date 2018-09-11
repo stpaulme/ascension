@@ -47,7 +47,11 @@ class StarterSite extends TimberSite {
 	function spm_create_options_pages() {
 		//this is where you can create ACF options pages
 		if( function_exists('acf_add_options_page') ) {
-			acf_add_options_page();
+			acf_add_options_page( array(
+				'page_title'	=> 'Organization',
+				'capability'	=> 'edit_posts',
+				'updated_message'	=> __("Organization Updated", 'acf'),
+			) );
 		}
 	}
 
@@ -81,6 +85,7 @@ class StarterSite extends TimberSite {
 		$context['header_secondary'] = new TimberMenu( 'header_secondary' );
 		$context['footer_primary'] = new TimberMenu( 'footer_primary' );
 		$context['footer_secondary'] = new TimberMenu( 'footer_secondary' );
+		$context['options'] = get_fields('option');
 		$context['site'] = $this;
 		return $context;
 	}
