@@ -20,14 +20,35 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+		add_filter( 'acf/settings/show_admin', array( $this, 'spm_hide_acf' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+		add_action( 'init', array( $this, 'spm_create_options_pages' ) );
 		add_action( 'init', array( $this, 'spm_register_nav_menus' ) );
 		add_action( 'init', array( $this, 'spm_register_post_types' ) );
 		add_action( 'init', array( $this, 'spm_register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'spm_enqueue' ) );
 		
 		parent::__construct();
+	}
+
+	function spm_hide_acf() {
+		$site_url = get_bloginfo('url');
+		
+		if ( strpos( $site_url, '.local' ) !== false ) :
+			// .local is in the URL; show the ACF menu item
+			return true;
+		else :
+			// .local is not in the URL; hide the ACF menu item
+			return false;
+		endif;
+	}
+
+	function spm_create_options_pages() {
+		//this is where you can create ACF options pages
+		if( function_exists('acf_add_options_page') ) {
+			acf_add_options_page();
+		}
 	}
 
 	function spm_register_nav_menus() {
