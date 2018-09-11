@@ -3,6 +3,10 @@
  * Author: Saint Paul Media
 */
 
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 header {
     margin-top: 30px;
 }
@@ -166,4 +170,42 @@ nav + nav {
 
 .hero {
     margin-top: 15px;
+}
+
+/*
+* === FOOTER ===
+*/
+
+.footer a {
+    color: inherit;
+}
+
+/*
+* — Tertiary Footer —
+*/
+
+.footer-tertiary {
+    background-color: #BF1010;
+    border-top: 12px solid #E8570F;
+    color: #fff;
+    font-size: 0.75em;
+    line-height: 1.2;
+    margin-top: 6px;
+    padding: 15px 0;
+    position: relative;
+}
+
+.footer-tertiary:before {
+    background-color: #FCB813;
+    content: '';
+    height: 6px;
+    position: absolute;
+    top: -18px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-attribution {
+        text-align: right;
+    }
 }

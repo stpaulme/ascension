@@ -66,17 +66,17 @@
 					
 				</section>
 
-			
-
-			<div class="container">
 				{% block footer %}
-					<footer>
-						{% include 'footer-primary.twig' %}
-						{% include 'footer-secondary.twig' %}
+					<footer class="footer">
+						<div class="container">
+							{% include 'footer-primary.twig' %}
+							{% include 'footer-secondary.twig' %}
+						</div>
+						{% include 'footer-tertiary.twig' %}
 					</footer>
 					{{ function('wp_footer') }}
 				{% endblock %}
-			</div>
+			
 		
 	</body>
 </html>
