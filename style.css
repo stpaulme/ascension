@@ -122,11 +122,6 @@ header {
     border-left: 3px solid #fff;
 }
 
-.cta-pair, .cta-group {
-    background-color: #F0F0F0;
-    padding: 30px 0;
-}
-
 .menu-items {
     background-color: #F0F0F0;
     padding: 15px 0;
@@ -177,6 +172,23 @@ nav + nav {
 }
 
 /*
+* === BUTTONS ===
+*/
+.btn {
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    line-height: 1.2 !important;
+    padding: 12px 25px !important;
+}
+
+.btn-primary {
+    background-color: #BF1010 !important;
+    color: #fff;
+}
+
+/*
 * === FORMS ===
 */
 
@@ -192,10 +204,20 @@ input, button, select, optgroup, textarea {
 }
 
 /*
+* === HEADER ===
+*/
+
+.header {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*
 * === MAIN ===
 */
 
 .main {
+    font-family: 'Roboto', sans-serif;
+    color: #2F2C38 !important;
     margin-bottom: 40px;
 }
 
@@ -208,6 +230,11 @@ input, button, select, optgroup, textarea {
 /*
 * === FOOTER ===
 */
+
+.footer {
+    font-family: 'Roboto', sans-serif;
+    color: #2F2C38 !important;
+}
 
 .footer a {
     color: inherit;
@@ -390,4 +417,82 @@ input, button, select, optgroup, textarea {
 
 .footer-contact-social a {
     font-style: italic;
+}
+
+/*
+* === MODULES ===
+*/
+
+.module h2 {
+    border-left-style: solid;
+    border-left-width: 6px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    padding-left: 15px;
+}
+
+.module h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .module h2 {
+        font-size: 1.6875rem;
+        margin-bottom: 30px;
+    }
+
+    .module h3 {
+        font-size: 2rem;
+    }
+}
+
+/*
+* — CTA - Pair —
+*/
+
+.cta-pair {
+    background-color: #F3F3F3;
+    padding: 40px 0;
+}
+
+.cta-pair h2 {
+    border-left-color: #E8570F;
+}
+
+.cta-pair .cta:first-child {
+    margin-bottom: 30px;
+}
+
+.cta-pair img {
+    border-bottom: 6px solid #BF1010;
+}
+
+.cta-pair .cta-content {
+    margin-top: -30px;
+}
+
+.cta-pair .cta-content div {
+    background-color: #fff;
+    padding: 30px !important;
+}
+
+.cta-pair p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .cta-pair .cta-content {
+        margin-top: -60px;
+    }
+
+    .cta-pair p {
+        font-size: 1.125rem;
+    }
 }

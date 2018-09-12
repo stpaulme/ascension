@@ -10,22 +10,22 @@
         {% endif %}
 
         <div class="row">
-            <div class="col">
-                <div class="card-deck">
-                    {% for cta in module.cta_pair %}
-                    <div class="card">
-                        <img src="{{TimberImage(cta.image).src|resize(540,300)}}" class="card-image-top cta-image">
-                        <div class="card-body">
-                            <h3 class="card-title">{{cta.heading}}</h3>
-                                <p class="card-text">{{cta.copy}}</p>
-                                <a class="btn btn-secondary" href="{{cta.link.url}}" target="{{cta.link.target}}">{{cta.link.title}}</a>
-                            
-                        </div>
+
+            {% for cta in module.cta_pair %}
+            <div class="col-md-12 col-lg-6 cta">
+                <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image"> 
+
+                <div class="row no-gutters cta-content">
+                    <div class="col-10 offset-1">
+                        <h3>{{cta.heading}}</h3>
+                        <p>{{cta.copy}}</p>
+                        <a class="btn btn-primary" href="{{cta.link.url}}" target="{{cta.link.target}}">{{cta.link.title}}</a>
                     </div>
-                    {% endfor %}
+                </div>             
             </div>
+            {% endfor %}
+
         </div>
-        
+
     </div>
-</div>
-</div>
+</div>  
