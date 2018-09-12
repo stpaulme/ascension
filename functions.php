@@ -21,6 +21,7 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 		add_filter( 'acf/settings/show_admin', array( $this, 'spm_hide_acf' ) );
+		add_filter( 'upload_mimes', array( $this, 'cc_mime_types' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'spm_create_options_pages' ) );
@@ -42,6 +43,11 @@ class StarterSite extends TimberSite {
 			// .local is not in the URL; hide the ACF menu item
 			return false;
 		endif;
+	}
+
+	function cc_mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
 	}
 
 	function spm_create_options_pages() {
@@ -78,6 +84,7 @@ class StarterSite extends TimberSite {
 		wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/static/css/bootstrap.css' );
 		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/static/js/bootstrap.bundle.min.js', array(), '4.0.3', true );
 		wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700', false );
+		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/static/css/fa-all.min.css' );
     }
 
 	function add_to_context( $context ) {
