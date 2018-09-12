@@ -15,6 +15,10 @@ header {
     margin-bottom: 60px;
 }
 
+.module:last-child {
+    margin-bottom: 0;
+}
+
 .cta-image, .hero-image {
     max-width: 100%;
 }
@@ -188,11 +192,75 @@ input, button, select, optgroup, textarea {
 }
 
 /*
+* === MAIN ===
+*/
+
+.main {
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        margin-bottom: 110px;
+    }
+}
+
+/*
 * === FOOTER ===
 */
 
 .footer a {
     color: inherit;
+}
+
+/*
+* — Primary Footer —
+*/
+
+.footer-primary-content {
+    border-top: 1px solid #D5D4D6;
+    padding-top: 30px;
+    margin-bottom: 30px; /* Takes care of .footer-primary margin-bottom */
+}
+
+.footer-secondary-menu {
+    border-bottom: 1px solid #D5D4D6;
+    padding-bottom: 30px;
+}
+
+.footer ul {
+    font-size: 0.87rem;
+    line-height: 1.1;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.footer li {
+    margin-bottom: 20px;
+}
+
+.footer li:last-child {
+    margin-bottom: 0;
+}
+
+.footer .menu-item {
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .footer-primary {
+        margin-bottom: 95px;
+    }
+
+    .footer-primary-content {
+        margin-bottom: 0; /* .footer-primary margin-bottom takes over */
+    }
+
+    .footer-secondary-menu {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
 }
 
 /*
@@ -209,7 +277,7 @@ input, button, select, optgroup, textarea {
 
 .footer-newsletter h4 {
     font-weight: normal;
-    font-size: 1em;
+    font-size: 1rem;
     line-height: 1.2;
     margin-bottom: 10px;
 }
@@ -225,15 +293,13 @@ input, button, select, optgroup, textarea {
     width: 1px;
 }
 
-.footer-newsletter input {
-    padding: 10px 20px;
-}
-
 .footer-newsletter input[type=text] {
     border: 1px solid #D5D4D6;
     border-radius: 100px;
     font-style: italic;
+    line-height: 1;
     margin-bottom: 10px;
+    padding: 10px 20px;
     width: 100%;
 }
 
@@ -243,6 +309,8 @@ input, button, select, optgroup, textarea {
     color: #fff;
     float: right;
     font-weight: bold;
+    line-height: 1;
+    padding: 10px;
 }
 
 .footer-logo {
@@ -255,7 +323,7 @@ input, button, select, optgroup, textarea {
 
 @media (min-width: 768px) {
     .footer-secondary {
-        margin-bottom: 40px;
+        margin-bottom: 45px;
     }
 
     .footer-newsletter {
@@ -285,7 +353,7 @@ input, button, select, optgroup, textarea {
     background-color: #BF1010;
     border-top: 12px solid #E8570F;
     color: #fff;
-    font-size: 0.75em;
+    font-size: 0.75rem;
     line-height: 1.2;
     margin-top: 6px;
     padding: 15px 0;
@@ -305,4 +373,21 @@ input, button, select, optgroup, textarea {
     .footer-attribution {
         text-align: right;
     }
+}
+
+.footer-contact-social a[href*="facebook"]:before {
+    color: #BF1010;
+    content: '\f09a';
+    display: inline-block;
+    font-family: 'Font Awesome 5 Brands';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-contact-social a {
+    font-style: italic;
 }

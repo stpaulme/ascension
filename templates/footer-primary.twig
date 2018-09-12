@@ -1,14 +1,52 @@
 <div class="row footer-primary">
-    <div class="col-md-4">
-        Address<br>
-        Email<br>
-        Phone<br>
-        Facebook<br>
+    <div class="col-10 offset-1 col-md-4 offset-md-0">
+        <div class="footer-primary-content footer-contact">
+            <ul>
+
+                {% if options.global_location %}
+                <li>
+                    {% if options.global_location.global_address_street %}
+                    {{options.global_location.global_address_street}}<br>
+                    {% endif %}
+
+                    {% if options.global_location.global_address_city %}
+                    {{options.global_location.global_address_city}},
+                    {% endif %}
+
+                    {% if options.global_location.global_address_state %}
+                    {{options.global_location.global_address_state}}
+                    {% endif %}
+
+                    {% if options.global_location.global_address_zip %}
+                    {{options.global_location.global_address_zip}}
+                    {% endif %}
+                </li>
+                {% endif %}
+
+                {% if options.global_email %}
+                <li><a href="mailto:{{options.global_email}}">{{options.global_email}}</a></li>
+                {% endif %}
+
+                {% if options.global_phone_number %}
+                <li><a href="tel:{{options.global_phone_number}}">{{options.global_phone_number}}</a></li>
+                {% endif %}
+
+                {% if options.global_social_media %}
+                    {% for channel in options.global_social_media %}
+                    <li class="footer-contact-social"><a href="{{channel.url}}" target="_blank">{{channel.text}}</a></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
     </div>
-    <div class="col-md-4">
-        {% include 'menu.twig' with {'menu': footer_primary.get_items, 'ul_class': 'list-unstyled'} %}
+    <div class="col-10 offset-1 col-md-4 offset-md-0">
+        <div class="footer-primary-content footer-primary-menu">
+            {% include 'menu.twig' with {'menu': footer_primary.get_items, 'ul_class': 'footer-links'} %}
+        </div>
     </div>
-    <div class="col-md-4">
-        {% include 'menu.twig' with {'menu': footer_secondary.get_items, 'ul_class': 'list-unstyled'} %}
+    <div class="col-10 offset-1 col-md-4 offset-md-0">
+        <div class="footer-primary-content footer-secondary-menu">
+            {% include 'menu.twig' with {'menu': footer_secondary.get_items, 'ul_class': 'footer-links'} %}
+        </div>
     </div>
 </div>
