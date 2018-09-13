@@ -94,6 +94,18 @@ class StarterSite extends TimberSite {
 		$context['footer_primary'] = new TimberMenu( 'footer_primary' );
 		$context['footer_secondary'] = new TimberMenu( 'footer_secondary' );
 		$context['options'] = get_fields('option');
+
+		function spm_get_form_id( $form_title ) {
+			$forms = GFAPI::get_forms();
+
+			foreach ( $forms as $index=>$form ) :
+				if ( $form['title'] == $form_title ) :
+					return $form['id'];
+				endif;
+			endforeach;
+		}
+
+		$context['newsletter'] = spm_get_form_id('Newsletter');
 		$context['site'] = $this;
 		return $context;
 	}
@@ -102,6 +114,8 @@ class StarterSite extends TimberSite {
 		$text .= ' bar!';
 		return $text;
 	}
+
+	
 
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
