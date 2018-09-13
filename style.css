@@ -433,21 +433,10 @@ input, button, select, optgroup, textarea {
     padding-left: 15px;
 }
 
-.module h3 {
-    font-size: 1.3rem;
-    font-weight: bold;
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
-
 @media (min-width: 768px) {
     .module h2 {
         font-size: 1.6875rem;
         margin-bottom: 30px;
-    }
-
-    .module h3 {
-        font-size: 2rem;
     }
 }
 
@@ -481,6 +470,13 @@ input, button, select, optgroup, textarea {
     padding: 30px !important;
 }
 
+.cta-pair h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
 .cta-pair p {
     font-size: 1rem;
     line-height: 1.5;
@@ -492,7 +488,80 @@ input, button, select, optgroup, textarea {
         margin-top: -60px;
     }
 
+    .cta-pair h3 {
+        font-size: 2rem;
+    }
+
     .cta-pair p {
         font-size: 1.125rem;
+    }
+}
+
+/*
+* — Schools —
+*/
+
+.schools h2 {
+    border-left-color: #FCB813;
+}
+
+.schools .card {
+    border: none;
+    margin-bottom: 30px !important;
+}
+
+.schools .card:last-child {
+    margin-bottom: 0;
+}
+
+.schools .card-body {
+    padding: 0 15px;
+}
+
+.schools img {
+    margin-bottom: 20px;
+}
+.schools h3 {
+    border-bottom: 2px solid #FCB813;
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.schools p {
+    margin-bottom: 10px;
+}
+
+.schools a:link, .schools a:visited, .schools a:active, .schools a:hover {
+    color: #BF1010;
+    font-weight: bold;
+}
+
+.schools a:after {
+    color: #FCB813;
+    content: '\25b6';
+    font-size: 0.5rem;
+    font-weight: normal;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+@media (min-width: 768px) {
+    .schools .card {
+        margin-bottom: 0 !important;
+    }
+    
+    .schools .card-body {
+        padding: 0 30px;
+    }
+    
+    .schools img {
+        border-right: 4px solid #fff;
+    }
+
+    .schools .card:last-child img {
+        border-right: none;
     }
 }
