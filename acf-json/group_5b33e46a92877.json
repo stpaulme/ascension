@@ -143,6 +143,44 @@
             "maxlength": ""
         },
         {
+            "key": "field_5b9ff1b90cbec",
+            "label": "Extension",
+            "name": "extension",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b9ff1d00cbed",
+            "label": "Education",
+            "name": "education",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "66.6666",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5b33e4db0088b",
             "label": "Biography",
             "name": "biography",
@@ -230,5 +268,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537208203
+    "modified": 1537208939
 }
