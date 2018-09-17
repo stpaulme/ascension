@@ -14,8 +14,9 @@
  * @since   Timber 0.2
  */
 
-$templates = array( 'archive.twig', 'index.twig' );
+$queried_object = get_queried_object();
 
+$templates = array( 'archive.twig', 'index.twig' );
 $context = Timber::get_context();
 
 $context['title'] = 'Archive';
@@ -34,7 +35,7 @@ if ( is_day() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
-
+$context['description'] = $queried_object->description;
 $context['posts'] = new Timber\PostQuery();
 
 Timber::render( $templates, $context );

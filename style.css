@@ -106,6 +106,17 @@ nav + nav {
 }
 
 /*
+* === LINKS ===
+*/
+
+a[href^='tel']:link, a[href^='tel']:visited, a[href^='tel']:active, a[href^='tel']:hover {
+    color: inherit !important;
+    cursor: text;
+    font-weight: normal !important;
+    text-decoration: none;
+}
+
+/*
 * === FORMS ===
 */
 
@@ -334,6 +345,90 @@ input, button, select, optgroup, textarea {
 
 .footer-contact-social a {
     font-style: italic;
+}
+
+/*
+* === PAGES ===
+*/
+
+/*
+* — Board & Staff —
+*/
+
+.description {
+    margin-bottom: 30px;
+}
+
+.board, .staff {
+    margin-bottom: 30px;
+}
+
+.board:last-child, .staff:last-child {
+    margin-bottom: 0;
+}
+
+.board img, .staff img {
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+.board h3, .staff h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.position {
+    color: #4A4A4A;
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.staff .contact {
+    line-height: 1.7;
+    list-style: none;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.staff .contact li {
+    display: inline;
+}
+
+.staff .contact li:last-child:before {
+    color: #ffc107;
+    content: '|';
+}
+
+.staff .contact a:link, .contact a:visited, .contact a:active, .contact a:hover {
+    color: #BF1010;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.staff .bio {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .description {
+        margin-bottom: 40px;
+    }
+
+    .board, .staff {
+        margin-bottom: 40px;
+    }
+
+    .board img, .staff img {
+        margin-bottom: 0;
+    }
+
+    .board h3, .staff h3 {
+        font-size: 1.3125rem;
+    }
 }
 
 /*

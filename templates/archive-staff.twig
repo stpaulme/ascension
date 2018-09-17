@@ -1,0 +1,61 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="container">
+	{% if description %}
+	<div class="row">
+		<div class="col">
+			<p class="description">{{description}}</p>
+		</div>
+	</div>
+	{% endif %}
+
+	{% for post in posts %}
+	<div class="row staff">
+		{% set photo = post.get_field('photo') %}
+
+		{% if photo %}
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-5 col-md-12">
+					<img src="{{TimberImage(photo).src|resize(400,400)}}">
+				</div>
+			</div>	
+		</div>
+		{% endif %}
+
+		<div class="col-md-7">
+			<h3>{{post.name}}</h3>
+
+			{% if post.position %}
+			<p class="position">{{post.position}}</p>
+			{% endif %}
+
+			{% if post.phone or post.email %}
+			<ul class="contact">
+				{% if post.phone %}
+				<li>
+					<a href="tel:{{post.phone}}{{post.extension ? ',' ~ post.extension}}">
+						{{post.phone}}{{post.extension ? ', ext. ' ~ post.extension}}
+					</a>
+				</li>
+				{% endif %}
+				{% if post.email %}
+				<li>
+					<a href="mailto:{{post.email}}">Email {{post.first_name}}</a>
+				</li>
+				{% endif %}
+			</ul>
+			{% endif %}
+
+			{% if post.biography %}
+			<p class="bio">{{post.biography}}</p>
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+	
+</div>
+
+{% endblock %}
