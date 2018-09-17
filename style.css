@@ -11,24 +11,8 @@ header {
     margin-top: 30px;
 }
 
-.module {
-    margin-bottom: 60px;
-}
-
-.module:last-child {
-    margin-bottom: 0;
-}
-
-.cta-image, .hero-image {
+.cta-image {
     max-width: 100%;
-}
-
-.hero .hero-image {
-    margin-bottom: 30px;
-}
-
-.hero-image {
-    clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 0);
 }
 
 .cta-band {
@@ -423,6 +407,14 @@ input, button, select, optgroup, textarea {
 * === MODULES ===
 */
 
+.module {
+    margin-bottom: 30px;
+}
+
+.module:last-child {
+    margin-bottom: 0;
+}
+
 .module h2 {
     border-left-style: solid;
     border-left-width: 6px;
@@ -437,6 +429,44 @@ input, button, select, optgroup, textarea {
     .module h2 {
         font-size: 1.6875rem;
         margin-bottom: 30px;
+    }
+}
+
+/*
+* — Hero —
+*/
+
+.hero .hero-image {
+    clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 0);
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+.hero h1 {
+    color: #BF1010;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hero li {
+    display: inline;
+}
+
+.hero li:last-child {
+    margin-left: 30px;
+}
+
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+        line-height: 1;
     }
 }
 
