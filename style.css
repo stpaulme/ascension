@@ -15,73 +15,6 @@ header {
     max-width: 100%;
 }
 
-.cta-band {
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: 50%;
-    overflow: hidden;
-}
-
-.cta-landing .cta-band {
-    background-position: top right; 
-}
-
-.cta-band .cta-content {
-    padding: 60px 0;
-}
-
-.cta-landing .cta-content {
-    color: #fff; 
-}
-
-.cta-home .cta-content {
-    color: #000; 
-    padding-left: 1px;
-}
-
-.cta-band .cta-content, .cta-band .cta-content:before, .cta-band .cta-content:after {
-    margin: 60px 0;
-}
-
-.cta-landing .cta-content, .cta-landing .cta-content:before, .cta-landing .cta-content:after {
-    background-color: #6c757d;
-}
-
-.cta-home .cta-content, .cta-home .cta-content:before, .cta-home .cta-content:after {
-    background-color: #ffc107;
-}
-
-.cta-band .cta-content:before, .cta-band .cta-content:after {
-    position: absolute;
-    top: 0;
-    content: '';
-    display: block;
-    height: calc(100% - 120px);
-}
-
-.cta-landing .cta-content:before {
-    left: -800px;
-    width: 800px;
-}
-
-.cta-landing .cta-content:after {
-    left: 100%;
-    clip-path: polygon(0 0, 100% 0%, 50% 100%, 0% 100%);
-    width: 60px;
-}
-
-.cta-home .cta-content:before {
-    left: -59px;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
-    width: 60px;
-}
-
-.cta-home .cta-content:after {
-    width: 800px;
-    left: 100%;
-}
-
-
 .text-two-col {
     columns: 2;
 }
@@ -469,6 +402,144 @@ input, button, select, optgroup, textarea {
         line-height: 1;
     }
 }
+
+/*
+* — CTA —
+*/
+
+.cta-band {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*
+* — CTA - Home —
+*/
+
+.cta-home {
+    background-color: #ffc107;
+}
+
+.cta-home img {
+    clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 0);
+    max-width: 100%;
+}
+
+.cta-home .cta-content {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.cta-home h2 {
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.cta-home p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .cta-home {
+        background: none;
+    }
+
+    .cta-home img {
+        clip-path: none;
+    }
+
+    .cta-home .cta-content {
+        position: relative;
+        background-color: #ffc107;
+        margin-top: -83px;
+        padding: 60px 0;
+    }
+
+    .cta-home .cta-content:before {
+        position: absolute;
+        background-color: #ffc107;
+        content: '';
+        display: block;
+        height: 100%;
+        top: 0;
+    }
+
+    .cta-home h2 {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    .cta-home p {
+        font-size: 1.3rem;
+        line-height: 1.5;
+        max-width: 75%;
+    }
+
+    .cta-band {
+        background-size: 50%;
+    }
+
+    .cta-landing .cta-band {
+        background-position: top right; 
+    }
+
+    .cta-band .cta-content {
+        padding: 60px 0;
+    }
+
+    .cta-landing .cta-content {
+        color: #fff; 
+    }
+
+    .cta-home .cta-content {
+        color: #000; 
+        padding-left: 1px;
+    }
+
+    .cta-band .cta-content, .cta-band .cta-content:before, .cta-band .cta-content:after {
+        margin: 60px 0;
+    }
+
+    .cta-landing .cta-content, .cta-landing .cta-content:before, .cta-landing .cta-content:after {
+        background-color: #6c757d;
+    }
+
+    .cta-band .cta-content:before, .cta-band .cta-content:after {
+        position: absolute;
+        top: 0;
+        content: '';
+        display: block;
+        height: calc(100% - 120px);
+    }
+
+    .cta-landing .cta-content:before {
+        left: -800px;
+        width: 800px;
+    }
+
+    .cta-landing .cta-content:after {
+        left: 100%;
+        clip-path: polygon(0 0, 100% 0%, 50% 100%, 0% 100%);
+        width: 60px;
+    }
+
+    .cta-home .cta-content:before {
+        left: -59px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+        width: 60px;
+    }
+
+    .cta-home .cta-content:after {
+        width: 800px;
+        left: 100%;
+    }
+}
+
 
 /*
 * — CTA - Pair —

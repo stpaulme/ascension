@@ -1,21 +1,16 @@
 <div class="module cta-home">
-
-    <div class="cta-band" style="background-image: url({{TimberImage(module.image).src|resize(720,480,'left')}})">
     
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col-md-6 offset-md-6">
-                    <div class="cta-content">
-                        <h4>{{module.heading}}</h4>
-                        <p class="w-75">{{module.copy}}</p>
-                        {% if module.link %}
-                        <a class="btn btn-light" href="{{module.link.url}}" target="{{module.link.target}}">{{module.link.title}}</a>
-                        {% endif %}
-                    </div>
-                </div>
+    <img src="{{TimberImage(module.image).src|resize(1440,960,'left')}}">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9 offset-md-3 cta-content">
+                <h2>{{module.heading}}</h2>
+                <p>{{module.copy}}</p>
+                {% if module.link %}
+                <a class="btn btn-light" href="{{module.link.url}}" target="{{module.link.target}}">{{module.link.title}}</a>
+                {% endif %}
             </div>
         </div>
-
     </div>
-
 </div>
