@@ -6,7 +6,13 @@
 
     <div class="row">
 
-    {{post.name == 'Staff' ? '<div class="col">'}}
+    {% if post.copy %}
+    <div class="col-12">
+    <p class="description">{{post.copy}}</p>
+    </div>
+    {% endif %}
+
+    {{post.name == 'Staff' ? '<div class="col-12">'}}
 
     {% for member in members %}
         {% set photo = member.get_field('photo') %}
