@@ -20,7 +20,7 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-		add_filter( 'pre_get_posts', array( $this, 'spm_archive_board' ) );
+		add_filter( 'pre_get_posts', array( $this, 'spm_custom_archives' ) );
 		add_filter( 'acf/settings/show_admin', array( $this, 'spm_hide_acf' ) );
 		add_filter( 'upload_mimes', array( $this, 'cc_mime_types' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
@@ -73,11 +73,75 @@ class StarterSite extends TimberSite {
 	}
 
 	function spm_register_post_types() {
-		//this is where you can register custom post types
+
+		register_post_type( 'board', array(
+			'labels' => array(
+				'name' => __( 'Board' ),
+				'singular_name' => __( 'Board' )
+			),
+			'public' => true,
+			'has_archive' => true,
+		) );
+
+		register_post_type( 'staff', array(
+			'labels' => array(
+				'name' => __( 'Staff' ),
+				'singular_name' => __( 'Staff' )
+			),
+			'public' => true,
+			'has_archive' => true,
+		) );
+
 	}
 
 	function spm_register_taxonomies() {
-		//this is where you can register custom taxonomies
+
+			$labels = array(
+				"name" => __( "Departments", "" ),
+				"singular_name" => __( "Department", "" ),
+			);
+		
+			$args = array(
+				"label" => __( "Departments", "" ),
+				"labels" => $labels,
+				"public" => true,
+				"hierarchical" => false,
+				"label" => "Departments",
+				"show_ui" => true,
+				"show_in_menu" => true,
+				"show_in_nav_menus" => true,
+				"query_var" => true,
+				"rewrite" => array( 'slug' => 'department', 'with_front' => true, ),
+				"show_admin_column" => false,
+				"show_in_rest" => false,
+				"rest_base" => "department",
+				"show_in_quick_edit" => false,
+			);
+			//register_taxonomy( "department", array( "staff" ), $args );
+		
+			$labels = array(
+				"name" => __( "Grades", "" ),
+				"singular_name" => __( "Grade", "" ),
+			);
+		
+			$args = array(
+				"label" => __( "Grades", "" ),
+				"labels" => $labels,
+				"public" => true,
+				"hierarchical" => false,
+				"label" => "Grades",
+				"show_ui" => true,
+				"show_in_menu" => true,
+				"show_in_nav_menus" => true,
+				"query_var" => true,
+				"rewrite" => array( 'slug' => 'grade', 'with_front' => true, ),
+				"show_admin_column" => false,
+				"show_in_rest" => false,
+				"rest_base" => "grade",
+				"show_in_quick_edit" => false,
+			);
+			//register_taxonomy( "grade", array( "staff" ), $args );
+
 	}
 
 	function spm_enqueue() {
@@ -88,12 +152,34 @@ class StarterSite extends TimberSite {
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/static/css/fa-all.min.css' );
 	}
 	
-	function spm_archive_board( $query ) {
+	function spm_custom_archives( $query ) {
+		$query->set('posts_per_page', -1 );
+
 		if ( is_post_type_archive( 'board' ) ) :
-			$query->set('posts_per_page', -1 );
 			$query->set('meta_key', 'last_name' );
-			$query->set('orderby', 'meta_value' );
-			$query->set('order', ASC );
+			$query->set('orderby', array (
+				'meta_value' => 'ASC',  
+			) );
+
+		elseif ( is_post_type_archive( 'staff' ) ) :
+			$query->set('meta_query', array(
+				array(
+					'relation' => 'AND',
+					'position_clause' => array(
+						'key'       => 'position',
+						'compare'   => 'EXISTS',
+					),
+					'last_name_clause' => array(
+						'key'       => 'last_name',
+						'compare'   => 'EXISTS',
+					),
+				)
+			) );
+			// Order by position, then last name
+			$query->set('orderby', array (
+				'position_clause' => 'ASC',
+				'last_name_clause' => 'ASC',  
+			) );
 		endif;
 	}
 
