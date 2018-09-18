@@ -25,36 +25,13 @@ $other_pages = Timber::get_posts( $other_page_args );
 $menu_items = array_merge( $parent_page, $other_pages );
 
 $directory_args = array(
+    'post_type' => $post->slug,
     'posts_per_page' => -1,
-);
-
-if ( is_page('Board') ) :
-    $directory_args['post_type'] = 'board';
-    $directory_args['meta_key'] = 'last_name';
-	$directory_args['orderby'] = array (
+    'meta_key' => 'last_name',
+	'orderby' => array (
         'meta_value' => 'ASC',
-    );
-elseif ( is_page('Staff') ) :
-    $directory_args['post_type'] = 'staff';
-    $directory_args['meta_query'] = array(
-            array(
-                'relation' => 'AND',
-                'position_clause' => array(
-                    'key'       => 'position',
-                    'compare'   => 'EXISTS',
-                ),
-                'last_name_clause' => array(
-                    'key'       => 'last_name',
-                    'compare'   => 'EXISTS',
-                ),
-            )
-        );
-        // Order by position, then last name
-        $directory_args['orderby'] = array (
-            'position_clause' => 'ASC',
-            'last_name_clause' => 'ASC',  
-        );
-endif;
+    ),
+);
 
 $context['post'] = $post;
 $context['template'] = 'directory';
