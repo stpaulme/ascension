@@ -11,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -84,28 +84,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b33e7bda4be6",
-            "label": "Department",
-            "name": "department",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.3333",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "department",
-            "field_type": "select",
-            "allow_null": 0,
-            "add_term": 1,
-            "save_terms": 1,
-            "load_terms": 1,
-            "return_format": "object",
-            "multiple": 0
-        },
-        {
             "key": "field_5b33e4db00889",
             "label": "Email",
             "name": "email",
@@ -165,20 +143,20 @@
             "key": "field_5b9ff1d00cbed",
             "label": "Education",
             "name": "education",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "66.6666",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
         },
         {
             "key": "field_5b33e4db0088b",
@@ -189,14 +167,14 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "66.6666",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
-            "rows": "",
+            "rows": 4,
             "new_lines": ""
         },
         {
@@ -268,5 +246,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537208939
+    "modified": 1537285486
 }
