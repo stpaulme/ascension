@@ -4,18 +4,24 @@
 	
 <div class="container">
 	<div class="row">
-		<div class="col-md-7">
-			<article class="module">
-				<section class="article-content">
-					<div class="article-body">
-						{{post.content}}
-						<small class="text-muted">{{post.date}}</small>
-					</div>
-				</section>
+
+		<div class="col">
+			{% if post.categories %}
+			<ul class="post-breadcrumbs">
+				{% for category in post.categories %}
+				<li><a href="{{category.link}}">{{category.name}}</a></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+
+			<article class="post">
+				<h2 class="post-title">{{post.name}}</h2>
+				<p class="post-date">{{post.date}}</p>
+				<div class="post-content">
+				{{post.content}}
+				</div>
 			</article>
-		</div>
-		<div class="col-md-4 offset-md-1">
-			{% include 'sidebar-news.twig' %}
+		<a class="special special-left" href="/news">Back to All News</a>
 		</div>
 
 	</div>

@@ -112,6 +112,30 @@ a[href^='tel']:link, a[href^='tel']:visited, a[href^='tel']:active, a[href^='tel
     text-decoration: none;
 }
 
+.special:link, .special:visited, .special:active, .special:hover {
+    color: #BF1010;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.special-left:before, .special-right:after {
+    color: #FCB813;
+    font-size: 0.5rem;
+    font-weight: normal;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.special-left:before {
+    content: '\25c0';
+    margin-right: 5px;
+}
+
+.special-right:after {
+    content: '\25b6';
+    margin-left: 5px;
+}
+
 /*
 * === FORMS ===
 */
@@ -453,6 +477,125 @@ input, button, select, optgroup, textarea {
 }
 
 /*
+* — General News —
+*/
+
+.post {
+    margin-bottom: 30px;
+}
+
+.post:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .post {
+        margin-bottom: 40px;
+    }
+}
+
+/*
+* — News Landing Page —
+*/
+
+.post-thumbnail {
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+.post-categories {
+    border-bottom: 2px solid #FCB813;
+    color: #BF1010;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.4;
+    list-style: none;
+    margin: 0 0 10px 0;
+    padding: 0 0 3px 0;
+}
+
+.post-categories li {
+    display: inline;
+}
+
+.post-categories a {
+    color: inherit;
+}
+
+h3.post-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+h3.post-title a {
+    color: inherit;
+}
+
+.post-preview {
+    margin-bottom: 10px;
+}
+
+/*
+* — News Single —
+*/
+
+.post-breadcrumbs {
+    color: #959399;
+    font-size: 0.875;
+    line-height: 1.1;
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.post-breadcrumbs li {
+    display: inline;
+}
+
+.post-breadcrumbs li:after {
+    content: ' / ';
+}
+
+.post-breadcrumbs li:last-child:after {
+    content: '';
+}
+
+.post-breadcrumbs a:link, .post-breadcrumbs a:visited, .post-breadcrumbs a:active, .post-breadcrumbs a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+h2.post-title {
+    border-bottom: 1px solid #FCB813;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+}
+
+.post-date {
+    font-size: 0.875rem;
+    font-style: italic;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.post-content p:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    h2.post-title {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+}
+
+/*
 * === MODULES ===
 */
 
@@ -749,20 +892,6 @@ input, button, select, optgroup, textarea {
 
 .schools p {
     margin-bottom: 10px;
-}
-
-.schools a:link, .schools a:visited, .schools a:active, .schools a:hover {
-    color: #BF1010;
-    font-weight: bold;
-}
-
-.schools a:after {
-    color: #FCB813;
-    content: '\25b6';
-    font-size: 0.5rem;
-    font-weight: normal;
-    margin-left: 4px;
-    vertical-align: middle;
 }
 
 @media (min-width: 768px) {
