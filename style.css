@@ -485,7 +485,7 @@ input, button, select, optgroup, textarea {
 * — Hero —
 */
 
-.hero .hero-image {
+.hero img, .hero-landing img {
     clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 0);
     margin-bottom: 20px;
     max-width: 100%;
