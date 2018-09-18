@@ -80,7 +80,8 @@ class StarterSite extends TimberSite {
 				'singular_name' => __( 'Board' )
 			),
 			'public' => true,
-			'has_archive' => true,
+			'has_archive' => false,
+			'rewrite' => array( 'slug' => 'about/board' ),
 		) );
 
 		register_post_type( 'staff', array(
@@ -89,7 +90,8 @@ class StarterSite extends TimberSite {
 				'singular_name' => __( 'Staff' )
 			),
 			'public' => true,
-			'has_archive' => true,
+			'has_archive' => false,
+			'rewrite' => array( 'slug' => 'about/staff' ),
 		) );
 
 	}
