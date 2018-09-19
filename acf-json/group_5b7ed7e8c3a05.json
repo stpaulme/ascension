@@ -255,7 +255,7 @@
             },
             "button_label": "Add Sidebar Module",
             "min": "",
-            "max": ""
+            "max": 3
         },
         {
             "key": "field_5ba289a615f0d",
@@ -303,7 +303,7 @@
                     "max": ""
                 }
             },
-            "button_label": "Add Module",
+            "button_label": "Add CTA Pair",
             "min": "",
             "max": 1
         }
@@ -327,5 +327,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537378827
+    "modified": 1537387830
 }

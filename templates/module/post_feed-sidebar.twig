@@ -1,4 +1,4 @@
-<div class="{{loop.index == 1 ? 'col-md-12' : 'col-md-6'}} col-lg-12 module post-feed-sidebar">
+<div class="col-md-6 col-lg-12 module post-feed-sidebar">
 
     {% set category = TimberTerm(module.category) %}
 
@@ -17,20 +17,21 @@
             'order' : 'DESC',
         }) %}
     {% endif %}
-    
+
     <div class="card">
-        
+    
         {% if module.heading %}
         <div class="card-header">
             <h6 class="mb-0">{{module.heading}}</h6>
         </div>
         {% endif %}
-    
+
         <ul class="list-group list-group-flush">
             {% for item in category.get_posts(args) %}
             <li class="list-group-item"><a href="{{item.link}}">{{item.name}}</a></li>
             {% endfor %}
         </ul>
+
     </div>
 
 </div>
