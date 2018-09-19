@@ -27,18 +27,6 @@ header {
     font-weight: bold;
 }
 
-.image-band {
-    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
-}
-
-.image-band-2 .image-1 {
-    border-right: 3px solid #fff;
-}
-
-.image-band-2 .image-2 {
-    border-left: 3px solid #fff;
-}
-
 .menu-items {
     background-color: #F0F0F0;
     padding: 15px 0;
@@ -854,6 +842,33 @@ h2.post-title {
 
     .cta-pair p {
         font-size: 1.125rem;
+    }
+}
+
+/*
+* — Image Band —
+*/
+
+.image-band {
+    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+}
+
+.image-band img {
+    max-width: 100%;
+}
+
+.image-band-image-2 {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .image-band-image-1 {
+        border-right: 3px solid #fff;
+    }
+    
+    .image-band-image-2 {
+        border-left: 3px solid #fff;
+        display: block;
     }
 }
 

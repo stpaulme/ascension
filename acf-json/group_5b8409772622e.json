@@ -16,7 +16,7 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 1,
+            "min": 2,
             "max": 2,
             "layout": "table",
             "button_label": "Add Image",
@@ -65,5 +65,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1535488930
+    "modified": 1537369625
 }
