@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+			
+				{% if contact_form %}
+					{% filter shortcodes %}
+						[gravityform id={{contact_form}} title=false description=false]
+					{% endfilter %}
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

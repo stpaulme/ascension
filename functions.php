@@ -195,12 +195,15 @@ class StarterSite extends TimberSite {
 
 		function spm_get_form_id( $form_title ) {
 			$forms = GFAPI::get_forms();
+			$form_id = false;
 
 			foreach ( $forms as $index=>$form ) :
 				if ( $form['title'] == $form_title ) :
-					return $form['id'];
+					$form_id = $form['id'];
 				endif;
 			endforeach;
+
+			return $form_id;
 		}
 
 		$context['newsletter'] = spm_get_form_id('Newsletter');
