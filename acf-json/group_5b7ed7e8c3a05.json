@@ -256,6 +256,56 @@
             "button_label": "Add Sidebar Module",
             "min": "",
             "max": ""
+        },
+        {
+            "key": "field_5ba289a615f0d",
+            "label": "CTA Pair",
+            "name": "lower_modules",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5ba289bf74360": {
+                    "key": "5ba289bf74360",
+                    "name": "cta_pair",
+                    "label": "CTA Pair",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ba289e015f0e",
+                            "label": "CTA Pair",
+                            "name": "cta_pair",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b7c757980b52"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Module",
+            "min": "",
+            "max": 1
         }
     ],
     "location": [
@@ -277,5 +327,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1535488985
+    "modified": 1537378827
 }

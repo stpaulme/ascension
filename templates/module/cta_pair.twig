@@ -13,13 +13,23 @@
 
             {% for cta in module.cta_pair %}
             <div class="col-md-12 col-lg-6 cta">
-                <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image"> 
+                {% if cta.image %}
+                <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image">
+                {% endif %}
 
                 <div class="row no-gutters cta-content">
                     <div class="col-10 offset-1">
+                        {% if cta.heading %}
                         <h3>{{cta.heading}}</h3>
+                        {% endif %}
+
+                        {% if cta.copy %}
                         <p>{{cta.copy}}</p>
+                        {% endif %}
+                        
+                        {% if cta.link %}
                         <a class="btn btn-primary" href="{{cta.link.url}}" target="{{cta.link.target}}">{{cta.link.title}}</a>
+                        {% endif %}
                     </div>
                 </div>             
             </div>

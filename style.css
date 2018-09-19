@@ -37,7 +37,11 @@ header {
 }
 
 .page-template-custom-sidebar .module {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+}
+
+.page-template-custom-sidebar .cta-pair {
+    margin-top: 80px;
 }
 
 nav ul {

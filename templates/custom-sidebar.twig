@@ -4,18 +4,24 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 sidebar-content">
                 {% for module in post.get_field('modules') %}
                     {% include 'partial/module.twig' %}
                 {% endfor %}
             </div>
 
-            <div class="col-md-4 offset-md-1">
+            <div class="col-md-4 offset-md-1 sidebar-sidebar">
                 {% for module in post.get_field('sidebar_modules') %}
                     {% include 'partial/module.twig' %}
                 {% endfor %}
             </div>
         </div>
     </div>
+    
+    {% if post.get_field('lower_modules') %}
+        {% for module in post.get_field('lower_modules') %}
+            {% include 'partial/module.twig' %}
+        {% endfor %}
+    {% endif %}
 
 {% endblock %}
