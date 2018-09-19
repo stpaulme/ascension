@@ -69,6 +69,13 @@ nav + nav {
 }
 
 /*
+* === TYPOGRAPHY ===
+*/
+p {
+    margin-bottom: 1.5rem !important;
+}
+
+/*
 * === BUTTONS ===
 */
 .btn {
