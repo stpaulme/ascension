@@ -149,37 +149,6 @@ class StarterSite extends TimberSite {
 		wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700', false );
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/static/css/fa-all.min.css' );
 	}
-	
-	function spm_custom_archives( $query ) {
-		$query->set('posts_per_page', -1 );
-
-		if ( is_post_type_archive( 'board' ) ) :
-			$query->set('meta_key', 'last_name' );
-			$query->set('orderby', array (
-				'meta_value' => 'ASC',  
-			) );
-
-		elseif ( is_post_type_archive( 'staff' ) ) :
-			$query->set('meta_query', array(
-				array(
-					'relation' => 'AND',
-					'position_clause' => array(
-						'key'       => 'position',
-						'compare'   => 'EXISTS',
-					),
-					'last_name_clause' => array(
-						'key'       => 'last_name',
-						'compare'   => 'EXISTS',
-					),
-				)
-			) );
-			// Order by position, then last name
-			$query->set('orderby', array (
-				'position_clause' => 'ASC',
-				'last_name_clause' => 'ASC',  
-			) );
-		endif;
-	}
 
 	function add_to_context( $context ) {
 		$context['categories'] = Timber::get_terms('category');
