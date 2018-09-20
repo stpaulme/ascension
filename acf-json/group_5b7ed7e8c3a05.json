@@ -112,7 +112,7 @@
                 "layout_5b800432c20f4": {
                     "key": "layout_5b800432c20f4",
                     "name": "embed",
-                    "label": "Video",
+                    "label": "Video or Other Embedded Content",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -327,5 +327,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537387830
+    "modified": 1537462277
 }
