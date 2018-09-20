@@ -1,9 +1,9 @@
-{% set post_type = module.post_type|lower %}
+{% set post_type = module.post_type %}
 {% set category = TimberTerm(module.category) %}
 {% set args = {
     'numberposts' : module.max,
 } %}
-{% if post_type == 'event' %}
+{% if post_type == 'events' %}
     {% set args = args|merge({
         'meta_key' : '_EventStartDate',
         'orderby' : 'meta_value',
@@ -30,9 +30,9 @@
     <div class="row">
     
         {% for item in category.get_posts(args) %}
-            <div class="col-lg post-feed-post">
+            <div class="col-lg post-feed-item">
 
-            {% set news %}
+            {% set blog_post %}
                 <div class="row">
                     <div class="col-md-6 col-lg-12">
                         {% if item.thumbnail %}
@@ -68,7 +68,7 @@
                 </div>
             {% endset %}
 
-            {{post_type == 'event' ? event : news}}
+            {{post_type == 'events' ? event : blog_post}}
 
             </div>
         {% endfor %}

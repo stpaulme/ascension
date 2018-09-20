@@ -684,38 +684,38 @@ h2.post-title {
 }
 
 /*
-* — Post Feed - News —
+* — Post Feed - Posts —
 */
 
-.post-feed-news h2 {
+.post-feed-posts h2 {
     border-left-color: #FCB813;
 }
 
-.post-feed-news .post-feed-post {
+.post-feed-posts .post-feed-item {
     margin-bottom: 30px;
 }
 
-.post-feed-news .post-feed-post:last-child {
+.post-feed-posts .post-feed-item:last-child {
     margin-bottom: 0;
 }
 
-.post-feed-news .post-feed-post-thumbnail {
+.post-feed-posts .post-feed-post-thumbnail {
     margin-bottom: 20px;
     max-width: 100%;
 }
 
-.post-feed-news .post-feed-post-preview {
+.post-feed-posts .post-feed-post-preview {
     margin-bottom: 15px !important;
 }
 
 @media (min-width: 768px) {
-    .post-feed-news .post-feed-post-thumbnail {
+    .post-feed-posts .post-feed-post-thumbnail {
         margin-bottom: 0;
     }
 }
 
 @media (min-width: 992px) {
-    .post-feed-news .post-feed-post-thumbnail {
+    .post-feed-posts .post-feed-post-thumbnail {
         margin-bottom: 20px;
     }
 }
@@ -724,48 +724,48 @@ h2.post-title {
 * — Post Feed - Events —
 */
 
-.post-feed-event {
+.post-feed-events {
     background-color: #FCB813;
     clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
     padding-top: 120px;
     padding-bottom: 40px;
 }
 
-.post-feed-event h2 {
+.post-feed-events h2 {
     border-left-color: #fff;
 }
 
-.post-feed-event .post-feed-post {
+.post-feed-events .post-feed-item {
     margin-bottom: 20px;
 }
 
-.post-feed-event .post-feed-post:last-child {
+.post-feed-events .post-feed-item:last-child {
     margin-bottom: 0;
 }
 
-.post-feed-event .card {
+.post-feed-events .card {
     border: none;
     border-radius: unset;
 }
 
-.post-feed-event .post-feed-post-meta {
+.post-feed-events .post-feed-post-meta {
     color: #959399;
     display: block;
     margin-bottom: 10px;
 }
 
-.post-feed-event .post-feed-post-preview {
+.post-feed-events .post-feed-post-preview {
     margin-bottom: 0 !important;
 }
 
 @media (min-width: 768px) {
-    .post-feed-event .post-feed-post {
+    .post-feed-events .post-feed-item {
         margin-bottom: 30px;
     }
 }
 
 @media (min-width: 992px) {
-    .post-feed-event .post-feed-post {
+    .post-feed-events .post-feed-item {
         margin-bottom: 0;
     }
 }

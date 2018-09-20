@@ -35,8 +35,8 @@
                 "id": ""
             },
             "choices": {
-                "Post": "Post",
-                "Event": "Event"
+                "posts": "Post",
+                "events": "Event"
             },
             "default_value": [],
             "allow_null": 0,
@@ -58,7 +58,7 @@
                     {
                         "field": "field_5b845fc90105d",
                         "operator": "==",
-                        "value": "Post"
+                        "value": "posts"
                     }
                 ]
             ],
@@ -88,7 +88,7 @@
                     {
                         "field": "field_5b845fc90105d",
                         "operator": "==",
-                        "value": "Event"
+                        "value": "events"
                     }
                 ]
             ],
@@ -145,5 +145,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1535488955
+    "modified": 1537477896
 }
