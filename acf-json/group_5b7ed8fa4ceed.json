@@ -45,7 +45,7 @@
             "label": "Additional Copy",
             "name": "additional_copy",
             "type": "wysiwyg",
-            "instructions": "Use this field for longer copy, such as a list (optional)",
+            "instructions": "Use this field for longer copy, such as a list, that will be displayed in two columns on wide screens (optional)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -77,5 +77,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1537373284
+    "modified": 1537479680
 }
