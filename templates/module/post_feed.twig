@@ -35,7 +35,9 @@
             {% set news %}
                 <div class="row">
                     <div class="col-md-6 col-lg-12">
+                        {% if item.thumbnail %}
                         <img class="post-feed-post-thumbnail" src="{{item.thumbnail.src|resize(800,500)}}">
+                        {% endif %}
                     </div>
                     <div class="col-md-6 col-lg-12">
                         <div class="post-feed-post-meta">
