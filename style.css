@@ -659,9 +659,65 @@ h2.post-title {
 * — Post Feed —
 */
 
-.post-feed .card {
-    border: none;
-    border-radius: unset;
+.post-feed .post-feed-post-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.post-feed .post-feed-post-title a {
+    color: inherit;
+}
+
+@media (min-width: 768px) {
+    .post-feed .post-feed-post-title {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .post-feed .post-feed-post-title {
+        font-size: 1.3125rem;
+        line-height: 1.1;
+    }
+}
+
+/*
+* — Post Feed - News —
+*/
+
+.post-feed-news h2 {
+    border-left-color: #FCB813;
+}
+
+.post-feed-news .post-feed-post {
+    margin-bottom: 30px;
+}
+
+.post-feed-news .post-feed-post:last-child {
+    margin-bottom: 0;
+}
+
+.post-feed-news .post-feed-post-thumbnail {
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+.post-feed-news .post-feed-post-preview {
+    margin-bottom: 15px !important;
+}
+
+@media (min-width: 768px) {
+    .post-feed-news .post-feed-post-thumbnail {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .post-feed-news .post-feed-post-thumbnail {
+        margin-bottom: 20px;
+    }
 }
 
 /*
@@ -671,7 +727,7 @@ h2.post-title {
 .post-feed-event {
     background-color: #FCB813;
     clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
-    padding-top: 80px;
+    padding-top: 120px;
     padding-bottom: 40px;
 }
 
@@ -687,21 +743,15 @@ h2.post-title {
     margin-bottom: 0;
 }
 
-.post-feed-event .post-feed-post-date {
+.post-feed-event .card {
+    border: none;
+    border-radius: unset;
+}
+
+.post-feed-event .post-feed-post-meta {
     color: #959399;
     display: block;
     margin-bottom: 10px;
-}
-
-.post-feed-event .post-feed-post-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 10px;
-}
-
-.post-feed-event .post-feed-post-title a {
-    color: inherit;
 }
 
 .post-feed-event .post-feed-post-preview {
@@ -712,20 +762,11 @@ h2.post-title {
     .post-feed-event .post-feed-post {
         margin-bottom: 30px;
     }
-
-    .post-feed-event .post-feed-post-title {
-        font-size: 1.125rem;
-    }
 }
 
 @media (min-width: 992px) {
     .post-feed-event .post-feed-post {
         margin-bottom: 0;
-    }
-
-    .post-feed-event .post-feed-post-title {
-        font-size: 1.3125rem;
-        line-height: 1.1;
     }
 }
 
