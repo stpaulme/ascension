@@ -1,23 +1,25 @@
-<div class="module post-feed">
+{% set post_type = module.post_type|lower %}
 
-    {% set category = TimberTerm(module.category) %}
+{% set category = TimberTerm(module.category) %}
 
-    {% set args = {
-        'numberposts' : module.max,
-    } %}
+{% set args = {
+    'numberposts' : module.max,
+} %}
 
-    {% if module.post_type == 'Event' %}
-        {% set args = args|merge({
-            'meta_key' : '_EventStartDate',
-            'orderby' : 'meta_value',
-            'order' : 'ASC',
-        }) %}
-    {% else %}
-        {% set args = args|merge({
-            'order' : 'DESC',
-        }) %}
-    {% endif %}
-    
+{% if post_type == 'event' %}
+    {% set args = args|merge({
+        'meta_key' : '_EventStartDate',
+        'orderby' : 'meta_value',
+        'order' : 'ASC',
+    }) %}
+{% else %}
+    {% set args = args|merge({
+        'order' : 'DESC',
+    }) %}
+{% endif %}
+
+<div class="module post-feed post-feed-{{post_type}}">
+
     <div class="container">
 
     {% if module.heading %}
@@ -28,25 +30,30 @@
     </div>
     {% endif %}
 
-
     <div class="row">
     
         {% for item in category.get_posts(args) %}
-        <div class="col-md">
-            <div class="card">
-                <div class="card-header">
-                    {{module.post_type == 'Event' ? item._EventStartDate|date("F d, Y") : item.date}}
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title"><a href="{{item.link}}">{{item.name}}</a></h4>
-                    <p class="card-text">{{item.preview.length(20).read_more('')}}</a></p>
-                    <a class="btn btn-secondary" href="{{item.link}}">Read More</a>
+
+            {% set event_start_date = item._EventStartDate|date("F d") %}
+            {% set event_start_time = item._EventStartDate|date("g:i a") %}
+            {% set event_end_time = item._EventEndDate|date("g:i a") %}
+
+            {% set event_date = event_start_date~', '~event_start_time~'&ndash;'~event_end_time %}
+
+            <div class="col-lg post-feed-post">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="post-feed-post-date">{{post_type == 'event' ? event_date}}</span>
+                        <h3 class="post-feed-post-title"><a href="{{item.link}}">{{item.name}}</a></h3>
+                        <p class="post-feed-post-preview">{{item.preview.length(20).read_more('')}}</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
+
         {% endfor %}
     
     </div>
+
     </div>
             
 </div>
