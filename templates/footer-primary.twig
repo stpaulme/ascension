@@ -3,37 +3,49 @@
         <div class="footer-primary-content footer-contact">
             <ul>
 
-                {% if options.global_location %}
+                {% if options.location %}
+                {% set google_map_url = options.location.google_map_url %}
+
                 <li>
-                    {% if options.global_location.global_address_street %}
-                    {{options.global_location.global_address_street}}<br>
+
+                {{google_map_url ? '<a href="'~google_map_url~'" target="_blank">' }}
+
+                    {% if options.location.address_line_1 %}
+                    {{options.location.address_line_1}}<br>
                     {% endif %}
 
-                    {% if options.global_location.global_address_city %}
-                    {{options.global_location.global_address_city}},
+                    {% if options.location.address_line_2 %}
+                    {{options.location.address_line_2}}<br>
                     {% endif %}
 
-                    {% if options.global_location.global_address_state %}
-                    {{options.global_location.global_address_state}}
+                    {% if options.location.city %}
+                    {{options.location.city}},
                     {% endif %}
 
-                    {% if options.global_location.global_address_zip %}
-                    {{options.global_location.global_address_zip}}
+                    {% if options.location.state %}
+                    <abbr title="{{options.location.state.label}}">{{options.location.state.value}}</abbr>
                     {% endif %}
+
+                    {% if options.location.zip %}
+                    {{options.location.zip}}
+                    {% endif %}
+
+                {{options.location.google_map_url ? '</a>' }}
+
                 </li>
                 {% endif %}
 
-                {% if options.global_email %}
-                <li><a href="mailto:{{options.global_email}}">{{options.global_email}}</a></li>
+                {% if options.email %}
+                <li><a href="mailto:{{options.email}}">{{options.email}}</a></li>
                 {% endif %}
 
-                {% if options.global_phone_number %}
-                <li><a href="tel:{{options.global_phone_number}}">{{options.global_phone_number}}</a></li>
+                {% if options.phone %}
+                <li><a href="tel:{{options.phone}}">{{options.phone}}</a></li>
                 {% endif %}
 
-                {% if options.global_social_media %}
-                    {% for channel in options.global_social_media %}
-                    <li class="footer-contact-social"><a href="{{channel.url}}" target="_blank">{{channel.text}}</a></li>
+                {% if options.social_media %}
+                    {% for channel in options.social_media %}
+                    <li class="footer-contact-social"><a href="{{channel.url}}" target="_blank">{{channel.copy}}</a></li>
                     {% endfor %}
                 {% endif %}
             </ul>

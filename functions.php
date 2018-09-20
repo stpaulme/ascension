@@ -54,11 +54,7 @@ class StarterSite extends TimberSite {
 	function spm_create_options_pages() {
 		//this is where you can create ACF options pages
 		if( function_exists('acf_add_options_page') ) {
-			acf_add_options_page( array(
-				'page_title'	=> 'Organization',
-				'capability'	=> 'edit_posts',
-				'updated_message'	=> __("Organization Updated", 'acf'),
-			) );
+			acf_add_options_page();
 		}
 	}
 

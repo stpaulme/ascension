@@ -6,8 +6,8 @@
         {% endfilter %}
     </div>
     <div class="col-10 offset-1 col-md-5 offset-md-2 footer-logo">
-        {% if options.global_logo %}
-            {% set image = TimberImage(options.global_logo) %}
+        {% if options.footer_logo %}
+            {% set image = TimberImage(options.footer_logo) %}
             <a href="{{site.link}}"><img src="{{image.src}}" alt="{{image.alt}}"></a>
         {% endif %}
     </div>
