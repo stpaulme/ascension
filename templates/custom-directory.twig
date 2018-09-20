@@ -12,7 +12,9 @@
     </div>
     {% endif %}
 
-    {{post.name == 'Staff' ? '<div class="col-12">'}}
+    {% if post.slug == 'staff' or post.slug == 'leadership' %}
+    <div class="col-12">
+    {% endif %}
 
     {% for member in members %}
         {% set photo = member.get_field('photo') %}
@@ -30,7 +32,7 @@
                 <h3>{{member.name}}</h3>
                 <p class="position">{{member.position}}</p>
             </div>
-            {% elseif member.post_type == 'staff' %}
+            {% else %}
             <div class="row staff">
                 {% if photo %}
                 <div class="col-md-4 col-lg-3">
@@ -75,7 +77,9 @@
 
     {% endfor %}
 
-    {{post.name == 'Staff' ? '</div>'}}
+    {% if post.slug == 'staff' or post.slug == 'leadership' %}
+    </div>
+    {% endif %}
 
     </div> <!-- /.row -->
 

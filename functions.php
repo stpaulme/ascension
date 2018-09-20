@@ -69,7 +69,7 @@ class StarterSite extends TimberSite {
 	}
 
 	function spm_register_post_types() {
-
+		//this is where you can register custom post types
 		register_post_type( 'board', array(
 			'labels' => array(
 				'name' => __( 'Board' ),
@@ -78,6 +78,16 @@ class StarterSite extends TimberSite {
 			'public' => true,
 			'has_archive' => false,
 			'rewrite' => array( 'slug' => 'about/board' ),
+		) );
+
+		register_post_type( 'leadership', array(
+			'labels' => array(
+				'name' => __( 'Leadership' ),
+				'singular_name' => __( 'Leadership' )
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array( 'slug' => 'about/leadership' ),
 		) );
 
 		register_post_type( 'staff', array(
@@ -93,52 +103,52 @@ class StarterSite extends TimberSite {
 	}
 
 	function spm_register_taxonomies() {
-
-			$labels = array(
-				"name" => __( "Departments", "" ),
-				"singular_name" => __( "Department", "" ),
-			);
-		
-			$args = array(
-				"label" => __( "Departments", "" ),
-				"labels" => $labels,
-				"public" => true,
-				"hierarchical" => false,
-				"label" => "Departments",
-				"show_ui" => true,
-				"show_in_menu" => true,
-				"show_in_nav_menus" => true,
-				"query_var" => true,
-				"rewrite" => array( 'slug' => 'department', 'with_front' => true, ),
-				"show_admin_column" => false,
-				"show_in_rest" => false,
-				"rest_base" => "department",
-				"show_in_quick_edit" => false,
-			);
-			//register_taxonomy( "department", array( "staff" ), $args );
-		
-			$labels = array(
-				"name" => __( "Grades", "" ),
-				"singular_name" => __( "Grade", "" ),
-			);
-		
-			$args = array(
-				"label" => __( "Grades", "" ),
-				"labels" => $labels,
-				"public" => true,
-				"hierarchical" => false,
-				"label" => "Grades",
-				"show_ui" => true,
-				"show_in_menu" => true,
-				"show_in_nav_menus" => true,
-				"query_var" => true,
-				"rewrite" => array( 'slug' => 'grade', 'with_front' => true, ),
-				"show_admin_column" => false,
-				"show_in_rest" => false,
-				"rest_base" => "grade",
-				"show_in_quick_edit" => false,
-			);
-			//register_taxonomy( "grade", array( "staff" ), $args );
+		//this is where you can register custom taxonomies
+		$labels = array(
+			"name" => __( "Departments", "" ),
+			"singular_name" => __( "Department", "" ),
+		);
+	
+		$args = array(
+			"label" => __( "Departments", "" ),
+			"labels" => $labels,
+			"public" => true,
+			"hierarchical" => false,
+			"label" => "Departments",
+			"show_ui" => true,
+			"show_in_menu" => true,
+			"show_in_nav_menus" => true,
+			"query_var" => true,
+			"rewrite" => array( 'slug' => 'department', 'with_front' => true, ),
+			"show_admin_column" => false,
+			"show_in_rest" => false,
+			"rest_base" => "department",
+			"show_in_quick_edit" => false,
+		);
+		//register_taxonomy( "department", array( "staff" ), $args );
+	
+		$labels = array(
+			"name" => __( "Grades", "" ),
+			"singular_name" => __( "Grade", "" ),
+		);
+	
+		$args = array(
+			"label" => __( "Grades", "" ),
+			"labels" => $labels,
+			"public" => true,
+			"hierarchical" => false,
+			"label" => "Grades",
+			"show_ui" => true,
+			"show_in_menu" => true,
+			"show_in_nav_menus" => true,
+			"query_var" => true,
+			"rewrite" => array( 'slug' => 'grade', 'with_front' => true, ),
+			"show_admin_column" => false,
+			"show_in_rest" => false,
+			"rest_base" => "grade",
+			"show_in_quick_edit" => false,
+		);
+		//register_taxonomy( "grade", array( "staff" ), $args );
 
 	}
 
