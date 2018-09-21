@@ -30,4 +30,8 @@ $context['menu_items'] = $menu_items;
 $context['current'] = $queried_object->ID;
 $context['title'] = $post->name;
 
+$sidebar_context = array();
+$sidebar_context['post'] = $post;
+$context['sidebar'] = Timber::get_sidebar('sidebar.twig', $sidebar_context);
+
 Timber::render( array( 'custom-sidebar.twig' ), $context );

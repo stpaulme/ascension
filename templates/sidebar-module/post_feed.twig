@@ -1,0 +1,57 @@
+{% set post_type = module.post_type %}
+<div class="sidebar-post-feed sidebar-post-feed-{{post_type}}">
+
+    {% set category = TimberTerm(module.category) %}
+
+    {% set args = {
+        'numberposts' : module.max,
+    } %}
+
+    {% if post_type == 'events' %}
+        {% set args = args|merge({
+            'meta_key' : '_EventStartDate',
+            'orderby' : 'meta_value',
+            'order' : 'ASC',
+        }) %}
+        {% set event_start_date = item._EventStartDate|date("F d") %}
+        {% set event_start_time = item._EventStartDate|date("g:i a") %}
+        {% set event_end_time = item._EventEndDate|date("g:i a") %}
+        {% set event_date = event_start_date~', '~event_start_time~'&ndash;'~event_end_time %}
+    {% else %}
+        {% set args = args|merge({
+            'order' : 'DESC',
+        }) %}
+    {% endif %}
+
+    {% set events %}
+        {% for item in category.get_posts(args) %}
+            <div class="sidebar-post-feed-event">
+                <span class="sidebar-post-feed-event-date">{{event_date}}</span>
+                <h4><a href="{{item.link}}">{{item.name}}</a></h4>
+            </div>
+        {% endfor %}
+    {% endset %}
+
+    {% set blog_posts %}
+        {% for item in category.get_posts(args) %}
+            <div class="sidebar-post-feed-post">
+
+                {% if item.thumbnail %}
+                <img class="sidebar-thumb" src="{{item.thumbnail.src|resize(800, 500, 'center')}}">
+                {% endif %}
+
+                <h4><a href="{{item.link}}">{{item.name}}</a></h4>
+                <p class="sidebar-copy">{{item.preview.length(20).read_more('')}}</p>
+                <a class="sidebar-link special special-right" href="{{item.link}}">Read More</a>
+
+            </div>
+        {% endfor %}
+    {% endset %}
+
+    {% if module.heading %}
+    <h3>{{module.heading}}</h3>
+    {% endif %}
+
+    {{post_type == 'events' ? events : blog_posts}}
+
+</div>

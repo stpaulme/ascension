@@ -1,9 +1,1 @@
-<div class="module news-categories">
-    <h3>News Categories</h3>
-
-    <ul>
-        {% for category in categories %}
-        <li><a href="{{category.link}}">{{category.name}}</a></li>
-        {% endfor %}
-    </ul>
-</div>
+{% include 'sidebar-module/categories.twig' %}

@@ -1,0 +1,11 @@
+<div class="row">
+    {% for module in post.get_field('sidebar_modules') %}
+
+        {% set layout = module.acf_fc_layout %}
+
+        <div class="sidebar-module {{layout == 'cta' ? 'col-md-12' : 'col-md-6'}} col-md-6 col-lg-12">
+            {% include 'sidebar-module/'~layout~'.twig' %}
+        </div>
+
+    {% endfor %}
+</div>

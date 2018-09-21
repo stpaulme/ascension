@@ -1,0 +1,14 @@
+<div class="sidebar-post">
+
+    {% if module.heading %}
+        <h3>{{module.heading}}</h3>
+    {% endif %}
+
+    {% if module.post_object.thumbnail %}
+    <img class="sidebar-thumb" src="{{module.post_object.thumbnail.src|resize(800, 500, 'center')}}">
+    {% endif %}
+
+    <p class="sidebar-copy">{{module.post_object.preview.length(20).read_more('')}}</p>
+    <a class="sidebar-link special special-right" href="{{module.post_object.link}}">Read More</a>
+
+</div>

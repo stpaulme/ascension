@@ -10,14 +10,8 @@
                 {% endfor %}
             </div>
 
-            <div class="col-lg-3 offset-lg-1 sidebar-sidebar">
-                <div class="row">
-
-                {% for module in post.get_field('sidebar_modules') %}
-                    {% include 'partial/module.twig' %}
-                {% endfor %}
-
-                </div>
+            <div class="col-lg-3 offset-lg-1">
+                {{sidebar}}
             </div>
         </div>
     </div>

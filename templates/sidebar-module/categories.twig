@@ -1,0 +1,8 @@
+<div class="sidebar-module sidebar-categories">
+    <h3>News Categories</h3>
+    <ul>
+        {% for category in categories %}
+        <li><a href="{{category.link}}">{{category.name}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
