@@ -162,7 +162,6 @@ class StarterSite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['categories'] = Timber::get_terms('category');
 		$context['header_primary'] = new TimberMenu( 'header_primary' );
 		$context['header_secondary'] = new TimberMenu( 'header_secondary' );
 		$context['footer_primary'] = new TimberMenu( 'footer_primary' );
