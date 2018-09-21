@@ -62,7 +62,7 @@
                         {% endif %}
                         {% if member.email %}
                         <li>
-                            <a href="mailto:{{member.email}}">Email {{member.first_name}}</a>
+                            <a href="mailto:{{member.email}}">Email {{member.title_before_last_name ? member.title_before_last_name~' '~member.last_name : member.first_name}}</a>
                         </li>
                         {% endif %}
                     </ul>

@@ -28,19 +28,19 @@
         },
         {
             "key": "field_5ba25d104fe37",
-            "label": "Title",
-            "name": "title",
+            "label": "Title (Mr.\/Ms.)",
+            "name": "title_before_last_name",
             "type": "text",
-            "instructions": "For teachers",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "10",
+                "width": "16",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "Ms.",
+            "placeholder": "For teachers",
             "prepend": "",
             "append": "",
             "maxlength": ""
@@ -54,7 +54,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "30",
+                "width": "28",
                 "class": "",
                 "id": ""
             },
@@ -73,7 +73,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "30",
+                "width": "28",
                 "class": "",
                 "id": ""
             },
@@ -92,7 +92,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "30",
+                "width": "28",
                 "class": "",
                 "id": ""
             },
@@ -111,7 +111,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -129,7 +129,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -148,7 +148,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -219,5 +219,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537457066
+    "modified": 1537555439
 }
