@@ -113,7 +113,6 @@ a[href^='tel']:link, a[href^='tel']:visited, a[href^='tel']:active, a[href^='tel
     color: #FCB813;
     font-size: 0.5rem;
     font-weight: normal;
-    margin-left: 4px;
     vertical-align: middle;
 }
 
@@ -381,6 +380,52 @@ input, button, select, optgroup, textarea {
 
 .footer-contact-social a {
     font-style: italic;
+}
+
+/*
+* === SIDEBARS ===
+*/
+
+/*
+* — News —
+*/
+
+.news-categories h3 {
+    border-bottom: 1px solid #FCB813;
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+}
+
+.news-categories ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.news-categories li {
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.news-categories li:last-child {
+    margin-bottom: 0;
+}
+
+.news-categories li a {
+    color: inherit;
+}
+
+.news-categories li a:before {
+    color: #FCB813;
+    content: '\25b6';
+    font-size: 0.5rem;
+    font-weight: normal;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
 /*

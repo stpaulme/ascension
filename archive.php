@@ -35,7 +35,10 @@ if ( is_day() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
-$context['description'] = $queried_object->description;
 $context['posts'] = new Timber\PostQuery();
+
+$sidebar_context = array();
+$sidebar_context['categories'] = Timber::get_terms('category');
+$context['sidebar'] = Timber::get_sidebar('sidebar-news.twig', $sidebar_context);
 
 Timber::render( $templates, $context );

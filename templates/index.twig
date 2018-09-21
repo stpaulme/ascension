@@ -4,10 +4,17 @@
 
 <div class="container">
 	<div class="row">
-		
-			{% for post in posts %}
-			<div class="col-md-6 post">
+
+		<div class="col-lg-8">
+
+			<div class="row">
+
+				{% for post in posts %}
+				<div class="col-md-6 post">
+					{% if post.thumbnail %}
 					<img class="post-thumbnail" src="{{post.thumbnail.src|resize(800, 500, 'center')}}">
+					{% endif %}
+					
 					{% if post.categories %}
 					<ul class="post-categories">
 						{% for category in post.categories %}
@@ -15,19 +22,25 @@
 						{% endfor %}
 					</ul>
 					{% endif %}
+
 					<h3 class="post-title"><a href="{{post.link}}">{{post.name}}</a></h3>
 					<p class="post-preview">{{post.preview.length(20).read_more('')}}</p>
 					<a class="special special-right" href="{{post.link}}">Read More</a>
-				
-			</div>
-			{% endfor %}
+				</div> <!-- /.col-md-6 -->
+				{% endfor %}
 
-	
-	</div>
+			</div> <!-- /.row -->
 
-	{% if posts.pagination.prev or posts.pagination.next %}
-	{% include 'partial/pagination.twig' %}
-	{% endif %}
-</div>
+			{% if posts.pagination.prev or posts.pagination.next %}
+			{% include 'partial/pagination.twig' %}
+			{% endif %}
+			
+		</div> <!-- /.col-lg-8 -->
+
+		<div class="col-md-6 col-lg-3 offset-lg-1">
+			{{sidebar}}
+		</div> <!-- /.col-lg-3 -->
+
+	</div> <!-- /.row -->
 
 {% endblock %}
