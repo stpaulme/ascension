@@ -15,7 +15,7 @@ $context['post'] = $post;
 $context['title'] = 'News';
 
 $sidebar_context = array();
-$sidebar_context['categories'] = Timber::get_terms('category');
+$sidebar_context['categories'] = Timber::get_terms('category', array( 'hide_empty' => true ));
 $context['sidebar'] = Timber::get_sidebar('sidebar-news.twig', $sidebar_context);
 
 if ( post_password_required( $post->ID ) ) {

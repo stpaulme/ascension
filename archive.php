@@ -38,7 +38,7 @@ if ( is_day() ) {
 $context['posts'] = new Timber\PostQuery();
 
 $sidebar_context = array();
-$sidebar_context['categories'] = Timber::get_terms('category');
+$sidebar_context['categories'] = Timber::get_terms('category', array( 'hide_empty' => true ));
 $context['sidebar'] = Timber::get_sidebar('sidebar-news.twig', $sidebar_context);
 
 Timber::render( $templates, $context );
