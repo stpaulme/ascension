@@ -76,8 +76,12 @@ class StarterSite extends TimberSite {
 				'singular_name' => __( 'Board' )
 			),
 			'public' => true,
+			'publicly_queryable'  => false,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-groups',
 			'has_archive' => false,
 			'rewrite' => array( 'slug' => 'about/board' ),
+			
 		) );
 
 		register_post_type( 'leadership', array(
@@ -86,8 +90,12 @@ class StarterSite extends TimberSite {
 				'singular_name' => __( 'Leadership' )
 			),
 			'public' => true,
+			'publicly_queryable'  => false,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-groups',
 			'has_archive' => false,
 			'rewrite' => array( 'slug' => 'about/leadership' ),
+			
 		) );
 
 		register_post_type( 'staff', array(
@@ -96,6 +104,9 @@ class StarterSite extends TimberSite {
 				'singular_name' => __( 'Staff' )
 			),
 			'public' => true,
+			'publicly_queryable'  => false,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-groups',
 			'has_archive' => false,
 			'rewrite' => array( 'slug' => 'about/staff' ),
 		) );
