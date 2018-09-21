@@ -386,6 +386,22 @@ input, button, select, optgroup, textarea {
 * === SIDEBARS ===
 */
 
+.sidebar-sidebar {
+    margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+    .sidebar-sidebar {
+        margin-top: 70px;
+    }
+}
+
+@media (min-width: 992px) {
+    .sidebar-sidebar {
+        margin-top: 0;
+    }
+}
+
 .sidebar-module { margin-bottom: 60px; }
 
 .sidebar-module:last-child { margin-bottom: 0; }
