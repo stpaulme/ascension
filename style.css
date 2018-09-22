@@ -1175,6 +1175,14 @@ h2.post-title {
 }
 
 /*
+* — Image Gallery —
+*/
+
+.image-gallery img {
+    max-width: 100%;
+}
+
+/*
 * — Image Band —
 */
 
