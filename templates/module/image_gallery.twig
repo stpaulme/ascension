@@ -9,7 +9,7 @@
           {% set image = TimberImage(image) %}
         
           <div class="carousel-item {{loop.index == 1 ? 'active'}}">
-            <img class="d-block w-100" src="{{image.src|letterbox(900, 600, '#fff')}}" alt="{{image.alt}}" />
+            <img class="d-block w-100" src="{{image.src|letterbox(900, 600, '#000')}}" alt="{{image.alt}}" />
 
             {% if image.caption %}
             <div class="carousel-caption d-none d-md-block">
@@ -38,7 +38,7 @@
     <ol class="list-unstyled list-inline">
         {% for image in module.gallery %}
           {% set image = TimberImage(image) %}
-          <li class="list-inline-item" data-target="#{{carousel}}" data-slide-to="{{loop.index0}}" class="{{loop.index == 1 ? 'active'}}"><img class="mw-100" src="{{image.src|letterbox(150, 100, '#fff')}}" alt="{{image.alt}}"></li>
+          <li class="list-inline-item" data-target="#{{carousel}}" data-slide-to="{{loop.index0}}" class="{{loop.index == 1 ? 'active'}}"><img class="mw-100" src="{{image.src|letterbox(150, 100, '#000')}}" alt="{{image.alt}}"></li>
         {% endfor %}
       </ol>
 </div>
