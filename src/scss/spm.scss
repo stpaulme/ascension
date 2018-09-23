@@ -974,6 +974,20 @@ h2.post-title {
 * — MODULE - Overview - About —
 */
 
+.overview-secondary h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.overview-secondary h2.h2-1 {
+    border-left-color: $secondary;
+}
+
+.overview-secondary h2.h2-2 {
+    border-left-color: $tertiary;
+}
+
 /*
 * — MODULE - Schools —
 */
