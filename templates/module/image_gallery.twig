@@ -35,10 +35,10 @@
 
     </div> <!-- /#{{carousel}} -->
 
-    <ol class="list-unstyled list-inline">
+    <div class="d-flex flex-nowrap indicators">
         {% for image in module.gallery %}
           {% set image = TimberImage(image) %}
-          <li class="list-inline-item" data-target="#{{carousel}}" data-slide-to="{{loop.index0}}" class="{{loop.index == 1 ? 'active'}}"><img class="mw-100" src="{{image.src|letterbox(150, 100, '#000')}}" alt="{{image.alt}}"></li>
+          <div data-target="#{{carousel}}" data-slide-to="{{loop.index0}}" class="{{loop.index == 1 ? 'active'}}"><img class="mw-100" src="{{image.src|letterbox(150, 100, '#fff')}}" alt="{{image.alt}}"></div>
         {% endfor %}
-      </ol>
+      </div>
 </div>

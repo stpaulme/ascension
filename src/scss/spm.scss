@@ -831,6 +831,20 @@ h2.post-title {
     max-width: 100%;
 }
 
+.image-gallery .carousel-caption {
+    background: $dark;
+    color: $white;
+}
+
+.image-gallery .carousel-caption p {
+    margin-bottom: 0;
+}
+
+.image-gallery .indicators {
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
 /*
 * — MODULE - Post Feed —
 */
