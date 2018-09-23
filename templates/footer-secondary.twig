@@ -6,9 +6,16 @@
         {% endfilter %}
     </div>
     <div class="col-10 offset-1 col-md-5 offset-md-2 footer-logo">
-        {% if options.footer_logo %}
-            {% set image = TimberImage(options.footer_logo) %}
-            <a href="{{site.link}}"><img src="{{image.src}}" alt="{{image.alt}}"></a>
+        {% if options.header_logo or options.footer_logo %}
+        
+            {% if options.footer_logo %}
+                {% set logo = TimberImage(options.footer_logo) %}
+            {% else %}
+                {% set logo = TimberImage(options.header_logo) %} 
+            {% endif %}
+
+            <a href="{{site.link}}"><img src="{{logo.src}}" alt="{{logo.alt}}"></a>
+
         {% endif %}
     </div>
 </div>
