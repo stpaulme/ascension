@@ -22,10 +22,17 @@ $light: $asc_light_gray;
 $dark: $asc_dark_gray;
 
 // Override other defaults
+$enable-rounded: false;
 $body-color: $dark;
 $link-hover-decoration: none;
 $paragraph-margin-bottom: 1.5rem;
 $font-family-sans-serif: 'Roboto', sans-serif;
-$enable-rounded: false;
+$btn-padding-y: 12px;
+$btn-padding-x: 25px;
+$btn-font-size: 1rem;
+$btn-line-height: 1.2;
+$btn-border-width: 0;
+$btn-font-weight: bold;
+
 
 @import "node_modules/bootstrap/scss/bootstrap";
