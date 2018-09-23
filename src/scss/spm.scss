@@ -652,6 +652,54 @@ h2.post-title {
 }
 
 /*
+* — MODULE - CTA - Home —
+*/
+
+.cta-home .cta-content {
+    background: $secondary;
+    margin-top: -120px;
+    padding: 40px 30px;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.cta-home h2 {
+    border-left-width: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.cta-home .cta-copy {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .cta-home .cta-content {
+        padding: 60px 120px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    }
+    .cta-home h2 {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+    .cta-home .cta-copy {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+}
+
+@media (min-width: 992px) {
+    .cta-home .cta-content {
+        margin-top: -240px;
+    }
+}
+
+/*
 * — MODULE - CTA - Pair —
 */
 
