@@ -750,8 +750,8 @@ h2.post-title {
 }
 
 @media (min-width: 992px) {
-    .cta-group .cta:nth-last-child(4) {
-        margin-bottom: 0;
+    .cta-group .cta:nth-last-child(-n+4) {
+        margin-bottom: 0 !important;
     }
 }
 
