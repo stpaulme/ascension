@@ -1,15 +1,15 @@
 <div class="module overview">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 overview-primary">
                 <h1>{{module.primary.heading}}</h1>
-                <p>{{module.primary.copy}}</p>
+                {{module.primary.copy}}
                 {% set buttons = module.primary.buttons %}
                 {% if buttons %}
                     {% include 'partial/buttons.twig' %}
                 {% endif %}
             </div>
-            <div class="col-md-5 offset-md-1">
+            <div class="col-md-5 offset-md-1 overview-secondary">
             {% for blurb in module.secondary.blurbs %}
                 <h3>{{blurb.heading}}</h3>
                 {{blurb.copy}}

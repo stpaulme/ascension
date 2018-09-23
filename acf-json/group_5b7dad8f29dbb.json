@@ -40,7 +40,7 @@
                     "key": "field_5b7db358247d8",
                     "label": "Copy",
                     "name": "copy",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -50,10 +50,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "tabs": "visual",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 },
                 {
                     "key": "field_5b7dad8f3b0a4",
@@ -187,5 +187,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1535488943
+    "modified": 1537734490
 }
