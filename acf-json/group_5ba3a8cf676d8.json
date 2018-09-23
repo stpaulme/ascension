@@ -3,6 +3,25 @@
     "title": "Page - Options",
     "fields": [
         {
+            "key": "field_5ba7e07f5ab9a",
+            "label": "Announcement",
+            "name": "announcement",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "Announcement:",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5ba3aae7e0bcb",
             "label": "Header Logo",
             "name": "header_logo",
@@ -348,5 +367,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1537455579
+    "modified": 1537730262
 }

@@ -34,19 +34,3 @@
     line-height: 1;
     padding: 10px;
 }
-
-
-
-.header-primary .current-menu-item, .header-primary .current-page-ancestor {
-    position: relative;
-}
-.header-primary .current-menu-item:after, .header-primary .current-page-ancestor:after {
-    display: block;
-    content: '';
-    width: 0; 
-    height: 0; 
-    border-left: 0.5rem solid transparent;
-    border-right: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid $asc_lightest_gray;
-    margin: 15px auto 0 auto;
-}

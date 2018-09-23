@@ -631,6 +631,25 @@ h2.post-title {
 }
 
 /*
+* — MODULE - Alert —
+*/
+
+.alert {
+    background-color: $secondary;
+    color: $dark;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.alert p {
+    margin-bottom: 0;
+}
+
+.alert span {
+    text-transform: uppercase;
+}
+
+/*
 * — MODULE - CTA - Pair —
 */
 
