@@ -700,6 +700,53 @@ h2.post-title {
 }
 
 /*
+* — MODULE - CTA - Landing —
+*/
+
+.cta-landing .cta-content {
+    background: $primary;
+    color: $white;
+    margin-top: -120px;
+    padding: 40px 30px;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.cta-landing h2 {
+    border-left-width: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.cta-landing .cta-copy {
+    margin-bottom: 0;
+}
+
+.cta-landing .cta-link {
+    color: $primary;
+    margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .cta-landing .cta-content {
+        padding: 60px 120px;
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    }
+    .cta-landing h2 {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .cta-landing .cta-content {
+        margin-top: -240px;
+    }
+}
+
+/*
 * — MODULE - CTA - Pair —
 */
 
