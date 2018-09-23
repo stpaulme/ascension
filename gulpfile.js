@@ -1,17 +1,27 @@
+var concat  = require('gulp-concat');
 var gulp    = require('gulp');
 var sass    = require('gulp-sass');
-var concat  = require('gulp-concat');
+
 
 var paths = {
     styles: {
-        // Where are the sass files?
-        src: 'static/sass/*.scss',
+        // Where are the SCSS files?
+        src: 'src/scss/*.scss',
         // Where should the compiled file go?
-        dest: 'static/css'
+        dest: 'src/css'
+    },
+    js: {
+        // Where are the JS files?
+        src: [
+            'node_modules/bootstrap/dist/js/bootstrap.min.js',
+            'node_modules/popper.js/dist/popper.min.js',
+        ],
+        // Where should the JS files go?
+        dest: 'src/js'
     }
 }
 
-function style(){
+function style() {
     return gulp.src(paths.styles.src)
 
         // Use sass with the files found
@@ -25,12 +35,27 @@ function style(){
         .pipe(gulp.dest(paths.styles.dest))
 }
 
-// Lets you use $ gulp style
 exports.style = style
 
-function watch(){
+function js() {
+    return gulp.src(paths.js.src)
+    
+        .pipe(gulp.dest(paths.js.dest))
+}
+
+exports.js = js
+
+function watch() {
     gulp.watch(paths.styles.src, style)
 }
 
-// Lets you use $ gulp watch
 exports.watch = watch
+
+// Until I figure out how to set a default task...
+function go() {
+    style()
+    js()
+    watch()
+}
+
+exports.go = go

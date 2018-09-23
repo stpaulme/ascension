@@ -95,7 +95,6 @@ class StarterSite extends TimberSite {
 			'menu_icon' => 'dashicons-groups',
 			'has_archive' => false,
 			'rewrite' => array( 'slug' => 'about/leadership' ),
-			
 		) );
 
 		register_post_type( 'staff', array(
@@ -165,11 +164,13 @@ class StarterSite extends TimberSite {
 
 	function spm_enqueue() {
 		//this is where you can enqueue styles and scripts
-		wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/static/css/bootstrap.css' );
-		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/static/js/bootstrap.bundle.min.js', array(), '4.0.3', true );
-		wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700', false );
-		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/static/css/fa-all.min.css' );
-		wp_enqueue_style( 'main-css', get_template_directory_uri() . '/static/css/spm.css' );
+		wp_enqueue_style( 'spm', get_template_directory_uri() . '/src/css/spm.css' );
+		wp_enqueue_style( 'roboto', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700' );
+		wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.3.1/css/all.css' );
+
+		wp_enqueue_script( 'popper', get_template_directory_uri() . '/src/js/popper.min.js' );
+		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/src/js/bootstrap.min.js', array( 'jquery' ) );
+		
 	}
 
 	function add_to_context( $context ) {

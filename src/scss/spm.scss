@@ -1,0 +1,293 @@
+@import "bootstrap";
+
+/*
+* === MODULES ===
+*/
+
+/*
+* — Spacing —
+*/
+
+.module:last-child, .sidebar-module:last-child { margin-bottom: 0;}
+.module { margin-bottom: 40px; }
+.sidebar-module { margin-bottom: 60px; }
+@media (min-width: 768px) {
+    .module { margin-bottom: 70px; }
+}
+@media (min-width: 992px) {
+    .module { margin-bottom: 80px; }
+}
+
+/*
+* — Headings —
+*/
+
+.module h2 {
+    border-left-style: solid;
+    border-left-width: 6px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    padding-left: 15px;
+}
+.page-template-custom-sidebar .module h2 {
+    border-bottom: 1px solid $secondary;
+    border-left: none !important;
+    padding-bottom: 5px;
+    padding-left: 0 !important;
+}
+.page-template-custom-sidebar .module h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .module h2 {
+        font-size: 1.6875rem;
+        margin-bottom: 30px;
+    }
+
+    .page-template-custom-sidebar .module h3 {
+        font-size: 1.3125rem;
+        line-height: 1;
+    }
+}
+
+/*
+* === CLASSES ===
+*/
+
+.buttons {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.buttons li {
+    display: inline;
+}
+.buttons li:nth-child(2) {
+    margin-left: 30px;
+}
+
+.categories {
+    border-bottom: 1px solid $secondary;
+    color: $primary;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.4;
+    list-style: none;
+    margin: 0 0 10px 0;
+    padding: 0 0 3px 0;
+}
+.categories li {
+    display: inline;
+}
+.categories a:link, .categories a:visited, .categories a:active, .categories a:hover, {
+    color: inherit;
+}
+
+.special:link, .special:visited, .special:active, .special:hover {
+    color: $primary;
+    font-weight: bold;
+}
+.special-left:before, .special-right:after {
+    color: $secondary;
+    font-size: 0.5rem;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.special-left:before {
+    content: '\25c0';
+    margin-right: 5px;
+}
+.special-right:after {
+    content: '\25b6';
+    margin-left: 5px;
+}
+
+/*
+* === FOOTER ===
+*/
+
+.footer a:link, .footer a:visited, .footer a:active, .footer a:hover {
+    color: inherit;
+}
+
+/*
+* — Primary Footer —
+*/
+
+.footer-primary-content {
+    border-top: 1px solid $asc_light_gray;
+    padding-top: 30px;
+    margin-bottom: 30px; /* Takes care of .footer-primary margin-bottom */
+}
+
+.footer-secondary-menu {
+    border-bottom: 1px solid $asc_light_gray;
+    padding-bottom: 30px;
+}
+
+.footer ul {
+    font-size: 0.87rem;
+    line-height: 1.1;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.footer li {
+    margin-bottom: 20px;
+}
+
+.footer li:last-child {
+    margin-bottom: 0;
+}
+
+.footer .menu-item {
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .footer-primary {
+        margin-bottom: 95px;
+    }
+
+    .footer-primary-content {
+        margin-bottom: 0; /* .footer-primary margin-bottom takes over */
+    }
+
+    .footer-secondary-menu {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+/*
+* — Secondary Footer —
+*/
+
+.footer-secondary {
+    margin-bottom: 30px;
+}
+
+.footer-newsletter {
+    margin-bottom: 35px;
+}
+
+.footer-newsletter h4 {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.footer-newsletter label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.footer-newsletter input[type=text] {
+    border: 1px solid $asc_light_gray;
+    border-radius: 100px;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.footer-newsletter input[type=submit] {
+    background-color: $primary;
+    border: none;
+    color: $white;
+    float: right;
+    font-weight: bold;
+    line-height: 1;
+    padding: 10px;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo img {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-secondary {
+        margin-bottom: 45px;
+    }
+
+    .footer-newsletter {
+        margin-bottom: 0;
+    }
+
+    .footer-logo {
+        text-align: right;
+    }
+}
+
+/*
+* — Tertiary Footer —
+*/
+
+.footer-tertiary {
+    background-color: $primary;
+    border-top: 12px solid $tertiary;
+    color: $white;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin-top: 6px;
+    padding: 15px 0;
+    position: relative;
+}
+
+.footer-tertiary:before {
+    background-color: $secondary;
+    content: '';
+    height: 6px;
+    position: absolute;
+    top: -18px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-attribution {
+        text-align: right;
+    }
+}
+
+.footer-contact-social {
+    font-style: italic;
+}
+
+.footer-contact-social a:link:before, .footer-contact-social a:visited:before, .footer-contact-social a:active:before, .footer-contact-social a:hover:before {
+    color: $primary;
+    display: inline-block;
+    font-family: 'Font Awesome 5 Brands';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-contact-social a[href*="facebook"]:before { content: '\f09a'; }
+.footer-contact-social a[href*="instagram"]:before { content: '\f16d'; }
+.footer-contact-social a[href*="linkedin"]:before { content: '\f08c'; }
+.footer-contact-social a[href*="pinterest"]:before { content: '\f0d3'; }
+.footer-contact-social a[href*="tumblr"]:before { content: '\f174'; }
+.footer-contact-social a[href*="twitter"]:before { content: '\f081'; }
+.footer-contact-social a[href*="youtube"]:before { content: '\f431'; }
