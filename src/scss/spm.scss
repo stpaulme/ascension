@@ -842,7 +842,10 @@ h2.post-title {
 
 .image-gallery .indicators {
     margin-top: 15px;
-    overflow-x: auto;
+}
+
+.image-gallery .indicators div {
+    cursor: pointer;
 }
 
 /*
