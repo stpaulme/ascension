@@ -1,7 +1,9 @@
-var concat  = require('gulp-concat');
 var gulp    = require('gulp');
 var sass    = require('gulp-sass');
-
+var cssnano = require('gulp-cssnano');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var concat  = require('gulp-concat');
 
 var paths = {
     styles: {
@@ -24,15 +26,19 @@ var paths = {
 function style() {
     return gulp.src(paths.styles.src)
 
-        // Use sass with the files found
-        // Compress
-        // Log any errors
-        .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
+        .pipe(sourcemaps.init())
 
-        // Concatenate the files
-        .pipe(concat('spm.css'))
+            .pipe(sass()).on('error', sass.logError)
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions'],
+                cascade: false
+            }))
+            .pipe(cssnano())
+            .pipe(concat('spm.css'))
 
-        .pipe(gulp.dest(paths.styles.dest))
+        .pipe(sourcemaps.write())
+
+    .pipe(gulp.dest(paths.styles.dest))
 }
 
 exports.style = style
@@ -51,11 +57,8 @@ function watch() {
 
 exports.watch = watch
 
-// Until I figure out how to set a default task...
-function go() {
+gulp.task('default', function() {
     style()
     js()
     watch()
-}
-
-exports.go = go
+  });
