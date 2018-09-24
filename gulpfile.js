@@ -61,4 +61,4 @@ gulp.task('default', function() {
     style()
     js()
     watch()
-  });
+});
