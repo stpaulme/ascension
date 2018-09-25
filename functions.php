@@ -132,7 +132,7 @@ class StarterSite extends TimberSite {
 				'public' => true,
 				'publicly_queryable'  => true,
 				'menu_position' => 5,
-				'has_archive' => true,
+				'has_archive' => false,
 				'rewrite' => array( 'slug' => 'liturgy/homilies' ),
 			) );
 	
