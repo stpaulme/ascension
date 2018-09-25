@@ -120,7 +120,7 @@ class StarterSite extends TimberSite {
 				'publicly_queryable'  => true,
 				'menu_position' => 5,
 				'menu_icon' => 'dashicons-microphone',
-				'has_archive' => true,
+				'has_archive' => false,
 				'rewrite' => array( 'slug' => 'liturgy/homily-podcast' ),
 			) );
 

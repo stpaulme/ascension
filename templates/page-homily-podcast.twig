@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 sidebar-content">
+                {% for episode in podcast %}
+                    <div class="post">
+                        <h3 class="post-title"><a href="{{episode.link}}">{{episode.name}}</a></h3>
+                        
+                        {% filter shortcodes %}
+                            {{episode.podbean_embed}}
+                        {% endfilter %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-3 offset-lg-1 sidebar-sidebar">
+                {{sidebar}}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
