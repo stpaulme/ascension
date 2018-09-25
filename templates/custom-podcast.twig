@@ -8,10 +8,6 @@
                 {% for episode in posts %}
                     <div class="post">
                         <h3 class="post-title"><a href="{{episode.link}}">{{episode.name}}</a></h3>
-                        
-                        {% filter shortcodes %}
-                            {{episode.podbean_embed}}
-                        {% endfilter %}
                     </div>
                 {% endfor %}
 

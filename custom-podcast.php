@@ -4,11 +4,6 @@
  */
 $queried_object = get_queried_object();
 
-global $paged;
-if (!isset($paged) || !$paged){
-    $paged = 1;
-}
-
 $context = Timber::get_context();
 $post = new TimberPost();
 
@@ -35,8 +30,7 @@ $context['current'] = $queried_object->ID;
 $context['title'] = $post->name;
 $podcast_args = array(
     'post_type'         => 'podcast',
-    'posts_per_page'    => 5,
-    'paged' => $paged,
+    'posts_per_page'    => -1,
 );
 $context['posts'] = new Timber\PostQuery($podcast_args);
 
