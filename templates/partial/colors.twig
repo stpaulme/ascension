@@ -1,0 +1,42 @@
+<style>
+    {% if options.color_primary %}
+        .cta-pair img, .current-sub-menu-item {
+            border-color: {{options.color_primary}} !important;
+        }
+
+        .categories, .cta-landing .cta-link, .current-menu-item, .current-page-ancestor, .footer-contact-social a:before, .hero h1, li.search, .special, .staff .contact a {
+            color: {{options.color_primary}} !important;
+        }
+
+        .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary {
+            background: {{options.color_primary}} !important;
+        }
+    {% endif %}
+
+    {% if options.color_secondary %}
+        .categories, h2.post-title, .page-template-custom-sidebar .module h2, .post-feed-posts h2, .sidebar-module h3, .overview-secondary h3, .overview-secondary h2.h2-1, .schools h2, .schools h3, .text, .text-landing h2 {
+            border-color: {{options.color_secondary}} !important;
+        }
+
+        .sidebar-module li a:before, .special-left:before, .special-right:after, .staff .contact li:last-child:before {
+            color: {{options.color_secondary}} !important;
+        }
+
+        .footer-tertiary:before, .alert, .cta-home .cta-content, .post-feed-events {
+            background-color: {{options.color_secondary}} !important;
+        }
+    {% endif %}
+
+    {% if options.color_tertiary %}
+        .footer-tertiary, .cta-pair h2, .cta-group h2, .overview-secondary h2.h2-2 {
+            border-color: {{options.color_tertiary}} !important;
+        }
+    {% else %}
+        .footer-tertiary, .cta-pair h2, .cta-group h2, .overview-secondary h2.h2-2 {
+            border-color: {{options.color_secondary}} !important;
+        }
+        .footer-tertiary:before {
+            display: none;
+        }
+    {% endif %}
+</style>
