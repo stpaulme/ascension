@@ -55,10 +55,6 @@
     padding: 10px 0;
 }
 
-.header-menu-secondary li:last-child {
-    margin-right: 0;
-}
-
 .header-menu-secondary li.search {
     background: $white;
     clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);

@@ -29,35 +29,38 @@
 	</div>
 	{% endif %}
 
-			<div class="container">
+			
 
 				<header class="header" role="banner">
 					{% block header %}
-					<div class="row">
-						<div class="col-md-3">
-							<h1 role="banner">
-								<a href="{{site.url}}" rel="home" title="{{site.name}}">
-									{% if options.header_logo %}
-										{% set logo = TimberImage(options.header_logo) %}
-										<img src="{{logo.src}}" alt="{{logo.alt}}">
-									{% else %}
-										{{site.name}}
-									{% endif %}
-								</a>
-							</h1>
-						</div>
-						<div class="col-md-9">
-							<nav role="navigation" class="header-menu header-menu-secondary">
-								{% include 'menu.twig' with {'menu': header_secondary.get_items, 'search': true} %}
-							</nav>
-							<nav role="navigation" class="header-menu header-menu-primary">
-								{% include 'menu.twig' with {'menu': header_primary.get_items} %}
-							</nav>
-						</div>
+						<nav role="navigation" class="header-menu header-menu-secondary">
+							{% include 'menu.twig' with {'menu': header_secondary.get_items, 'search': true} %}
+						</nav>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-3">
+									<h1 role="banner">
+										<a href="{{site.url}}" rel="home" title="{{site.name}}">
+											{% if options.header_logo %}
+												{% set logo = TimberImage(options.header_logo) %}
+												<img src="{{logo.src}}" alt="{{logo.alt}}">
+											{% else %}
+												{{site.name}}
+											{% endif %}
+										</a>
+									</h1>
+								</div>
+								<div class="col-md-9">
+									
+									<nav role="navigation" class="header-menu header-menu-primary">
+										{% include 'menu.twig' with {'menu': header_primary.get_items} %}
+									</nav>
+								</div>
+							</div>
 					{% endblock %}
 				</header>
 
-			</div>
+			
 
 			
 				
