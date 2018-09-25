@@ -4,9 +4,9 @@
     "fields": [
         {
             "key": "field_5baa98705262d",
-            "label": "Podbean URL",
-            "name": "podbean_url",
-            "type": "url",
+            "label": "Podbean Embed Code",
+            "name": "podbean_embed",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,7 +16,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "[podbean type=audio-square resource=\"episode=qbpz5-9aa051\" skin=\"2\" auto=\"0\" height=315 ]",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -38,5 +41,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537906897
+    "modified": 1537911106
 }
