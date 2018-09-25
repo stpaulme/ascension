@@ -1,6 +1,6 @@
 {
     "key": "group_5baaa39abca1e",
-    "title": "Page - Homily Podcast",
+    "title": "Template - Podcast",
     "fields": [
         {
             "key": "field_5baaa3a1fdb25",
@@ -56,9 +56,9 @@
     "location": [
         [
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "738"
+                "value": "custom-podcast.php"
             }
         ]
     ],
@@ -72,5 +72,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537909737
+    "modified": 1537912722
 }

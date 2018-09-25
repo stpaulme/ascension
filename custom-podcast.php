@@ -1,4 +1,7 @@
 <?php
+/**
+ * Template Name: Podcast
+ */
 $queried_object = get_queried_object();
 
 $context = Timber::get_context();
@@ -34,4 +37,4 @@ $sidebar_context = array();
 $sidebar_context['post'] = $post;
 $context['sidebar'] = Timber::get_sidebar('sidebar.twig', $sidebar_context);
 
-Timber::render( array( 'page-homily-podcast.twig' ), $context );
+Timber::render( array( 'custom-podcast.twig' ), $context );
