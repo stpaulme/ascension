@@ -4,7 +4,7 @@
 
         {% for image in module.image_band %}
         <div class="col-md image-band-image-{{loop.index}}">
-            <img src="{{TimberImage(image.image).src|resize(3000,1500)}}">
+            <img src="{{TimberImage(image.image).src|resize(4000,2000)}}">
         </div>
         {% endfor %}
 
