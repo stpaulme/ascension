@@ -27,6 +27,24 @@
         }
     {% endif %}
 
+    {% if 'Ascension Catholic School' in site.name or 'Church' in site.name %}
+        .cta-home .cta-content, .post-feed-events {
+            position: relative;
+        }
+
+        .cta-home .cta-content:after, .post-feed-events:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255,255,255,0.5);
+            height: 100%;
+            width: 100%;
+            content: '';
+            display: block;
+            z-index: -1;
+        }
+    {% endif %}
+
     {% if options.color_tertiary %}
         .footer-tertiary, .cta-pair h2, .cta-group h2, .overview-secondary h2.h2-2 {
             border-color: {{options.color_tertiary}} !important;
