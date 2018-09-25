@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 sidebar-content">
-                {% for episode in podcast %}
+                {% for episode in posts %}
                     <div class="post">
                         <h3 class="post-title"><a href="{{episode.link}}">{{episode.name}}</a></h3>
                         
@@ -14,6 +14,10 @@
                         {% endfilter %}
                     </div>
                 {% endfor %}
+
+                {% if posts.pagination.prev or posts.pagination.next %}
+			        {% include 'partial/pagination.twig' %}
+			    {% endif %}
             </div>
 
             <div class="col-lg-3 offset-lg-1 sidebar-sidebar">
