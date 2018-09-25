@@ -110,6 +110,33 @@ class StarterSite extends TimberSite {
 			'rewrite' => array( 'slug' => 'about/staff' ),
 		) );
 
+		
+			register_post_type( 'podcast', array(
+				'labels' => array(
+					'name' => __( 'Podcast' ),
+					'singular_name' => __( 'Podcast' )
+				),
+				'public' => true,
+				'publicly_queryable'  => true,
+				'menu_position' => 5,
+				'menu_icon' => 'dashicons-microphone',
+				'has_archive' => true,
+				'rewrite' => array( 'slug' => 'liturgy/homily-podcast' ),
+			) );
+
+			register_post_type( 'homily', array(
+				'labels' => array(
+					'name' => __( 'Homilies' ),
+					'singular_name' => __( 'Homily' )
+				),
+				'public' => true,
+				'publicly_queryable'  => true,
+				'menu_position' => 5,
+				'has_archive' => true,
+				'rewrite' => array( 'slug' => 'liturgy/homilies' ),
+			) );
+	
+
 	}
 
 	function spm_register_taxonomies() {
