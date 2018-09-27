@@ -110,20 +110,6 @@ class StarterSite extends TimberSite {
 			'rewrite' => array( 'slug' => 'about/staff' ),
 		) );
 
-		
-			register_post_type( 'podcast', array(
-				'labels' => array(
-					'name' => __( 'Podcast' ),
-					'singular_name' => __( 'Podcast' )
-				),
-				'public' => true,
-				'publicly_queryable'  => true,
-				'menu_position' => 5,
-				'menu_icon' => 'dashicons-microphone',
-				'has_archive' => false,
-				'rewrite' => array( 'slug' => 'liturgy/homily-podcast' ),
-			) );
-
 			register_post_type( 'homily', array(
 				'labels' => array(
 					'name' => __( 'Homilies' ),
