@@ -1,57 +1,52 @@
+{% set colors = {
+    'primary': function('hex2rgba', options.color_primary, 1),
+    'secondary': function('hex2rgba', options.color_secondary, 1),
+    'secondary_compliant': function('hex2rgba', options.color_secondary, 0.5),
+    'tertiary': function('hex2rgba', options.color_tertiary, 1),
+ } %}
+
 <style>
-    {% if options.color_primary %}
+    {% if colors.primary %}
         .cta-pair img, .current-sub-menu-item {
-            border-color: {{options.color_primary}} !important;
+            border-color: {{colors.primary}} !important;
         }
 
         .categories, .cta-landing .cta-link, .header-menu-primary .current-menu-item, .header-menu-primary .current-page-ancestor, .footer-contact-social a:before, .hero h1, li.search, .special, .staff .contact a {
-            color: {{options.color_primary}} !important;
+            color: {{colors.primary}} !important;
         }
 
         .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary {
-            background: {{options.color_primary}} !important;
+            background: {{colors.primary}} !important;
         }
     {% endif %}
 
-    {% if options.color_secondary %}
+    {% if colors.secondary %}
         .categories, h2.post-title, .page-template-custom-sidebar .module h2, .post-feed-posts h2, .sidebar-module h3, .overview-secondary h3, .overview-secondary h2.h2-1, .schools h2, .schools h3, .text, .text-landing h2 {
-            border-color: {{options.color_secondary}} !important;
+            border-color: {{colors.secondary}} !important;
         }
 
         .sidebar-module li a:before, .special-left:before, .special-right:after, .staff .contact li:last-child:before {
-            color: {{options.color_secondary}} !important;
+            color: {{colors.secondary}} !important;
         }
 
         .footer-tertiary:before, .alert, .cta-home .cta-content, .post-feed-events {
-            background-color: {{options.color_secondary}} !important;
+            background-color: {{colors.secondary}} !important;
         }
     {% endif %}
 
     {% if 'Ascension Catholic School' in site.name or 'Church' in site.name %}
-        .cta-home .cta-content, .post-feed-events {
-            position: relative;
-        }
-
-        .cta-home .cta-content:after, .post-feed-events:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: rgba(255,255,255,0.5);
-            height: 100%;
-            width: 100%;
-            content: '';
-            display: block;
-            z-index: -1;
+        .alert, .cta-home .cta-content, .post-feed-events {
+            background-color: {{colors.secondary_compliant}} !important;
         }
     {% endif %}
 
-    {% if options.color_tertiary %}
+    {% if colors.tertiary %}
         .footer-tertiary, .cta-pair h2, .cta-group h2, .overview-secondary h2.h2-2 {
-            border-color: {{options.color_tertiary}} !important;
+            border-color: {{colors.tertiary}} !important;
         }
     {% else %}
         .footer-tertiary, .cta-pair h2, .cta-group h2, .overview-secondary h2.h2-2 {
-            border-color: {{options.color_secondary}} !important;
+            border-color: {{colors.secondary}} !important;
         }
         .footer-tertiary:before {
             display: none;
