@@ -2,9 +2,17 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                {% if module.heading %}
                 <h2>{{module.heading}}</h2>
+                {% endif %}
+
+                    {% if module.copy %}
                     <div class="text-copy">{{module.copy}}</div>
+                    {% endif %}
+
+                    {% if module.additional_copy %}
                     <div class="text-additional-copy">{{module.additional_copy}}</div>
+                    {% endif %}
             </div>
         </div>
     </div>
