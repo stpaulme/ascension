@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podcast
+ * Template Name: Homily Podcast
  */
 $queried_object = get_queried_object();
 
@@ -29,7 +29,8 @@ $context['menu_items'] = $menu_items;
 $context['current'] = $queried_object->ID;
 $context['title'] = $post->name;
 $podcast_args = array(
-    'post_type'         => 'podcast',
+    'post_type'         => 'post',
+    'category_name'     => 'homily-podcast',
     'posts_per_page'    => -1,
 );
 $context['posts'] = new Timber\PostQuery($podcast_args);
