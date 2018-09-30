@@ -109,14 +109,14 @@
 * — Primary Footer —
 */
 
+.footer-primary {
+    margin-bottom: 30px;
+}
+
 .footer-primary-content {
     border-top: 1px solid $asc_light_gray;
     padding-top: 30px;
-    margin-bottom: 30px; /* Takes care of .footer-primary margin-bottom */
-}
-.footer-secondary-menu {
-    border-bottom: 1px solid $asc_light_gray;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 .footer a {
     color: inherit;
@@ -158,37 +158,52 @@
 .footer-contact-social a[href*="tumblr"]:before { content: '\f174'; }
 .footer-contact-social a[href*="twitter"]:before { content: '\f081'; }
 .footer-contact-social a[href*="youtube"]:before { content: '\f431'; }
+
 @media (min-width: 768px) {
     .footer-primary {
-        margin-bottom: 95px;
+        margin-bottom: 45px;
     }
 
     .footer-primary-content {
-        margin-bottom: 0; /* .footer-primary margin-bottom takes over */
+        margin-bottom: 0;
+    }
+
+    .footer-newsletter {
+        border-top: 0 solid $asc_light_gray;
+        padding-top: 0;
+        margin-bottom: 0;
     }
 
     .footer-secondary-menu {
         border-bottom: none;
         padding-bottom: 0;
     }
+    .footer-newsletter, .footer-logo {
+        margin-top: 95px;
+    }
 }
 
-/*
-* — Secondary Footer —
-*/
+@media (min-width: 992px) {
+    .footer-newsletter {
+        border-top: 1px solid $asc_light_gray;
+        margin-top: 0;
+        padding-top: 30px;
+    }
+    .footer-newsletter input[type='submit'] {
+        margin-top: 15px;
+    }
+    .footer-logo {
+        margin-top: 15px;
+    }
+}
 
-.footer-secondary {
-    margin-bottom: 30px;
-}
-.footer-newsletter {
-    margin-bottom: 35px;
-}
 .footer-newsletter h4 {
     font-weight: normal;
     font-size: 1rem;
     line-height: 1.2;
     margin-bottom: 10px;
 }
+
 .footer-logo {
     text-align: center;
 }
@@ -196,14 +211,6 @@
     max-width: 100%;
 }
 @media (min-width: 768px) {
-    .footer-secondary {
-        margin-bottom: 45px;
-    }
-
-    .footer-newsletter {
-        margin-bottom: 0;
-    }
-
     .footer-logo {
         text-align: right;
     }
