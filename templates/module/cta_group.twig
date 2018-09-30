@@ -9,14 +9,20 @@
         </div>
         {% endif %}
 
-        <div class="row">
+        <div class="row justify-content-md-center">
         
             {% for cta in module.cta_group %}
                 
                 <div class="col-md-6 col-lg-3 cta">
                 
                     {% if cta.image %}
-                        <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image mw-100">
+                        {% if cta.link %}
+                        <a href="{{cta.link.url}}" target="{{cta.link.target}}">
+                        {% endif %}
+                            <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image mw-100">
+                        {% if cta.link %}
+                        </a>
+                        {% endif %}
                     {% endif %}
 
                     <div class="row no-gutters cta-content">
