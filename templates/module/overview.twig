@@ -1,19 +1,37 @@
 <div class="module overview">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 overview-primary">
-                <h1>{{module.primary.heading}}</h1>
-                {{module.primary.copy}}
+            <div class="col-lg-6 overview-primary">
+                {% if module.primary.heading %}
+                    <h1>{{module.primary.heading}}</h1>
+                {% endif %}
+
+                {% if module.primary.copy %}
+                    {{module.primary.copy}}
+                {% endif %}
+
                 {% set buttons = module.primary.buttons %}
                 {% if buttons %}
                     {% include 'partial/buttons.twig' %}
                 {% endif %}
             </div>
-            <div class="col-md-5 offset-md-1 overview-secondary">
-            {% for blurb in module.secondary.blurbs %}
-                <h3>{{blurb.heading}}</h3>
-                {{blurb.copy}}
-            {% endfor %}
+            
+            <div class="col-lg-5 offset-lg-1 overview-secondary">
+                <div class="row">
+                    {% if module.secondary.blurbs %}
+                        {% for blurb in module.secondary.blurbs %}
+                            <div class="col-md-6 col-lg-12 blurb">
+                                {% if blurb.heading %}
+                                    <h3>{{blurb.heading}}</h3>
+                                {% endif %}
+
+                                {% if blurb.copy %}
+                                    {{blurb.copy}}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

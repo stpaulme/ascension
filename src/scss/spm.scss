@@ -356,11 +356,19 @@
     margin-bottom: 0;
     padding-left: 0;
 }
-.buttons li {
-    display: inline;
-}
+
 .buttons li:nth-child(2) {
-    margin-left: 30px;
+    margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .buttons li {
+        display: inline;
+    }
+    .buttons li:nth-child(2) {
+        margin-top: 0;
+        margin-left: 30px;
+    }
 }
 
 .categories {
@@ -1057,6 +1065,10 @@ h2.post-title {
     margin-top: 15px;
 }
 
+.overview-primary p:last-child {
+    margin-bottom: 0;
+}
+
 .overview-secondary h3 {
     border-bottom: 1px solid $secondary;
     font-size: 1.125rem;
@@ -1065,14 +1077,18 @@ h2.post-title {
     padding-bottom: 5px;
 }
 
-.overview-secondary p {
-    margin-bottom: 15px;
+.blurb { margin-bottom: 30px; }
+.blurb:last-child { margin-bottom: 0; }
+.blurb p { margin-bottom: 0; }
+
+@media (min-width: 768px) {
+    .blurb { margin-bottom: 0; }
 }
 
-.overview-secondary p:last-of-type {
-    margin-bottom: 0;
+@media (min-width: 992px) {
+    .overview-primary { margin-bottom: 0; }
+    .blurb { margin-bottom: 30px; }
 }
-
 
 /*
 * — MODULE - Overview - About —
