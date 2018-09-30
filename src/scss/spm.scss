@@ -1165,18 +1165,18 @@ h2.post-title {
 * — MODULE - Text —
 */
 
-.text, .text-landing h2 {
+.text h2, .text-landing h2 {
     border-left-color: $secondary;
 }
 
-.text, .text-landing h3 {
+.text h3, .text-landing h3 {
     font-size: 1.3125rem;
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 5px;
 }
 
-.text, .text-landing h4 {
+.text h4, .text-landing h4 {
     font-size: 1.125rem;
     font-weight: bold;
     line-height: 1.2;
