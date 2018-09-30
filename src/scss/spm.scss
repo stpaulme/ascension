@@ -83,7 +83,6 @@
 .sub-menu {
     background-color: $asc_lightest_gray;
     color: $dark;
-    font-weight: bold;
     line-height: 1.2;
     padding: 15px 0;
 }
@@ -1056,10 +1055,6 @@ h2.post-title {
 
 .overview-primary .buttons {
     margin-top: 15px;
-}
-
-.overview-primary p {
-    margin-bottom: 0;
 }
 
 .overview-secondary h3 {
