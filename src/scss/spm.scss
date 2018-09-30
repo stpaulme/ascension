@@ -598,6 +598,10 @@ h2.post-title {
     .sidebar-module:nth-last-child(2) { margin-bottom: 60px; }
 }
 
+.sidebar-content .module { margin-bottom: 1.5rem; }
+.sidebar-content .module p:last-child { margin-bottom: 0; }
+.sidebar-content .module:last-child { margin-bottom: 0; }
+
 /*
 * — Headings —
 */

@@ -1,4 +1,8 @@
 <div class="module image-gallery">
+    {% if module.heading %}
+      <h2>{{module.heading}}</h2>
+    {% endif %}
+    
     {% set carousel = 'carousel-'~loop.index %}
     <div id="{{carousel}}" class="carousel slide">
 
