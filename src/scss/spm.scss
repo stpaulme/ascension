@@ -420,7 +420,10 @@
     margin-left: 5px;
 }
 
-img[class^='wp-image'] { max-width: 100%; }
+img[class^='wp-image'] {
+    margin-bottom: 1.5rem;
+    max-width: 100%; 
+}
 
 /*
 * === PAGES ===
