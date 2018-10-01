@@ -64,7 +64,8 @@
 }
 
 .navbar-secondary-link:nth-child(2) {
-    padding-left: 15px;
+    padding-left: 30px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
 }
 
 .navbar-primary {
@@ -74,7 +75,6 @@
 
     font-weight: bold;
     line-height: 1.2;
-    margin: 0;
     text-align: right;
 }
 
