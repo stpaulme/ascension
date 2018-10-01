@@ -179,7 +179,7 @@ class StarterSite extends TimberSite {
 	function spm_enqueue() {
 		//this is where you can enqueue styles and scripts
 		wp_enqueue_style( 'spm', get_template_directory_uri() . '/src/css/spm.css' );
-		wp_enqueue_style( 'roboto', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700' );
+		wp_enqueue_style( 'roboto', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700,700i' );
 		wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.3.1/css/all.css' );
 
 		wp_enqueue_script( 'popper', get_template_directory_uri() . '/src/js/popper.min.js' );
