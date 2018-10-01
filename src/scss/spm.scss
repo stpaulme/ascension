@@ -281,7 +281,7 @@
 .main {
     margin-bottom: 40px;
 }
-.main p a {
+.main ol a, .main p a, .main ul a {
     font-weight: bold;
 }
 .sidebar-content p + ol, .sidebar-content p + ul {
