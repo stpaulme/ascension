@@ -65,6 +65,7 @@ class StarterSite extends TimberSite {
 			'header_secondary' => 'Header Secondary',
 			'footer_primary' => 'Footer Primary',
 			'footer_secondary' => 'Footer Secondary',
+			'mobile_menu' => 'Mobile Menu',
 		) );
 	}
 
@@ -191,6 +192,7 @@ class StarterSite extends TimberSite {
 		$context['header_secondary'] = new TimberMenu( 'header_secondary' );
 		$context['footer_primary'] = new TimberMenu( 'footer_primary' );
 		$context['footer_secondary'] = new TimberMenu( 'footer_secondary' );
+		$context['mobile_menu'] = new TimberMenu( 'mobile_menu' );
 		$context['options'] = get_fields('option');
 
 		function hex2rgba($color, $opacity = false) {

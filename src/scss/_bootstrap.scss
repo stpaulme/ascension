@@ -41,4 +41,8 @@ $input-color: $dark;
 $input-border-color: $asc_light_gray;
 $input-focus-border-color: $asc_gray;
 
+$navbar-light-color: inherit;
+$navbar-light-hover-color: inherit;
+$navbar-light-active-color: inherit;
+
 @import "node_modules/bootstrap/scss/bootstrap";

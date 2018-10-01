@@ -7,6 +7,7 @@
  } %}
 
 <style>
+    .navbar-light .navbar-nav .nav-link { rgba() }
     {% if colors.primary %}
         .cta-pair img, .current-sub-menu-item {
             border-color: {{colors.primary}} !important;
@@ -26,7 +27,7 @@
             color: {{colors.primary_hover}} !important;
         }
 
-        .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary, .gform_button, .header .navbar-secondary {
+        .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary, .gform_button, .header .navbar-secondary li {
             background: {{colors.primary}} !important;
         }
     {% endif %}

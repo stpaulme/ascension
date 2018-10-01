@@ -7,112 +7,138 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
+	<div id="page">
+		<nav id="mobile-menu">
+			<ul>
+				{% for item in mobile_menu.get_items %}
+				<li>
+				<a href="{{item.url}}" target="{{item.target}}">{{item.name}}</a>
+				{% if item.children %}
+                    <ul class="nav-drop">
+                        {% for child in item.children %}
+                            <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</nav>
 
-	{% include 'partial/colors.twig' %}
+		{% include 'partial/colors.twig' %}
 
-	<div id="google_translate_element"></div>
+		<div id="google_translate_element"></div>
 
-	<script type="text/javascript">
-		function googleTranslateElementInit() {
-			new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
-		}
-	</script>
-	
-	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-	{% if options.announcement %}
-	<div class="alert alert-dismissible fade show" role="alert">
-		<p><span>Announcement:</span> {{options.announcement}}</p>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
-	{% endif %}
-
-				<header class="header" role="banner">
-					{% block header %}
-						<nav class="navbar navbar-expand-lg py-0 my-0">
-							<div class="container">
-
-								{% set logo = TimberImage(options.header_logo) %} 
-								<a class="navbar-brand" href="{{site.url}}" rel="home" title="{{site.title}}">
-									<img alt="{{logo.alt}}" src="{{logo.src}}" class="my-3">
-								</a>
-
-								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon"></span>
-								</button>
-
-								<div class="collapse navbar-collapse flex-column align-items-start" id="navbar">
-									<ul class="navbar-nav navbar-secondary ml-auto">
-										<li class="nav-item">
-											<form class="form-inline" action="{{site.url}}" id="searchform" method="get" role="search"  >
-												<input class="form-control form-control-sm" placeholder="Search..." type="text" value="" name="s" id="s" aria-label="Search">
-											</form>
-										</li>
-
-										{% for item in header_secondary.get_items %}
-											<li class="nav-item">
-												<a class="nav-link" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
-											</li>
-										{% endfor %}
-									</ul>
-
-									<ul class="navbar-nav navbar-primary ml-auto">
-										{% for item in header_primary.get_items %}
-										<li class="nav-item">
-											<a class="nav-link {{item.classes|join(' ')}}" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
-										</li>
-										{% endfor %}
-									</ul>
-								</div>
-							
-							</div>
-						</nav>
-					{% endblock %}
-				</header>
-
-				<main class="main" role="main">
-					{% if menu_items %}
-					<div class="sub-menu">
-						<div class="container">
-							<ul>
-								{% for item in menu_items %}
-								<li class="{{item.id == current ? 'current-sub-menu-item'}}"><a href="{{item.link}}">{{item.name}}</a></li>
-								{% endfor %}
-							</ul>
-						</div>
-					</div>
-					{% endif %}
-
-					{% if title %}
-					<div class="title-band">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-6">
-									<h1 class="title">{{title}}</h1>
-								</div>
-							</div>
-						</div>
-					</div>
-					{% endif %}
-
-					{% block content %}
-					Sorry, no content
-					{% endblock %}
-					
-				</main>
-
-				{% block footer %}
-					<footer class="footer" role="contentinfo">
-						<div class="container">
-							{% include 'footer-primary.twig' %}
-						</div>
-						{% include 'footer-tertiary.twig' %}
-					</footer>
-					{{ function('wp_footer') }}
-				{% endblock %}
-			
+		<script type="text/javascript">
+			function googleTranslateElementInit() {
+				new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+			}
+		</script>
 		
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+		{% if options.announcement %}
+		<div class="alert alert-dismissible fade show" role="alert">
+			<p><span>Announcement:</span> {{options.announcement}}</p>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		{% endif %}
+
+					<header class="header" role="banner">
+						{% block header %}
+
+								
+
+									<div class="row">
+
+										<div class="col-10 col-md-3">
+											{% set logo = TimberImage(options.header_logo) %} 
+											<a href="{{site.url}}" rel="home" title="{{site.title}}">
+												<img alt="{{logo.alt}}" src="{{logo.src}}">
+											</a>
+										</div>
+
+										
+										<div class="col-md-9 d-none d-lg-block">
+
+											<ul class="navbar-secondary">
+												<li class="search">
+													<form class="form-inline" action="{{site.url}}" id="searchform" method="get" role="search"  >
+														<input class="form-control form-control-sm" placeholder="Search..." type="text" value="" name="s" id="s" aria-label="Search">
+													</form>
+												{% for item in header_secondary.get_items %}
+												<li>
+													<a class="{{item.classes|join(' ')}}" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
+												
+												{% endfor %}
+											</ul>
+
+											<ul class="navbar-primary">
+												{% for item in header_primary.get_items %}
+												<li>
+													<a class="{{item.classes|join(' ')}}" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
+												</li>
+												{% endfor %}
+											</ul>
+
+										</div>
+
+										<div class="col-2 col-md-9 text-right d-lg-none">
+											<a class="btn btn-primary my-3" id="mobile-menu-button" href="#"><i class="fas fa-bars"></i></a>
+										</div>
+									
+									</div>
+
+							
+
+						{% endblock %}
+					</header>
+
+					<main class="main" role="main">
+						{% if menu_items %}
+						<div class="sub-menu">
+							<div class="container">
+								<ul>
+									{% for item in menu_items %}
+									<li class="{{item.id == current ? 'current-sub-menu-item'}}"><a href="{{item.link}}">{{item.name}}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						{% endif %}
+
+						{% if title %}
+						<div class="title-band">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-6">
+										<h1 class="title">{{title}}</h1>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+
+						{% block content %}
+						Sorry, no content
+						{% endblock %}
+						
+					</main>
+
+					{% block footer %}
+						<footer class="footer" role="contentinfo">
+							<div class="container">
+								{% include 'footer-primary.twig' %}
+							</div>
+							{% include 'footer-tertiary.twig' %}
+						</footer>
+						{{ function('wp_footer') }}
+					{% endblock %}
+				
+		</div>
 	</body>
 </html>
