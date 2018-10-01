@@ -20,67 +20,20 @@
     width: 300px;
 }
 
-.header h1 {
-    padding: 20px 0;
-}
-
-.header-menu ul {
-    float: right;
-    list-style: none;
-    padding-left: 0;
-}
-
-.header-menu li a {
-    color: inherit;
-}
-
-//Secondary
-
-.header-menu-secondary ul {
-    position: relative;
-    background: $primary;
+.header .navbar-secondary {
     font-size: 0.875rem;
     line-height: 1.1;
     margin: 0;
 }
 
-/*
-.header-menu-secondary ul:after {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: $primary;
-    content: '';
-    height: 100%;
-    width: 5000px;
-}
-*/
+.header .navbar-secondary .nav-link, .nav-link:visited { color: rgba(255,255,255,1) !important; }
 
-.header-menu-secondary li {
-    color: $white;
-    display: inline-block;
-    margin-right: 20px;
-    padding: 10px 0;
-}
+.header .navbar-secondary .nav-link:active, .nav-link:hover { color: rgba(255,255,255,0.5) !important; }
 
-.header-menu-secondary li.search {
-    background: $white;
-    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
-    color: $primary;
-    padding-right: 30px;
-}
-
-//Primary
-
-.header-menu-primary ul {
+.header .navbar-primary {
     font-weight: bold;
     line-height: 1.2;
     margin: 35px 0 0 0;
-}
-
-.header-menu-primary li {
-    display: inline;
-    padding: 10px 20px;
 }
 
 /*
@@ -124,8 +77,11 @@
     padding-top: 30px;
     margin-bottom: 30px;
 }
-.footer a {
+.footer a:link, .footer a:visited {
     color: inherit;
+}
+.footer a:active, .footer a:hover {
+    opacity: 0.5;
 }
 .footer ul {
     font-size: 0.87rem;
@@ -335,7 +291,8 @@
     margin-bottom: 20px;
 }
 .sidebar-module li:last-child { margin-bottom: 0; }
-.sidebar-module li a { color: inherit; }
+.sidebar-module li a:link, .sidebar-module li a:visited { color: inherit; }
+.sidebar-module li a:active, .sidebar-module li a:hover { opacity: 0.5; }
 .sidebar-module li a:before {
     color: $secondary;
     content: '\25b6';
@@ -405,8 +362,12 @@
 .categories li {
     display: inline;
 }
-.categories a:link, .categories a:visited, .categories a:active, .categories a:hover, {
+.categories a:link, .categories a:visited {
     color: inherit;
+}
+
+.categories a:active, .categories a:hover {
+    opacity: 0.5;
 }
 
 .header-menu-primary .current-menu-item, .header-menu-primary .current-page-ancestor {

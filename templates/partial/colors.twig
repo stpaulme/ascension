@@ -1,5 +1,6 @@
 {% set colors = {
     'primary': function('hex2rgba', options.color_primary, 1),
+    'primary_hover': function('hex2rgba', options.color_primary, 0.5),
     'secondary': function('hex2rgba', options.color_secondary, 1),
     'secondary_compliant': function('hex2rgba', options.color_secondary, 0.5),
     'tertiary': function('hex2rgba', options.color_tertiary, 1),
@@ -11,11 +12,15 @@
             border-color: {{colors.primary}} !important;
         }
 
-        .categories, .cta-landing .cta-link, .header-menu-primary .current-menu-item, .header-menu-primary .current-page-ancestor, .footer-contact-social a:before, .hero h1, li.search, .special, .staff .contact a:link, .main p a:link {
+        .categories, .cta-landing .cta-link, .header-menu-primary .current-menu-item, .header-menu-primary .current-page-ancestor, .footer-contact-social a:before, .hero h1, li.search {
             color: {{colors.primary}} !important;
         }
 
-        .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary, .gform_button {
+        .navbar-primary a:link, .navbar-primary a:visited, .special:link, .special:visited, .main p a:link, .main p a:visited, .contact a:link, .contact a:visited { color: {{colors.primary}} !important; }
+
+        .navbar-primary a:active, .navbar-primary a:hover, .special:active, .special:hover, .main p a:active, .main p a:hover, .contact a:active, .contact a:hover { color: {{colors.primary_hover}} !important; }
+
+        .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary, .gform_button, .header .navbar-secondary {
             background: {{colors.primary}} !important;
         }
     {% endif %}
