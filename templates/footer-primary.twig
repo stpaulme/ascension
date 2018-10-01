@@ -1,6 +1,6 @@
 <div class="row footer-primary">
     <!-- Address -->
-    <div class="col-10 offset-1 col-md-4 offset-md-0 col-lg-3">
+    <div class="col-md-4 offset-md-0 col-lg-3">
         <div class="footer-primary-content footer-contact">
             <ul>
 
@@ -53,14 +53,14 @@
         </div>
     </div>
     <!-- Menu -->
-    <div class="col-10 offset-1 col-md-4 offset-md-0 col-lg-3">
+    <div class="col-md-4 offset-md-0 col-lg-3">
         <div class="footer-primary-content footer-primary-menu">
             {% include 'menu.twig' with {'menu': footer_primary.get_items,} %}
         </div>
     </div>
     <!-- Extra Menu -->
     {% if footer_secondary.get_items %}
-        <div class="col-10 offset-1 col-md-4 offset-md-0 col-lg-3">
+        <div class="col-md-4 offset-md-0 col-lg-3">
             <div class="footer-primary-content footer-secondary-menu">
                 {% include 'menu.twig' with {'menu': footer_secondary.get_items,} %}
             </div>
@@ -68,7 +68,7 @@
     {% endif %}
 
         <!-- Newsletter -->
-        <div class="col-10 offset-1 col-md-6 offset-md-0 {{footer_secondary.get_items ? 'col-lg-3' : 'col-lg-3 offset-lg-3' }}">
+        <div class="col-md-6 offset-md-0 {{footer_secondary.get_items ? 'col-lg-3' : 'col-lg-3 offset-lg-3' }}">
             <div class="footer-primary-content footer-newsletter">
                 <h4>Sign Up for Our Newsletter</h4>
                 {% filter shortcodes %}
@@ -77,7 +77,7 @@
             </div>
         </div>
         <!-- Logo -->
-        <div class="col-10 offset-1 col-md-5 offset-md-1 col-lg-3 offset-lg-9">
+        <div class="col-md-5 offset-md-1 col-lg-3 offset-lg-9">
             <div class="footer-logo">
                 {% if options.header_logo or options.footer_logo %}
                 
