@@ -21,20 +21,23 @@
 }
 
 .header .navbar-secondary {
+    color: #fff;
     font-size: 0.875rem;
     line-height: 1.1;
     margin: 0;
 }
-
-.header .navbar-secondary .nav-link, .nav-link:visited { color: rgba(255,255,255,1) !important; }
-
-.header .navbar-secondary .nav-link:active, .nav-link:hover { color: rgba(255,255,255,0.5) !important; }
 
 .header .navbar-primary {
     font-weight: bold;
     line-height: 1.2;
     margin: 35px 0 0 0;
 }
+
+.navbar-secondary a:link, .navbar-secondary a:visited { color: #fff; }
+.navbar-secondary a:active, .navbar-secondary a:hover { opacity: 1; }
+
+.navbar-primary a:link, .navbar-primary a:visited { color: $dark; }
+.navbar-primary a:active, .navbar-primary a:hover { opacity: 1 !important; }
 
 /*
 * — Sub Menu (Siblings) —

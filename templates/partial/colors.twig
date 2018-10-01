@@ -16,9 +16,15 @@
             color: {{colors.primary}} !important;
         }
 
-        .navbar-primary a:link, .navbar-primary a:visited, .special:link, .special:visited, .main p a:link, .main p a:visited, .contact a:link, .contact a:visited { color: {{colors.primary}} !important; }
+        .special:link, .special:visited, .main p a:link, .main p a:visited, .contact a:link, .contact a:visited { color: {{colors.primary}} !important; }
 
-        .navbar-primary a:active, .navbar-primary a:hover, .special:active, .special:hover, .main p a:active, .main p a:hover, .contact a:active, .contact a:hover { color: {{colors.primary_hover}} !important; }
+        .navbar-primary a:active, .navbar-primary a:hover {
+            color: {{colors.primary}} !important;
+        }
+
+        .special:active, .special:hover, .main p a:active, .main p a:hover, .contact a:active, .contact a:hover {
+            color: {{colors.primary_hover}} !important;
+        }
 
         .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary, .gform_button, .header .navbar-secondary {
             background: {{colors.primary}} !important;
