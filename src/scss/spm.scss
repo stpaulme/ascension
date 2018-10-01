@@ -347,9 +347,10 @@
 .sidebar-module li a:active, .sidebar-module li a:hover { opacity: 0.5; }
 .sidebar-module li a:before {
     color: $secondary;
-    content: '\25b6';
-    font-size: 0.5rem;
-    font-weight: normal;
+    content: '\f0da';
+    font-family: 'Font Awesome 5 Free';
+    font-size: 1rem;
+    font-weight: 900;
     margin-right: 5px;
     vertical-align: middle;
 }
@@ -455,22 +456,24 @@
 }
 .special-left:before, .special-right:after {
     color: $secondary;
-    font-size: 0.5rem;
-    font-weight: normal;
+    font-family: "Font Awesome 5 Free";
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1;
     vertical-align: middle;
 }
 .special-left:before {
-    content: '\25c0';
+    content: '\f0d9';
     margin-right: 5px;
 }
 .special-right:after {
-    content: '\25b6';
+    content: '\f0da';
     margin-left: 5px;
 }
 
 img[class^='wp-image'] {
     margin-bottom: 1.5rem;
-    max-width: 100%; 
+    max-width: 100%;
 }
 
 /*
