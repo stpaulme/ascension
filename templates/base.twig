@@ -61,7 +61,7 @@
 									<ul class="navbar-nav navbar-primary ml-auto">
 										{% for item in header_primary.get_items %}
 										<li class="nav-item">
-											<a class="nav-link" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
+											<a class="nav-link {{item.classes|join(' ')}}" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
 										</li>
 										{% endfor %}
 									</ul>
