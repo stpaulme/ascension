@@ -18,6 +18,15 @@
                         {% for child in item.children %}
                             <li class="nav-drop-item">
                                 <a href="{{ child.link }}">{{ child.title }}</a>
+									{% if child.children %}
+                    				<ul class="nav-drop">
+										{% for grandchild in child.children %}
+										<li class="nav-drop-item">
+											<a href="{{ grandchild.link }}">{{ grandchild.title }}</a>
+										</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
                             </li>
                         {% endfor %}
                     </ul>
