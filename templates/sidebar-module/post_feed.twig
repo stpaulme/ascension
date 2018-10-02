@@ -27,7 +27,7 @@
         {% for item in category.get_posts(args) %}
             <div class="sidebar-post-feed-event">
                 <!--
-                {{item|print_r}}
+                {{item.custom|print_r}}
                 -->
                 <span class="sidebar-post-feed-event-date">{{event_date}}</span>
                 <h4><a href="{{item.link}}">{{item.name}}</a></h4>
