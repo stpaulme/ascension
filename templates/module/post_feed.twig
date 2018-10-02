@@ -36,7 +36,9 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-12">
                         {% if item.thumbnail %}
-                        <img class="post-feed-post-thumbnail mw-100" src="{{item.thumbnail.src|resize(800,500)}}">
+                        <a href="{{item.link}}">
+                            <img class="post-feed-post-thumbnail mw-100" src="{{item.thumbnail.src|resize(800,500)}}">
+                        </a>
                         {% endif %}
                     </div>
                     <div class="col-md-6 col-lg-12">

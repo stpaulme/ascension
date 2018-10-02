@@ -5,7 +5,9 @@
     {% endif %}
 
     {% if module.post_object.thumbnail %}
-    <img class="sidebar-thumb" src="{{module.post_object.thumbnail.src|resize(800, 500, 'center')}}">
+    <a href="{{item.url}}">
+        <img class="sidebar-thumb" src="{{module.post_object.thumbnail.src|resize(800, 500, 'center')}}">
+    </a>
     {% endif %}
 
     <p class="sidebar-copy">{{module.post_object.preview.length(20).read_more('')}}</p>

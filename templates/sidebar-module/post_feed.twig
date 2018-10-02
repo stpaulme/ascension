@@ -37,7 +37,9 @@
             <div class="sidebar-post-feed-post">
 
                 {% if item.thumbnail %}
-                <img class="sidebar-thumb" src="{{item.thumbnail.src|resize(800, 500, 'center')}}">
+                <a href="{{item.link}}">
+                    <img class="sidebar-thumb" src="{{item.thumbnail.src|resize(800, 500, 'center')}}">
+                </a>
                 {% endif %}
 
                 <h4><a href="{{item.link}}">{{item.name}}</a></h4>
