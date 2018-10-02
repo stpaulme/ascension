@@ -127,21 +127,21 @@
 						{% endblock %}
 					</header>
 
-					<main class="main" role="main">
-						{% if menu_items %}
-						<div class="sub-menu d-none d-lg-block">
-							<div class="fluid-container">
-								<div class="col">
-									<ul>
-										{% for item in menu_items %}
-										<li class="{{item.id == current ? 'current-sub-menu-item'}}"><a href="{{item.link}}">{{item.name}}</a></li>
-										{% endfor %}
-									</ul>
-								</div>
+					{% if menu_items %}
+					<div class="sub-menu d-none d-lg-block">
+						<div class="fluid-container">
+							<div class="col">
+								<ul>
+									{% for item in menu_items %}
+									<li class="{{item.id == current ? 'current-sub-menu-item'}}"><a href="{{item.link}}">{{item.name}}</a></li>
+									{% endfor %}
+								</ul>
 							</div>
 						</div>
-						{% endif %}
+					</div>
+					{% endif %}
 
+					<main class="main" role="main">
 						{% if title %}
 						<div class="title-band">
 							<div class="container">
