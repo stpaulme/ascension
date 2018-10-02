@@ -520,7 +520,7 @@ img[class^='wp-image'] {
 .staff .contact li {
     display: inline;
 }
-.staff .contact li:last-child:before {
+.staff .contact li:nth-child(2):before {
     color: $secondary;
     content: '|';
 }
