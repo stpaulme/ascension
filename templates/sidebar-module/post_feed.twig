@@ -11,7 +11,7 @@
         {% set args = args|merge({
             'meta_key' : '_EventStartDate',
             'orderby' : 'meta_value',
-            'order' : 'ASC',
+            'order' : 'DESC',
         }) %}
         {% set event_start_date = item._EventStartDate|date("F d") %}
         {% set event_start_time = item._EventStartDate|date("g:i a") %}
