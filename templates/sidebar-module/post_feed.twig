@@ -23,7 +23,7 @@
         {% for item in category.get_posts(args) %}
             <div class="sidebar-post-feed-event">
                 <!--
-                {{item.custom|print_r}}
+                {{item|print_r}}
                 -->
                 {% set event_start_date = item.custom._tribe_modified_fields._EventStartDate|date("F d") %}
                 {% set event_start_time = item.custom._tribe_modified_fields._EventStartDate|date("g:i a") %}
