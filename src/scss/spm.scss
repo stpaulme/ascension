@@ -949,6 +949,10 @@ h2.post-title {
     margin-bottom: 10px;
 }
 @media (min-width: 768px) {
+    .hero img {
+        margin-bottom: 50px;
+    }
+
     .hero h1 {
         font-size: 3rem;
         line-height: 1;
@@ -1159,11 +1163,11 @@ h2.post-title {
 .blurb p { margin-bottom: 0; }
 
 @media (min-width: 768px) {
+    .overview h1 { font-size: 2.25rem; }
     .blurb { margin-bottom: 0; }
 }
 
 @media (min-width: 992px) {
-    .overview h1 { font-size: 2.25rem; }
     .overview-primary { margin-bottom: 0; }
     .blurb { margin-bottom: 30px; }
 }
