@@ -953,6 +953,10 @@ h2.post-title {
         font-size: 3rem;
         line-height: 1;
     }
+
+    .hero-landing {
+        margin-bottom: 40px;
+    }
 }
 
 /*
@@ -1159,6 +1163,7 @@ h2.post-title {
 .blurb p { margin-bottom: 0; }
 
 @media (min-width: 768px) {
+    .overview { margin-bottom: 40px; }
     .overview h1 { font-size: 2.25rem; }
     .blurb { margin-bottom: 0; }
 }
