@@ -585,13 +585,16 @@ img[class^='wp-image'] {
     max-width: 100%;
 }
 h3.post-title {
-    font-size: 1.125rem;
+    font-size: 1.3125rem;
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 10px;
 }
 h3.post-title a {
     color: inherit;
+}
+h3.post-title a:hover {
+    opacity: 0.5;
 }
 .post-preview {
     margin-bottom: 10px;
