@@ -923,10 +923,15 @@ h2.post-title {
 * — MODULE - Hero —
 */
 
+.hero-landing {
+    margin-bottom: 30px;
+}
 .hero img, .hero-landing img {
     clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 0);
-    margin-bottom: 20px;
     max-width: 100%;
+}
+.hero img {
+    margin-bottom: 20px;
 }
 .hero h1 {
     color: $primary;
