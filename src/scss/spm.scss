@@ -1246,12 +1246,22 @@ h2.post-title {
 
 .text h2, .text-landing h2 {
     border-left-color: $secondary;
+    margin-bottom: 15px !important;
+}
+
+.text h2 + h3, .text-landing h2 + h3 {
+    margin-top: 0 !important;
+}
+
+.text ul + h2, .text-landing ul + h2, .text ol + h2, .text-landing ol + h2, .text p + h2, .text-landing p + h2 {
+    margin-top: 40px !important;
 }
 
 .text h3, .text-landing h3 {
     font-size: 1.3125rem;
     font-weight: bold;
     line-height: 1.2;
+    margin-top: 30px !important;
     margin-bottom: 5px;
 }
 
