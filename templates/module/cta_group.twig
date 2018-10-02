@@ -28,7 +28,21 @@
                     <div class="row no-gutters cta-content">
                         <div class="col-10 offset-1">
                             {% if cta.heading %}
-                                <h3>{{cta.heading}}</h3>
+
+                                <h3>
+                                
+                                {% if cta.link %}
+                                    <a href="{{cta.link.url}}" target="{{cta.link.target}}">
+                                {% endif %}
+
+                                {{cta.heading}}
+
+                                {% if cta.link %}
+                                    </a>
+                                {% endif %}
+
+                                </h3>
+
                             {% endif %}
                         
                             {% if cta.link %}
