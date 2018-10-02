@@ -1,7 +1,7 @@
 var gulp    = require('gulp');
 var sass    = require('gulp-sass');
 var cssnano = require('gulp-cssnano');
-var sourcemaps = require('gulp-sourcemaps');
+// var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var concat  = require('gulp-concat');
 
@@ -26,7 +26,7 @@ var paths = {
 function style() {
     return gulp.src(paths.styles.src)
 
-        .pipe(sourcemaps.init())
+        // .pipe(sourcemaps.init())
 
             .pipe(sass()).on('error', sass.logError)
             .pipe(autoprefixer({
@@ -36,7 +36,7 @@ function style() {
             .pipe(cssnano())
             .pipe(concat('spm.css'))
 
-        .pipe(sourcemaps.write())
+        // .pipe(sourcemaps.write())
 
     .pipe(gulp.dest(paths.styles.dest))
 }
