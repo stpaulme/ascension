@@ -7,7 +7,6 @@
  } %}
 
 <style>
-    .navbar-light .navbar-nav .nav-link { rgba() }
     {% if colors.primary %}
         .cta-pair img, .current-sub-menu-item {
             border-color: {{colors.primary}} !important;
@@ -19,15 +18,19 @@
 
         .special:link, .special:visited, .main p a:link, .main p a:visited, .contact a:link, .contact a:visited { color: {{colors.primary}} !important; }
 
-        .navbar-primary a:active, .navbar-primary a:hover, .navbar-primary .current-menu-item, .navbar-primary .current-page-ancestor {
+        .navbar-primary a:active, .navbar-primary a:hover, .navbar-primary .current-menu-item, .navbar-primary .current-page-ancestor, .tribe-events-sub-nav a:link, .tribe-events-sub-nav a:visited, .tribe-events-month-event-title a:link, .tribe-events-month-event-title a:visited {
             color: {{colors.primary}} !important;
         }
 
-        .special:active, .special:hover, .main p a:active, .main p a:hover, .contact a:active, .contact a:hover {
+        .special:active, .special:hover, .main p a:active, .main p a:hover, .contact a:active, .contact a:hover, .tribe-events-sub-nav a:active, .tribe-events-sub-nav a:hover, .tribe-events-month-event-title a:active, .tribe-events-month-event-title a:hover {
             color: {{colors.primary_hover}} !important;
         }
 
         .cta-landing .cta-content, .footer-tertiary, .header-menu-secondary ul, .highlight, .title-band, .btn-primary, .gform_button, .header .navbar-secondary li {
+            background: {{colors.primary}} !important;
+        }
+
+        #tribe-events .tribe-events-button, #tribe-events .tribe-events-button:hover, #tribe_events_filters_wrapper input[type=submit], .tribe-events-button, .tribe-events-button.tribe-active:hover, .tribe-events-button.tribe-inactive, .tribe-events-button:hover, .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a, #tribe-bar-form .tribe-bar-submit input[type=submit] {
             background: {{colors.primary}} !important;
         }
     {% endif %}
