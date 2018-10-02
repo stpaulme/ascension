@@ -17,8 +17,8 @@
                 <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image mw-100">
                 {% endif %}
 
-                <div class="row no-gutters cta-content">
-                    <div class="col-10 offset-1">
+                <div class="row no-gutters cta-content {{cta.image ? 'cta-content-with-image'}}">
+                    <div class="{{cta.image ? 'col-10 offset-1' : 'col-12'}}">
                         {% if cta.heading %}
                         <h3>{{cta.heading}}</h3>
                         {% endif %}
