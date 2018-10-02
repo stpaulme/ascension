@@ -13,9 +13,9 @@
             'orderby' : 'meta_value',
             'order' : 'ASC',
         }) %}
-        {% set event_start_date = item._EventStartDate|date("F d") %}
-        {% set event_start_time = item._EventStartDate|date("g:i a") %}
-        {% set event_end_time = item._EventEndDate|date("g:i a") %}
+        {% set event_start_date = item.custom._tribe_modified_fields._EventStartDate|date("F d") %}
+        {% set event_start_time = item.custom._tribe_modified_fields._EventStartDate|date("g:i a") %}
+        {% set event_end_time = item.custom._tribe_modified_fields._EventEndDate|date("g:i a") %}
         {% set event_date = event_start_date~', '~event_start_time~'&ndash;'~event_end_time %}
     {% else %}
         {% set args = args|merge({
