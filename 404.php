@@ -10,4 +10,7 @@
  */
 
 $context = Timber::get_context();
+$post = new TimberPost();
+
+$context['title'] = 'Page Not Found';
 Timber::render( '404.twig', $context );
