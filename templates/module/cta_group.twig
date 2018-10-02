@@ -30,7 +30,7 @@
                             {% if cta.heading %}
 
                                 <h3>
-                                
+
                                 {% if cta.link %}
                                     <a href="{{cta.link.url}}" target="{{cta.link.target}}">
                                 {% endif %}
@@ -44,6 +44,11 @@
                                 </h3>
 
                             {% endif %}
+
+                            {% if cta.copy %}
+                                <p>{{cta.copy}}</p>
+                            {% endif %}
+
                         
                             {% if cta.link %}
                                 <a class="special special-right" href="{{cta.link.url}}" target="{{cta.link.target}}">{{cta.link.title}}</a>
