@@ -1,0 +1,16 @@
+<div class="module cta-landing">
+
+        <div class="row cta-band">
+            <div class="col-lg-7 offset-lg-5">
+                <img class="mw-100" src="{{TimberImage(module.image).src|resize(1456,920,'left')}}">
+            </div>
+            <div class="col-md-7 cta-content">
+                <h2>{{module.heading}}</h2>
+                <p class="cta-copy">{{module.copy}}</p>
+                {% if module.link %}
+                <a class="btn btn-light cta-link" href="{{module.link.url}}" target="{{module.link.target}}">{{module.link.title}}</a>
+                {% endif %}
+            </div>
+        </div>
+    
+</div>

@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 sidebar-content">
+                {% for module in post.get_field('modules') %}
+                    {% include 'partial/module.twig' %}
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-3 offset-lg-1 sidebar-sidebar">
+                {{sidebar}}
+            </div>
+        </div>
+    </div>
+    
+    {% if post.get_field('lower_modules') %}
+        {% for module in post.get_field('lower_modules') %}
+            {% include 'partial/module.twig' %}
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

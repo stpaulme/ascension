@@ -1,0 +1,82 @@
+{% set post_type = module.post_type %}
+{% set category = TimberTerm(module.category) %}
+{% set args = {
+    'numberposts' : module.max,
+} %}
+{% if post_type == 'events' %}
+    {% set args = args|merge({
+        'meta_key' : '_EventStartDate',
+        'orderby' : 'meta_value',
+        'order' : 'ASC',
+    }) %}
+{% else %}
+    {% set args = args|merge({
+        'order' : 'DESC',
+    }) %}
+{% endif %}
+
+<div class="module post-feed post-feed-{{post_type}}">
+
+    <div class="container">
+
+    {% if module.heading %}
+    <div class="row">
+        <div class="col">
+            <h2>{{module.heading}}</h2>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+    
+        {% for item in category.get_posts(args) %}
+            <div class="col-lg post-feed-item">
+
+            {% set blog_post %}
+                <div class="row">
+                    <div class="col-md-6 col-lg-12">
+                        {% if item.thumbnail %}
+                        <a href="{{item.link}}">
+                            <img class="post-feed-post-thumbnail mw-100" src="{{item.thumbnail.src|resize(800,500)}}">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="post-feed-post-meta">
+                            <ul class="categories">
+						    {% for category in item.categories %}
+						        <li><a href="{{category.link}}">{{category.name}}</a></li>
+						    {% endfor %}
+                            </ul>
+                        </div>
+                        <h3 class="post-feed-post-title"><a href="{{item.link}}">{{item.name}}</a></h3>
+                        <p class="post-feed-post-preview">{{item.preview.length(20).read_more('')}}</a></p>
+                        <a class="special special-right" href="{{item.link}}">Read More</a>
+                    </div>
+                </div>
+            {% endset %}
+
+            {% set event %}
+                {% set event_start_date = item._EventStartDate|date("F d") %}
+                {% set event_start_time = item._EventStartDate|date("g:i a") %}
+                {% set event_end_time = item._EventEndDate|date("g:i a") %}
+                {% set event_date = event_start_date~', '~event_start_time~'&ndash;'~event_end_time %}
+                <div class="card">
+                    <div class="card-body">
+                        <span class="post-feed-post-meta">{{event_date}}</span>
+                        <h3 class="post-feed-post-title"><a href="{{item.link}}">{{item.name}}</a></h3>
+                        <p class="post-feed-post-preview">{{item.preview.length(20).read_more('')}}</a></p>
+                    </div>
+                </div>
+            {% endset %}
+
+            {{post_type == 'events' ? event : blog_post}}
+
+            </div>
+        {% endfor %}
+    
+    </div>
+
+</div>
+            
+</div>

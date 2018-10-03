@@ -1,17 +1,17 @@
 {
     "key": "group_5b33e46a92877",
-    "title": "Post Type - Directory",
+    "title": "Post Type - Staff",
     "fields": [
         {
             "key": "field_5b33e4db0088c",
             "label": "Photo",
-            "name": "directory_photo",
+            "name": "photo",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -27,15 +27,34 @@
             "mime_types": ""
         },
         {
-            "key": "field_5b33e4db00887",
-            "label": "First Name",
-            "name": "directory_first_name",
+            "key": "field_5ba25d104fe37",
+            "label": "Title (Mr.\/Ms.)",
+            "name": "title_before_last_name",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "16",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "For teachers",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b33e4db00887",
+            "label": "First Name",
+            "name": "first_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "28",
                 "class": "",
                 "id": ""
             },
@@ -48,13 +67,13 @@
         {
             "key": "field_5b33e57aa2018",
             "label": "Last Name",
-            "name": "directory_last_name",
+            "name": "last_name",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "28",
                 "class": "",
                 "id": ""
             },
@@ -67,13 +86,13 @@
         {
             "key": "field_5b33e4db00888",
             "label": "Position",
-            "name": "directory_position",
+            "name": "position",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "28",
                 "class": "",
                 "id": ""
             },
@@ -84,37 +103,15 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b33e7bda4be6",
-            "label": "Department",
-            "name": "directory_department",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.3333",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "department",
-            "field_type": "select",
-            "allow_null": 0,
-            "add_term": 1,
-            "save_terms": 1,
-            "load_terms": 0,
-            "return_format": "object",
-            "multiple": 0
-        },
-        {
             "key": "field_5b33e4db00889",
             "label": "Email",
-            "name": "directory_email",
+            "name": "email",
             "type": "email",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -126,32 +123,53 @@
         {
             "key": "field_5b33e4db0088a",
             "label": "Phone",
-            "name": "directory_phone",
+            "name": "phone",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "555.555.5555",
             "prepend": "",
             "append": "",
             "maxlength": ""
         },
         {
+            "key": "field_5b9ff1b90cbec",
+            "label": "Extension",
+            "name": "extension",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": 123,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_5b33e4db0088b",
             "label": "Biography",
-            "name": "directory_biography",
+            "name": "biography",
             "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "66.6666",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -160,42 +178,6 @@
             "maxlength": "",
             "rows": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_5b33e4db0088d",
-            "label": "Social Media",
-            "name": "directory_social_media",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Add Channel",
-            "sub_fields": [
-                {
-                    "key": "field_5b33e4db0088e",
-                    "label": "Social Media Channel",
-                    "name": "directory_social_media_link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                }
-            ]
         }
     ],
     "location": [
@@ -203,13 +185,20 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "directory"
+                "value": "staff"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "leadership"
             }
         ]
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
@@ -230,5 +219,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1533667278
+    "modified": 1537555439
 }

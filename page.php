@@ -1,54 +1,32 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * To generate specific templates for your pages you can use:
+ * /mytheme/views/page-mypage.twig
+ * (which will still route through this PHP file)
+ * OR
+ * /mytheme/page-mypage.php
+ * (in which case you'll want to duplicate this file and save to the above path)
+ *
+ * Methods for TimberHelper can be found in the /lib sub-directory
+ *
+ * @package  WordPress
+ * @subpackage  Timber
+ * @since    Timber 0.1
+ */
 
-<section id="page-wrapper" class="site-content" role="document" aria-labelledby="page-title" aria-describedby="content">
+$context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
 
-    <header class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 id="page-title"><?php the_title(); ?></h1>
-                </div>
-            </div>
-        </div>
-    </header><!-- #page-header -->
+if ( is_page( 'Privacy Policy' ) ) {
+    $context['title'] = $post->name;
+}
 
-    <div class="container">
-        <div class="row">
-            <nav role="navigation" aria-label="Pages in <?php the_title(); ?>" class="page-nav col">
-                <ul>
-                    <?php
-                    wp_list_pages( array(
-                        'child_of' => $post->ID,
-                        'title_li' => '',
-                        'sort_column' => 'post_parent',
-                        'depth' => 2,
-
-                    ) );
-                    ?>
-                </ul>
-            </nav>
-        </div>
-        <div class="row">
-            <main id="content" role="main" class="page-content col-lg-7">
-                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <?php the_content(); ?>
-                <?php endwhile; else : ?>
-                    <p><?php _e( 'Sorry, nothing matched your query.' ); ?></p>
-                <?php endif; ?>
-            </main>
-            <aside role="complementary" class="page-sidebar col-lg-4 offset-lg-1">
-                <?php get_template_part( 'spm-layouts/layout', 'secondary' ); ?>
-            </aside>
-        </div>
-    </div>
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <?php get_template_part( 'spm-layouts/layout', 'below' ); ?>
-            </div>
-        </div>
-    </footer><!-- #page-footer -->
-
-</section>
-<?php get_footer(); ?>
+Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

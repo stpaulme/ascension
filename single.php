@@ -1,42 +1,25 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The Template for displaying all single posts
+ *
+ * Methods for TimberHelper can be found in the /lib sub-directory
+ *
+ * @package  WordPress
+ * @subpackage  Timber
+ * @since    Timber 0.1
+ */
 
-<section id="post-wrapper" class="site-content" aria-labelledby="post-title" aria-describedby="content">  
-    
-    <?php get_template_part('spm-modules/header', 'page'); ?>
+$context = Timber::get_context();
+$post = Timber::query_post();
+$context['post'] = $post;
+$context['title'] = 'News';
 
-    <div class="content-wrapper">
-    
-        <div class="container">
-            <div class="row">
-                <main id="content" role="main" class="post-content col-md-7">
-                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                    <?php the_content(); ?>
-                    <?php endwhile; else : ?>
-                        <p><?php _e( 'Sorry, nothing matched your query.' ); ?></p>
-                    <?php endif; ?>
-                </main>
-                <aside class="post-sidebar col-md-4 offset-md-1">
-                    <h3>News Categories</h3>
-                    <ul>
-                        <?php wp_list_categories( array(
-                            'orderby' => 'name',
-                            'title_li' => ''
-                        ) ); ?> 
-                    </ul>
-                </aside>
-            </div>
-        </div>
+$sidebar_context = array();
+$sidebar_context['categories'] = Timber::get_terms('category', array( 'hide_empty' => true ));
+$context['sidebar'] = Timber::get_sidebar('sidebar-news.twig', $sidebar_context);
 
-    <footer class="post-footer">
-        <div class="container">
-            <div class="row">
-                <?php get_template_part( 'spm-layouts/layout', 'below' ); ?>
-            </div>
-        </div>
-    </footer><!-- #page-footer -->
-                        </div>
-
-</section>
-
-
-<?php get_footer(); ?>
+if ( post_password_required( $post->ID ) ) {
+	Timber::render( 'single-password.twig', $context );
+} else {
+	Timber::render( array( 'single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig' ), $context );
+}

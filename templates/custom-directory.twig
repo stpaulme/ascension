@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+
+    {% if post.copy %}
+    <div class="col-12">
+    <p class="description">{{post.copy}}</p>
+    </div>
+    {% endif %}
+
+    {% if post.slug == 'staff' or post.slug == 'leadership' %}
+    <div class="col-12">
+    {% endif %}
+
+    {% for member in members %}
+        {% set photo = member.get_field('photo') %}
+
+            {% if member.post_type == 'board' %}
+            <div class="col-md-4 col-lg-3 board">
+                {% if photo %}
+                <div class="row">
+                    <div class="col-5 col-md-12">
+                        <img src="{{TimberImage(photo).src|resize(400,400)}}" />
+                    </div>
+                </div>
+                {% endif %}
+                
+                <h3>{{member.name}}</h3>
+                <p class="position">{{member.position}}</p>
+            </div>
+            {% else %}
+            <div class="row staff">
+                {% if photo %}
+                <div class="col-md-4 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 col-md-12">
+                            <img src="{{TimberImage(photo).src|resize(400,400)}}">
+                        </div>
+                    </div>	
+                </div>
+                {% endif %}
+
+                <div class="col-md-7">
+                    <h3>{{member.name}}</h3>
+
+                    {% if member.position %}
+                    <p class="position">{{member.position}}</p>
+                    {% endif %}
+
+                    {% if member.phone or member.email %}
+                    <ul class="contact">
+                        {% if member.phone %}
+                        <li>
+                            <a href="tel:{{member.phone}}{{member.extension ? ',' ~ member.extension}}">
+                                {{member.phone}}{{member.extension ? ', ext. ' ~ member.extension}}
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if member.email %}
+                        <li>
+                            <a href="mailto:{{member.email}}">Email {{member.title_before_last_name ? member.title_before_last_name~' '~member.last_name : member.first_name}}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+
+                    {% if member.biography %}
+                    <p class="bio">{{member.biography}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+    {% endfor %}
+
+    {% if post.slug == 'staff' or post.slug == 'leadership' %}
+    </div>
+    {% endif %}
+
+    </div> <!-- /.row -->
+
+</div> <!-- /.container -->
+
+{% endblock %}

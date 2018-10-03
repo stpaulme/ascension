@@ -1,0 +1,169 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+	<div id="page">
+		<nav id="mobile-menu">
+			<ul>
+				{% for item in mobile_menu.get_items %}
+				<li>
+				<a href="{{item.url}}" target="{{item.target}}">{{item.name}}</a>
+				{% if item.children %}
+                    <ul class="nav-drop">
+                        {% for child in item.children %}
+                            <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+									{% if child.children %}
+                    				<ul class="nav-drop">
+										{% for grandchild in child.children %}
+										<li class="nav-drop-item">
+											<a href="{{ grandchild.link }}">{{ grandchild.title }}</a>
+										</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</nav>
+
+		{% include 'partial/colors.twig' %}
+
+		{% if options.announcement %}
+		<div class="alert alert-dismissible fade show" role="alert">
+			<p><span>Announcement:</span> {{options.announcement}}</p>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		{% endif %}
+
+					<header class="header" role="banner">
+						{% block header %}
+
+								
+
+									<div class="row">
+
+										<div class="col-8 col-md-4 col-lg-3 col-xl-2">
+											{% set logo = TimberImage(options.header_logo) %} 
+											<a href="{{site.url}}" rel="home" title="{{site.title}}">
+												<img alt="{{logo.alt}}" src="{{logo.src}}" class="header-logo">
+											</a>
+										</div>
+
+										
+										<div class="d-none d-lg-block col-lg-9 col-xl-10 navbars">
+
+											<div class="h-100 d-flex flex-column justify-content-between">				
+												<ul class="navbar-secondary">
+													<li class="search">
+														<form class="form-inline" action="{{site.url}}" id="searchform" method="get" role="search"  >
+															<input class="form-control form-control-sm" placeholder="Search..." type="text" value="" name="s" id="s" aria-label="Search">
+														</form>
+													{% for item in header_secondary.get_items %}
+													<li class="navbar-secondary-link">
+														<a class="{{item.classes|join(' ')}}" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
+													
+													{% endfor %}
+												</ul>
+												
+												<ul class="navbar-primary">
+													{% for item in header_primary.get_items %}
+													<li>
+														<a class="{{item.classes|join(' ')}}" href="{{item.link}}" target="{{item.target}}">{{item.name}}</a>
+													
+													{% endfor %}
+												</ul>
+											</div>
+
+										</div>
+
+										<div class="col-4 col-md-8 d-lg-none text-right">
+											<div class="mobile-menu-button-container">
+												<a id="mobile-menu-button" href="#">
+													{% if 'Academy' in site.name %}
+														<img src="../wp-content/themes/ascension/img/academy_menu.svg">
+													{% endif %}
+
+													{% if 'Ascension Catholic School' in site.name %}
+														<img src="../wp-content/themes/ascension/img/ascension_menu.svg">
+													{% endif %}
+
+													{% if 'Paul' in site.name %}
+														<img src="../wp-content/themes/ascension/img/jpII_menu.svg">
+													{% endif %}
+
+													{% if 'Church' in site.name %}
+														<img src="../wp-content/themes/ascension/img/parish_menu.svg">
+													{% endif %}
+
+													{% if 'Claver' in site.name %}
+														<img src="../wp-content/themes/ascension/img/spc_menu.svg">
+													{% endif %}
+												</a>
+											</div>
+										</div>
+									
+									</div>
+
+							
+
+						{% endblock %}
+					</header>
+
+					{% if menu_items %}
+					<div class="sub-menu d-none d-lg-block">
+						<div class="fluid-container">
+							<div class="col">
+								<ul>
+									{% for item in menu_items %}
+									<li class="{{item.id == current ? 'current-sub-menu-item'}}"><a href="{{item.link}}">{{item.name}}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+
+					<main class="main" role="main">
+						{% if title %}
+						<div class="title-band">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-6">
+										<h1 class="title">{{title}}</h1>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+
+						{% block content %}
+						Sorry, no content
+						{% endblock %}
+						
+					</main>
+
+					{% block footer %}
+						<footer class="footer" role="contentinfo">
+							<div class="container">
+								{% include 'footer-primary.twig' %}
+							</div>
+							{% include 'footer-tertiary.twig' %}
+						</footer>
+						{{ function('wp_footer') }}
+					{% endblock %}
+				
+		</div>
+	</body>
+</html>

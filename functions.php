@@ -1,418 +1,264 @@
 <?php
 
+if ( ! class_exists( 'Timber' ) ) {
+	add_action( 'admin_notices', function() {
+		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php') ) . '</a></p></div>';
+	});
+	
+	add_filter('template_include', function($template) {
+		return get_stylesheet_directory() . '/src/no-timber.html';
+	});
+	
+	return;
+}
 
-//////////////////////////////////////////////
-//  DEFAULT SPM_X SUPPORTS
-//////////////////////////////////////////////
+Timber::$dirname = array('templates', 'views');
 
-if ( ! function_exists( 'spm_x_setup' ) ) :
+class StarterSite extends TimberSite {
 
-	function spm_x_setup() {
-
-
-        //////////////////////////////////////////////
-        //  LANGUAGE TRANSLATION
-        //////////////////////////////////////////////
-        load_theme_textdomain( 'spm_x', get_template_directory() . '/languages' );
-
-
-        //////////////////////////////////////////////
-        //  DOCUMENT TITLE HANDLER
-        //////////////////////////////////////////////
-        add_theme_support( 'title-tag' );
-
-
-        //////////////////////////////////////////////
-        //  POST THUMBNAILS
-        //////////////////////////////////////////////
-        add_theme_support('post-thumbnails');
-
-
-        //////////////////////////////////////////////
-        //  THUMBNAIL SIZES
-        //////////////////////////////////////////////
-        add_image_size( 'square-mobile', 768, 768, array( 'center', 'center' ) );
-        add_image_size( 'square-tablet', 1024, 1024, array( 'center', 'center' ) );
-        add_image_size( 'square-desktop', 1200, 1200, array( 'center', 'center' ) );
-        add_image_size( 'landscape-mobile', 768, 512, array( 'center', 'center' ) );
-        add_image_size( 'landscape-tablet', 1280, 853, array( 'center', 'center' ) );
-        add_image_size( 'landscape-desktop', 2560, 1707, array( 'center', 'center' ) );
-        add_image_size( 'portrait-mobile', 768, 1152, array( 'top', 'center' ) );
-        add_image_size( 'portrait-tablet', 1024, 1536, array( 'top', 'center' ) );
-        add_image_size( 'portrait-desktop', 2560, 3840, array( 'top', 'center' ) );
-        add_image_size( 'widescreen-mobile', 768, 329, array( 'center', 'center' ) );
-        add_image_size( 'widescreen-tablet', 1024, 438, array( 'center', 'center' ) );
-        add_image_size( 'widescreen-desktop', 2560, 1097, array( 'center', 'center' ) );
-
-
-        //////////////////////////////////////////////
-        //  EXCERPTS FOR PAGES
-        //////////////////////////////////////////////
-        add_action( 'init', 'spm_excerpts' );
-        function spm_excerpts() {
-            add_post_type_support( 'page', 'excerpt' );
-            add_post_type_support( 'sample', 'excerpt' );
-        }
-
-        //////////////////////////////////////////////
-        //  REGISTER MENUS
-        //////////////////////////////////////////////
-        register_nav_menus( array(
-            'mobile' => esc_html__( 'Mobile Menu', 'spm_x' ),
-            'header-primary' => esc_html__( 'Primary', 'spm_x' ),
-            'header-secondary' => esc_html__( 'Secondary', 'spm_x' ),
-            'about' => esc_html__( 'About', 'spm_x' ),
-            'footer-primary' => esc_html__( 'Footer Primary', 'spm_x' ),
-            'footer-secondary' => esc_html__( 'Footer Secondary', 'spm_x' ),
-        ) );
-
-        //////////////////////////////////////////////
-        //  HTML5 SUPPORT
-        //////////////////////////////////////////////
-        add_theme_support( 'html5', array(
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-        ) );
-
-
-        //////////////////////////////////////////////
-        //  SELECTIVE REFRESH FOR WIDGETS
-        //////////////////////////////////////////////
-		add_theme_support( 'customize-selective-refresh-widgets' );
+	function __construct() {
+		add_theme_support( 'post-formats' );
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+		add_filter( 'pre_get_posts', array( $this, 'spm_custom_archives' ) );
+		add_filter( 'acf/settings/show_admin', array( $this, 'spm_hide_acf' ) );
+		add_filter( 'upload_mimes', array( $this, 'cc_mime_types' ) );
+		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+		add_action( 'init', array( $this, 'spm_create_options_pages' ) );
+		add_action( 'init', array( $this, 'spm_register_nav_menus' ) );
+		add_action( 'init', array( $this, 'spm_register_post_types' ) );
+		add_action( 'init', array( $this, 'spm_register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'spm_enqueue' ) );
+		
+		parent::__construct();
 	}
-endif;
-add_action( 'after_setup_theme', 'spm_x_setup' );
 
-
-
-
-//////////////////////////////////////////////
-//  LEGACY CONTENT WIDTH VARIABLE
-//////////////////////////////////////////////
-
-function spm_x_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'spm_x_content_width', 1200 );
-}
-add_action( 'after_setup_theme', 'spm_x_content_width', 0 );
-
-//////////////////////////////////////////////
-// REMOVE EMOJIS
-//////////////////////////////////////////////
-remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-remove_action( 'wp_print_styles', 'print_emoji_styles' );
-remove_action( 'admin_print_styles', 'print_emoji_styles' );
-
-//////////////////////////////////////////////
-// REGISTER SIDEBAR WIDGETS
-//////////////////////////////////////////////
-function spm_x_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'About Sidebar', 'spm_x' ),
-		'id'            => 'sidebar-about',
-		'description'   => esc_html__( 'Add widgets here.', 'spm_x' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	) );
-    register_sidebar( array(
-		'name'          => esc_html__( 'Services Sidebar', 'spm_x' ),
-		'id'            => 'sidebar-services',
-		'description'   => esc_html__( 'Add widgets here.', 'spm_x' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	) );
-
-
-}
-add_action( 'widgets_init', 'spm_x_widgets_init' );
-
-//////////////////////////////////////////////
-// REGISTER CUSTOM POST TYPES
-//////////////////////////////////////////////
-
-///////
-// Events Off/On
-///////
-if (get_field('global_events', 'option')) {
-	function cptui_register_my_cpts_events() {
-		$labels = array(
-			"name" => __( "Events", "" ),
-			"singular_name" => __( "Event", "" ),
-		);
-		$args = array(
-			"label" => __( "Events", "" ),
-			"labels" => $labels,
-			"description" => "",
-			"public" => true,
-			"publicly_queryable" => true,
-			"show_ui" => true,
-			"show_in_rest" => false,
-			"rest_base" => "",
-			"has_archive" => false,
-			"show_in_menu" => true,
-			"show_in_nav_menus" => true,
-			"exclude_from_search" => false,
-			"capability_type" => "post",
-			"map_meta_cap" => true,
-			"hierarchical" => false,
-			"rewrite" => array( "slug" => "events", "with_front" => true ),
-			"query_var" => true,
-			"menu_position" => 20,
-			"supports" => array( "title", "editor", "thumbnail", "excerpt" ),
-		);
-
-		register_post_type( "events", $args );
+	function spm_hide_acf() {
+		$site_url = get_bloginfo('url');
+		
+		if ( strpos( $site_url, '.local' ) !== false ) :
+			// .local is in the URL; show the ACF menu item
+			return true;
+		else :
+			// .local is not in the URL; hide the ACF menu item
+			return false;
+		endif;
 	}
-	add_action( 'init', 'cptui_register_my_cpts_events' );
-}
 
-	///////
-	// Directory Off/On
-	///////
-	if (get_field('global_directory', 'option')) {
-		function cptui_register_my_cpts_directory() {
-			$labels = array(
-				"name" => __( "Directory", "" ),
-				"singular_name" => __( "Directory", "" ),
-			);
-			$args = array(
-				"label" => __( "Directory", "" ),
-				"labels" => $labels,
-				"description" => "",
-				"public" => true,
-				"publicly_queryable" => true,
-				"show_ui" => true,
-				"show_in_rest" => false,
-				"rest_base" => "",
-				"has_archive" => false,
-				"show_in_menu" => true,
-				"show_in_nav_menus" => true,
-				"exclude_from_search" => false,
-				"capability_type" => "post",
-				"map_meta_cap" => true,
-				"hierarchical" => false,
-				"rewrite" => array( "slug" => "directory", "with_front" => false ),
-				"query_var" => true,
-				"menu_position" => 22,
-				"supports" => array( "title", "editor", "thumbnail", "excerpt", "comments", "revisions", "author" ),
-			);
-			register_post_type( "directory", $args );
+	function cc_mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+
+	function spm_create_options_pages() {
+		//this is where you can create ACF options pages
+		if( function_exists('acf_add_options_page') ) {
+			acf_add_options_page();
 		}
-		add_action( 'init', 'cptui_register_my_cpts_directory' );
-		// Add Services Categories
-		function cptui_register_my_taxes_directory_category() {
-			$labels = array(
-				"name" => __( "Departments", "" ),
-				"singular_name" => __( "Departments", "" ),
-			);
-			$args = array(
-				"label" => __( "Dpeartments", "" ),
-				"labels" => $labels,
-				"public" => true,
-				"hierarchical" => false,
-				"label" => "Departments",
-				"show_ui" => true,
-				"show_in_menu" => true,
-				"show_in_nav_menus" => true,
-				"query_var" => true,
-				"rewrite" => array( 'slug' => "department", 'with_front' => false, ),
-				"show_admin_column" => true,
-				"show_in_rest" => false,
-				"rest_base" => "department",
-				"show_in_quick_edit" => true,
-			);
-				register_taxonomy( "department", array( "directory" ), $args );
+	}
+
+	function spm_register_nav_menus() {
+		//this is where you can register custom nav menus
+		register_nav_menus( array(
+			'header_primary' => 'Header Primary',
+			'header_secondary' => 'Header Secondary',
+			'footer_primary' => 'Footer Primary',
+			'footer_secondary' => 'Footer Secondary',
+			'mobile_menu' => 'Mobile Menu',
+		) );
+	}
+
+	function spm_register_post_types() {
+		//this is where you can register custom post types
+		register_post_type( 'board', array(
+			'labels' => array(
+				'name' => __( 'Board' ),
+				'singular_name' => __( 'Board' )
+			),
+			'public' => true,
+			'publicly_queryable'  => false,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-groups',
+			'has_archive' => false,
+			'rewrite' => array( 'slug' => 'about/board' ),
+			
+		) );
+
+		register_post_type( 'leadership', array(
+			'labels' => array(
+				'name' => __( 'Leadership' ),
+				'singular_name' => __( 'Leadership' )
+			),
+			'public' => true,
+			'publicly_queryable'  => false,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-groups',
+			'has_archive' => false,
+			'rewrite' => array( 'slug' => 'about/leadership' ),
+		) );
+
+		register_post_type( 'staff', array(
+			'labels' => array(
+				'name' => __( 'Staff' ),
+				'singular_name' => __( 'Staff' )
+			),
+			'public' => true,
+			'publicly_queryable'  => false,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-groups',
+			'has_archive' => false,
+			'rewrite' => array( 'slug' => 'about/staff' ),
+		) );
+
+			register_post_type( 'homily', array(
+				'labels' => array(
+					'name' => __( 'Homilies' ),
+					'singular_name' => __( 'Homily' )
+				),
+				'public' => true,
+				'publicly_queryable'  => true,
+				'menu_position' => 5,
+				'has_archive' => false,
+				'rewrite' => array( 'slug' => 'liturgy/homilies' ),
+			) );
+	
+
+	}
+
+	function spm_register_taxonomies() {
+		//this is where you can register custom taxonomies
+		$labels = array(
+			"name" => __( "Departments", "" ),
+			"singular_name" => __( "Department", "" ),
+		);
+	
+		$args = array(
+			"label" => __( "Departments", "" ),
+			"labels" => $labels,
+			"public" => true,
+			"hierarchical" => false,
+			"label" => "Departments",
+			"show_ui" => true,
+			"show_in_menu" => true,
+			"show_in_nav_menus" => true,
+			"query_var" => true,
+			"rewrite" => array( 'slug' => 'department', 'with_front' => true, ),
+			"show_admin_column" => false,
+			"show_in_rest" => false,
+			"rest_base" => "department",
+			"show_in_quick_edit" => false,
+		);
+		//register_taxonomy( "department", array( "staff" ), $args );
+	
+		$labels = array(
+			"name" => __( "Grades", "" ),
+			"singular_name" => __( "Grade", "" ),
+		);
+	
+		$args = array(
+			"label" => __( "Grades", "" ),
+			"labels" => $labels,
+			"public" => true,
+			"hierarchical" => false,
+			"label" => "Grades",
+			"show_ui" => true,
+			"show_in_menu" => true,
+			"show_in_nav_menus" => true,
+			"query_var" => true,
+			"rewrite" => array( 'slug' => 'grade', 'with_front' => true, ),
+			"show_admin_column" => false,
+			"show_in_rest" => false,
+			"rest_base" => "grade",
+			"show_in_quick_edit" => false,
+		);
+		//register_taxonomy( "grade", array( "staff" ), $args );
+
+	}
+
+	function spm_enqueue() {
+		//this is where you can enqueue styles and scripts
+		wp_enqueue_style( 'spm', get_template_directory_uri() . '/src/css/spm.css' );
+		wp_enqueue_style( 'roboto', '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700,700i' );
+		wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.3.1/css/all.css' );
+
+		wp_enqueue_script( 'popper', get_template_directory_uri() . '/src/js/popper.min.js' );
+		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/src/js/bootstrap.min.js', array( 'jquery' ) );
+		
+	}
+
+	function add_to_context( $context ) {
+		$context['header_primary'] = new TimberMenu( 'header_primary' );
+		$context['header_secondary'] = new TimberMenu( 'header_secondary' );
+		$context['footer_primary'] = new TimberMenu( 'footer_primary' );
+		$context['footer_secondary'] = new TimberMenu( 'footer_secondary' );
+		$context['mobile_menu'] = new TimberMenu( 'mobile_menu' );
+		$context['options'] = get_fields('option');
+
+		function hex2rgba($color, $opacity = false) {
+ 
+			$default = 'rgb(0,0,0)';
+		 
+			//Return default if no color provided
+			if(empty($color))
+				  return $default; 
+		 
+			//Sanitize $color if "#" is provided 
+			if ($color[0] == '#' ) {
+				$color = substr( $color, 1 );
 			}
-		add_action( 'init', 'cptui_register_my_taxes_directory_category' );
+		 
+			//Check if color has 6 or 3 characters and get values
+			if (strlen($color) == 6) {
+					$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+			} elseif ( strlen( $color ) == 3 ) {
+					$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+			} else {
+					return $default;
+			}
+		 
+			//Convert hexadec to rgb
+			$rgb =  array_map('hexdec', $hex);
+		 
+			//Check if opacity is set(rgba or rgb)
+			if($opacity) {
+				if(abs($opacity) > 1)
+					$opacity = 1.0;
+				$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+			} else {
+				$output = 'rgb('.implode(",",$rgb).')';
+			}
+		 
+			//Return rgb(a) color string
+			return $output;
+		}
+		
+		$context['random_color'] = hex2rgba('#ff013f', 0.5);
 
+		function spm_get_form_id( $form_title ) {
+			$forms = GFAPI::get_forms();
+			$form_id = false;
+
+			foreach ( $forms as $index=>$form ) :
+				if ( $form['title'] == $form_title ) :
+					$form_id = $form['id'];
+				endif;
+			endforeach;
+
+			return $form_id;
+		}
+
+		$context['newsletter'] = spm_get_form_id('Newsletter');
+		$context['site'] = $this;
+		return $context;
 	}
 
-///////
-// Courses Off/On
-///////
-if (get_field('global_courses', 'option')) {
-	function cptui_register_my_cpts_courses() {
-		$labels = array(
-			"name" => __( "Courses", "" ),
-			"singular_name" => __( "Course", "" ),
-		);
-		$args = array(
-			"label" => __( "Courses", "" ),
-			"labels" => $labels,
-			"description" => "",
-			"public" => true,
-			"publicly_queryable" => true,
-			"show_ui" => true,
-			"show_in_rest" => false,
-			"rest_base" => "",
-			"has_archive" => false,
-			"show_in_menu" => true,
-			"show_in_nav_menus" => true,
-			"exclude_from_search" => false,
-			"capability_type" => "post",
-			"map_meta_cap" => true,
-			"hierarchical" => false,
-			"rewrite" => array( "slug" => "courses", "with_front" => false ),
-			"query_var" => true,
-			"menu_position" => 22,
-			"supports" => array( "title", "editor", "thumbnail", "excerpt", "comments", "revisions", "author" ),
-		);
-		register_post_type( "courses", $args );
+	function add_to_twig( $twig ) {
+		/* this is where you can add your own functions to twig */
+		$twig->addExtension( new Twig_Extension_StringLoader() );
+		return $twig;
 	}
-	add_action( 'init', 'cptui_register_my_cpts_courses' );
+
 }
 
-///////
-// Resources Off/On
-///////
-if (get_field('global_resources', 'option')) {
-	function cptui_register_my_cpts_resources() {
-		$labels = array(
-			"name" => __( "Resources", "" ),
-			"singular_name" => __( "Resource", "" ),
-		);
-		$args = array(
-			"label" => __( "Resources", "" ),
-			"labels" => $labels,
-			"description" => "",
-			"public" => true,
-			"publicly_queryable" => true,
-			"show_ui" => true,
-			"show_in_rest" => false,
-			"rest_base" => "",
-			"has_archive" => false,
-			"show_in_menu" => true,
-			"show_in_nav_menus" => true,
-			"exclude_from_search" => false,
-			"capability_type" => "post",
-			"map_meta_cap" => true,
-			"hierarchical" => false,
-			"rewrite" => array( "slug" => "resources", "with_front" => false ),
-			"query_var" => true,
-			"menu_position" => 22,
-			"supports" => array( "title", "editor", "thumbnail", "excerpt", "comments", "revisions", "author" ),
-		);
-		register_post_type( "resources", $args );
-	}
-	add_action( 'init', 'cptui_register_my_cpts_resources' );
-}
-
-///////
-// Resources Off/On
-///////
-if (get_field('global_stories', 'option')) {
-	function cptui_register_my_cpts_stories() {
-		$labels = array(
-			"name" => __( "Stories", "" ),
-			"singular_name" => __( "Story", "" ),
-		);
-		$args = array(
-			"label" => __( "Stories", "" ),
-			"labels" => $labels,
-			"description" => "",
-			"public" => true,
-			"publicly_queryable" => true,
-			"show_ui" => true,
-			"show_in_rest" => false,
-			"rest_base" => "",
-			"has_archive" => false,
-			"show_in_menu" => true,
-			"show_in_nav_menus" => true,
-			"exclude_from_search" => false,
-			"capability_type" => "post",
-			"map_meta_cap" => true,
-			"hierarchical" => false,
-			"rewrite" => array( "slug" => "stories", "with_front" => false ),
-			"query_var" => true,
-			"menu_position" => 22,
-			"supports" => array( "title", "editor", "thumbnail", "excerpt", "comments", "revisions", "author" ),
-		);
-		register_post_type( "stories", $args );
-	}
-	add_action( 'init', 'cptui_register_my_cpts_stories' );
-}
-
-///////
-// Resources Off/On
-///////
-if (get_field('global_volunteers', 'option')) {
-	function cptui_register_my_cpts_volunteers() {
-		$labels = array(
-			"name" => __( "Volunteers", "" ),
-			"singular_name" => __( "Opportunity", "" ),
-		);
-		$args = array(
-			"label" => __( "Volunteers", "" ),
-			"labels" => $labels,
-			"description" => "",
-			"public" => true,
-			"publicly_queryable" => true,
-			"show_ui" => true,
-			"show_in_rest" => false,
-			"rest_base" => "",
-			"has_archive" => false,
-			"show_in_menu" => true,
-			"show_in_nav_menus" => true,
-			"exclude_from_search" => false,
-			"capability_type" => "post",
-			"map_meta_cap" => true,
-			"hierarchical" => false,
-			"rewrite" => array( "slug" => "volunteers", "with_front" => false ),
-			"query_var" => true,
-			"menu_position" => 22,
-			"supports" => array( "title", "editor", "thumbnail", "excerpt", "comments", "revisions", "author" ),
-		);
-		register_post_type( "volunteers", $args );
-	}
-	add_action( 'init', 'cptui_register_my_cpts_volunteers' );
-}
-
-//////////////////////////////////////////////
-//  Enqueue Scripts and Styles
-//////////////////////////////////////////////
-function spm_x_scripts() {
-    wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.css' );
-    wp_enqueue_style( 'style-css', get_stylesheet_uri() );
-    wp_enqueue_style( 'style-prototype-css', get_template_directory_uri() . '/style-prototype.css' );
-    wp_enqueue_style( 'default-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,400i,500,700' );
-    wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array(), '4.0.3', true );
-    wp_enqueue_script( 'fontawesome', '//use.fontawesome.com/85cfa098d4.js', array(), '3.3.6', true );
-    wp_enqueue_script( 'master', get_template_directory_uri() . '/js/master.js', array(), '1.2', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'spm_x_scripts' );
-
-
-//////////////////////////////////////////////
-//  Add Custom Filters
-//////////////////////////////////////////////
-require get_template_directory() . '/spm-filters/autoversion.php';
-require get_template_directory() . '/spm-filters/svg-upload.php';
-require get_template_directory() . '/spm-filters/remove-protected.php';
-require get_template_directory() . '/spm-filters/hfeed.php';
-require get_template_directory() . '/spm-filters/excerpt-length.php';
-require get_template_directory() . '/spm-filters/archive-titles.php';
-require get_template_directory() . '/spm-filters/body-classes.php';
-require get_template_directory() . '/spm-filters/acf-options.php';
-require get_template_directory() . '/spm-filters/trim-excerpt.php';
-require get_template_directory() . '/spm-filters/hide-acf-admin.php';
-require get_template_directory() . '/spm-filters/acf-load-post-type-choices.php';
-
-add_filter( 'github_updater_set_options',
-	function () {
-		return array( 
-			'github_access_token' => '18164438e3ca4c3538340185e854c88f71d45b50',
-		);
-	} );
-
-
+new StarterSite();

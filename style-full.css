@@ -1,0 +1,36 @@
+/*
+ * Theme Name: Ascension
+ * Author: Saint Paul Media
+*/
+
+
+.footer-newsletter label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.footer-newsletter input[type=text] {
+    border: 1px solid #D5D4D6;
+    border-radius: 100px;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.footer-newsletter input[type=submit] {
+    background-color: #BF1010;
+    border: none;
+    color: #fff;
+    float: right;
+    font-weight: bold;
+    line-height: 1;
+    padding: 10px;
+}

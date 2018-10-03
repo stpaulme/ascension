@@ -1,0 +1,26 @@
+<div class="row footer-secondary">
+
+    <div class="col-10 offset-1 col-md-5 offset-md-0 col-lg footer-newsletter">
+        <h4>Sign Up for Our Newsletter</h4>
+        {% filter shortcodes %}
+        [gravityform id={{newsletter}} title=false description=false]
+        {% endfilter %}
+    </div>
+
+    <div class="col-10 offset-1 col-md-5 offset-md-2 col-lg-3 footer-logo">
+        {% if options.header_logo or options.footer_logo %}
+        
+            {% if options.footer_logo %}
+                {% set logo = TimberImage(options.footer_logo) %}
+            {% else %}
+                {% set logo = TimberImage(options.header_logo) %} 
+            {% endif %}
+
+            <a href="{{site.link}}"><img src="{{logo.src}}" alt="{{logo.alt}}"></a>
+
+        {% endif %}
+    </div>
+
+
+
+</div>

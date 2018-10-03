@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-lg-7 sidebar-content">
+
+			{% if post.categories %}
+			<div class="row">
+				<div class="col">
+					<ul class="post-breadcrumbs">
+						{% for category in post.categories %}
+						<li><a href="{{category.link}}">{{category.name}}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			{% endif %}
+
+			<div class="row">
+				<div class="col">
+					<h2 class="post-title">{{post.name}}</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<article class="post">
+						<div class="post-content">
+							{% filter shortcodes %}
+                            	{{post.podbean_embed}}
+                        	{% endfilter %}
+						</div>
+					</article>
+					<a class="special special-left" href="/liturgy/homily-podcast">Back to Homily Podcast</a>
+				</div>
+			</div>
+
+		</div> <!-- /.col-lg-7 -->
+
+		<div class="col-md-6 col-lg-3 offset-lg-1 sidebar-sidebar">
+		</div> <!-- /.col-lg-3 -->
+
+	</div> <!-- /.row -->
+
+</div>
+	
+{% endblock %}

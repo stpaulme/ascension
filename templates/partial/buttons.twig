@@ -1,0 +1,5 @@
+<ul class="buttons">
+    {% for button in buttons %}
+    <li><a class="btn btn-primary" href="{{button.link.url}}" target="{{button.link.target}}">{{button.link.title}}</a></li>
+    {% endfor %}
+</ul>

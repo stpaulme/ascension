@@ -1,0 +1,27 @@
+<div class="sidebar-cta">
+
+    <div class="row">
+
+        {% if module.image %}
+            <div class="col-md col-lg-12">
+                <img class="sidebar-thumb" src="{{TimberImage(module.image).src|resize(800,500)}}">
+            </div>
+        {% endif %}
+
+        <div class="col-md col-lg-12">
+            {% if module.heading %}
+                <h3>{{module.heading}}</h3>
+            {% endif %}
+
+            {% if module.copy %}
+                <p class="sidebar-copy">{{module.copy}}</p>
+            {% endif %}
+
+            {% if module.link %}
+                <a class="sidebar-link special special-right" href="{{module.link.url}}" target="{{module.link.target}}">{{module.link.title}}</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
