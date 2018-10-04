@@ -2,6 +2,10 @@
 
 @import "gravityforms";
 
+body {
+    overflow-x: hidden;
+}
+
 /*
 * === SITE ELEMENTS ===
 */
@@ -431,6 +435,7 @@
     position: relative;
 }
 
+/*
 .navbar-primary .current-menu-item:after, .navbar-primary .current-page-ancestor:after {
     position: absolute;
     right: 0;
@@ -444,6 +449,7 @@
     border-right: 10px solid transparent;
     border-bottom: 10px solid $asc_lightest_gray;
 }
+*/
 
 .current-sub-menu-item {
     border-bottom: 2px solid $primary;

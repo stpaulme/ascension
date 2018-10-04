@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-8 sidebar-content">
+
+				<div class="row">
+					<div class="col">
+						<h2 class="post-title">{{post.name}}</h2>
+						<p class="post-date">Uploaded {{post.date}}</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<article class="post">
+							<div class="post-content">
+							
+								<a class="btn btn-primary mt-1" href="{{post.guid}}">View File</a>
+
+							</div>
+						</article>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
