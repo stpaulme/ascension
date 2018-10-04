@@ -404,6 +404,13 @@ body {
     margin-left: 10px;
 }
 
+.main ul.buttons li a:link,
+.main ul.buttons li a:visited,
+.main ul.buttons li a:active,
+.main ul.buttons li a:hover {
+    color: #fff !important;
+}
+
 @media (min-width: 768px) {
     .buttons li:nth-child(2) {
         margin-left: 30px;
