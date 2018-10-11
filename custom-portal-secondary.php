@@ -34,9 +34,9 @@ $sidebar_context = array();
 $sidebar_context['post'] = $post;
 $context['sidebar'] = Timber::get_sidebar('sidebar.twig', $sidebar_context);
 
-
 if ( post_password_required( $post->ID ) ) {
-	echo 'hey';
+    $context['title'] = $post->name;
+	Timber::render( array( 'portal-password.twig' ), $context );
 } else {
 	Timber::render( array( 'custom-landing.twig' ), $context );
 }
