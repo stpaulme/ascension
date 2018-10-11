@@ -58,7 +58,7 @@
                             "library": "all",
                             "min_size": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "doc,pdf"
                         }
                     ],
                     "min": "",
@@ -131,5 +131,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1539293988
+    "modified": 1539296664
 }
