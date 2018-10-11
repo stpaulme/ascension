@@ -1,0 +1,55 @@
+<div class="module document-list cta-group">
+    <div class="container">
+    
+        {% if module.heading %}
+        <div class="row">
+            <div class="col">
+                <h2>{{module.heading}}</h2>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row justify-content-md-center">
+            {% for document in module.documents %}
+                <div class="col-md-6 col-lg-3 cta">
+                    <div class="cta-content">
+                        <div>
+                            {% if document.file %}
+                                {% set type = 'File' %}
+                                {% set title = document.file.title %}
+                                {% set caption = document.file.caption %}
+                                {% set url = document.file.url %}
+                            {% else %}
+                                {% set type = 'Link' %}
+                                {% set title = document.link.title %}
+                                {% set caption = document.caption %}
+                                {% set url = document.link.url %}
+                                {% set target = document.link.caption %}
+                            {% endif %}
+
+                            <h3>
+                                {% if url %}
+                                    <a href="{{url}}" target="{{target ? target}}">
+                                {% endif %}
+
+                                {{title}}
+
+                                {% if url %}
+                                    </a>
+                                {% endif %}
+                            </h3>
+
+                            {% if caption %}
+                                <p>{{caption}}</p>
+                            {% endif %}
+
+                            {% if url %}
+                                <a class="special special-right" href="{{url}}" target="{{target ? target}}">Open {{type}}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
