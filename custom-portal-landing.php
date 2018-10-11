@@ -30,4 +30,9 @@ $context['template'] = 'landing';
 $context['menu_items'] = $menu_items;
 $context['current'] = $queried_object->ID;
 
-Timber::render( array( 'custom-landing.twig' ), $context );
+if ( post_password_required( $post->ID ) ) {
+    $context['title'] = $post->name;
+	Timber::render( array( 'portal-password.twig' ), $context );
+} else {
+	Timber::render( array( 'custom-landing.twig' ), $context );
+}

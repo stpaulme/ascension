@@ -34,4 +34,9 @@ $sidebar_context = array();
 $sidebar_context['post'] = $post;
 $context['sidebar'] = Timber::get_sidebar('sidebar.twig', $sidebar_context);
 
-Timber::render( array( 'custom-landing.twig' ), $context );
+
+if ( post_password_required( $post->ID ) ) {
+	echo 'hey';
+} else {
+	Timber::render( array( 'custom-landing.twig' ), $context );
+}
