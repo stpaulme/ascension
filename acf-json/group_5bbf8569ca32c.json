@@ -49,14 +49,14 @@
                 },
                 "layout_5bbf87017182e": {
                     "key": "layout_5bbf87017182e",
-                    "name": "document_list",
-                    "label": "File\/Link Group",
+                    "name": "cta_group",
+                    "label": "CTA Group",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5bbfc17e6dd55",
-                            "label": "Document\/Link Group",
-                            "name": "document_link_group",
+                            "key": "field_5bbfe348f17f3",
+                            "label": "CTA Group",
+                            "name": "cta_group",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -67,7 +67,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_5bbfbdd3e7efd"
+                                "group_5b83fb1f54212"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -103,5 +103,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1539294080
+    "modified": 1539302245
 }
