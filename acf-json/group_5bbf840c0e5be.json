@@ -108,6 +108,37 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5bc60fc27ab15": {
+                    "key": "layout_5bc60fc27ab15",
+                    "name": "post_feed",
+                    "label": "Post Feed",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bc60fc87ab16",
+                            "label": "Post Feed",
+                            "name": "post_feed",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b844bd9e9304"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Module",
@@ -134,5 +165,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1539302190
+    "modified": 1539706852
 }
