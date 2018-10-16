@@ -1,9 +1,10 @@
 {% set post_type = module.post_type %}
-{% set category = module.category %}
 
 <div class="module post-feed post-feed-{{post_type}}">
 
     {% if post_type == 'events' %}
+
+        {% set category = module.event_category %}
 
         {% set args = {
             'posts_per_page' : module.max,
@@ -11,7 +12,7 @@
             'tax_query' : {
                     'taxonomy' : 'tribe_events_cat',
                     'field' : 'slug',
-                    'terms' : category,
+                    'terms' : 'sports',
             }
         } %}
 
@@ -40,23 +41,15 @@
         {% endif %}
 
         {% set events %}
-            <div class="row">
-                {% for item in items %}
-                    <div class="col-lg post-feed-item">
-                        {% set event_start_date = item._EventStartDate|date("F d") %}
-                        {% set event_start_time = item._EventStartDate|date("g:i a") %}
-                        {% set event_end_time = item._EventEndDate|date("g:i a") %}
-                        {% set event_date = event_start_date~', '~event_start_time~'&ndash;'~event_end_time %}
-                        <div class="card">
-                            <div class="card-body">
-                                <span class="post-feed-post-meta">{{event_date}}</span>
-                                <h3 class="post-feed-post-title"><a href="{{item.guid}}">{{item.post_title}}</a></h3>
-                                <p class="post-feed-post-preview">{{item.post_content|length > 50 ? item.post_content|slice(0, 50) ~ '...' : item.post_content}}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+            
+
+                {% filter shortcodes %}
+
+                    [ecs-list-events cat='{{category.slug}}' limit='{{module.max}}' excerpt='true' viewall='false' contentorder='date, title, excerpt']
+
+                {% endfilter %}
+
+            
         {% endset %}
 
         {% set blog_posts %}
@@ -98,6 +91,8 @@
         {% endset %}
 
         {{post_type == 'events' ? events : blog_posts}}
+
+        {{ function('wp_reset_postdata') }}
     
     </div> <!-- /.container -->
 
