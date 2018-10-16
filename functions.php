@@ -1,5 +1,22 @@
 <?php
 
+function spm_is_local() {
+	$local_ip_addresses = [
+		// IPv4 address
+		'127.0.0.1', 
+	
+		// IPv6 address
+		'::1',
+		// Local by Flywheel
+		'172.17.0.1',
+	];
+	$is_local = true;
+	if ( !in_array( $_SERVER['REMOTE_ADDR'], $local_ip_addresses ) ) {
+		$is_local = false;
+	}
+	return $is_local;
+}
+
 if ( ! class_exists( 'Timber' ) ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php') ) . '</a></p></div>';
@@ -21,7 +38,9 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 		add_filter( 'pre_get_posts', array( $this, 'spm_custom_archives' ) );
-		add_filter( 'acf/settings/show_admin', array( $this, 'spm_hide_acf' ) );
+		if ( spm_is_local() == false ) {
+			add_filter( 'acf/settings/show_admin', array( $this, '__return_false' ) );
+		}
 		add_filter( 'upload_mimes', array( $this, 'cc_mime_types' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
@@ -37,7 +56,7 @@ class StarterSite extends TimberSite {
 	function spm_hide_acf() {
 		$site_url = get_bloginfo('url');
 		
-		if ( strpos( $site_url, '.local' ) !== false ) :
+		if ( strpos( $site_url, '.dev' ) !== false ) :
 			// .local is in the URL; show the ACF menu item
 			return true;
 		else :
