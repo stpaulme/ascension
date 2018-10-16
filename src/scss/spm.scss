@@ -643,7 +643,7 @@ h2.post-title {
     line-height: 1.1;
     margin-bottom: 10px;
 }
-.post-content p:last-of-type {
+.post-content :last-child {
     margin-bottom: 0;
 }
 @media (min-width: 768px) {

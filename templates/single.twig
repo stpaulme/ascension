@@ -38,7 +38,17 @@
 			<div class="row">
 				<div class="col">
 					<article class="post">
-						<div class="post-content">{{post.content}}</div>
+						<div class="post-content">
+
+							{{post.content}}
+
+							{% if post.get_field('modules') %}
+								{% for module in post.get_field('modules') %}
+									{% include 'partial/module.twig' %}
+								{% endfor %}
+							{% endif %}
+
+						</div>
 					</article>
 					<a class="special special-left" href="/news">Back to All News</a>
 				</div>
