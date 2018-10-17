@@ -6,18 +6,6 @@
 
         {% set category = module.event_category %}
 
-        {% set args = {
-            'posts_per_page' : module.max,
-            'start_date' : now|date("Y-m-d H:i:s"),
-            'tax_query' : {
-                    'taxonomy' : 'tribe_events_cat',
-                    'field' : 'slug',
-                    'terms' : 'sports',
-            }
-        } %}
-
-        {% set items = function('tribe_get_events', args) %}
-
     {% else %}
 
         {% set category = TimberTerm(module.category) %}
@@ -28,6 +16,7 @@
         } %}
 
         {% set items = category.get_posts(args) %}
+        
     {% endif %}
 
     <div class="container">
