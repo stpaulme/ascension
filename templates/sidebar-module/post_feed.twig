@@ -1,21 +1,10 @@
 {% set post_type = module.post_type %}
-{% set category = module.category %}
 
 <div class="sidebar-post-feed sidebar-post-feed-{{post_type}}">
 
     {% if post_type == 'events' %}
 
-        {% set args = {
-            'posts_per_page' : module.max,
-            'start_date' : now|date("Y-m-d H:i:s"),
-            'tax_query' : {
-                    'taxonomy' : 'tribe_events_cat',
-                    'field' : 'slug',
-                    'terms' : category,
-            }
-        } %}
-
-        {% set items = function('tribe_get_events', args) %}
+        {% set category = module.event_category %}
 
     {% else %}
 
@@ -27,21 +16,17 @@
         } %}
 
         {% set items = category.get_posts(args) %}
+        
     {% endif %}
 
     {% set events %}
 
-        {% for item in items %}
-            
-            <div class="sidebar-post-feed-event">
-                {% set event_start_date = item._EventStartDate|date("F d") %}
-                {% set event_start_time = item._EventStartDate|date("g:i a") %}
-                {% set event_end_time = item._EventEndDate|date("g:i a") %}
-                {% set event_date = event_start_date~', '~event_start_time~'&ndash;'~event_end_time %}
-                <span class="sidebar-post-feed-event-date">{{event_date}}</span>
-                <h4><a href="{{item.guid}}">{{item.post_title}}</a></h4>
-            </div>
-        {% endfor %}
+        {% filter shortcodes %}
+
+            [ecs-list-events cat='{{category.slug}}' limit='{{module.max}}' excerpt='false' viewall='false' contentorder='date, title']
+
+        {% endfilter %}
+
     {% endset %}
 
     {% set blog_posts %}
