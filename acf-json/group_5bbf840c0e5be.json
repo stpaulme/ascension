@@ -1,0 +1,169 @@
+{
+    "key": "group_5bbf840c0e5be",
+    "title": "Template - Portal Landing",
+    "fields": [
+        {
+            "key": "field_5bbf840c14a55",
+            "label": "Modules",
+            "name": "modules",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5b7dc2a42872a": {
+                    "key": "5b7dc2a42872a",
+                    "name": "hero",
+                    "label": "Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bbf840c17b96",
+                            "label": "Hero",
+                            "name": "hero",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5b7c596c7e2a1"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5b7f3aa44f02b": {
+                    "key": "layout_5b7f3aa44f02b",
+                    "name": "overview",
+                    "label": "Overview",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bbf840c17c63",
+                            "label": "Overview",
+                            "name": "overview",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b7dad8f29dbb"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5b83fc2a91e76": {
+                    "key": "layout_5b83fc2a91e76",
+                    "name": "cta_group",
+                    "label": "CTA Group",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bbfe2eac03ad",
+                            "label": "CTA Group",
+                            "name": "cta_group",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b83fb1f54212"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5bc60fc27ab15": {
+                    "key": "layout_5bc60fc27ab15",
+                    "name": "post_feed",
+                    "label": "Post Feed",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bc60fc87ab16",
+                            "label": "Post Feed",
+                            "name": "post_feed",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b844bd9e9304"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Module",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "custom-portal-landing.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1539706852
+}

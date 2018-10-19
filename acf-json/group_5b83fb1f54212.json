@@ -35,7 +35,7 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 3,
+            "min": 0,
             "max": 0,
             "layout": "table",
             "button_label": "Add CTA",
@@ -81,5 +81,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1535488845
+    "modified": 1539302717
 }
