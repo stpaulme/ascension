@@ -292,6 +292,12 @@ body {
 .main ol a, .main p a, .main ul a {
     font-weight: bold;
 }
+.main li {
+    margin-bottom: 10px;
+}
+.main li:last-child {
+    margin-bottom: 0;
+}
 .sidebar-content p + ol, .sidebar-content p + ul {
     margin-top: -1.5rem;
     margin-bottom: 1.5rem;
@@ -401,7 +407,8 @@ body {
 }
 
 .buttons li {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
 }
 
 .buttons li:nth-child(2) {
@@ -432,7 +439,8 @@ body {
     padding: 0 0 3px 0;
 }
 .categories li {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
 }
 .categories a:link, .categories a:visited {
     color: inherit;
@@ -620,7 +628,8 @@ h3.post-title a:hover {
     padding: 0;
 }
 .post-breadcrumbs li {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
 }
 .post-breadcrumbs li:after {
     content: ' / ';
