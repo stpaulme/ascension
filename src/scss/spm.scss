@@ -1271,6 +1271,12 @@ h2.post-title {
     margin-bottom: 10px;
     padding-bottom: 5px;
 }
+.schools h3 a:link, .schools h3 a:visited {
+    color: inherit;
+}
+.schools h3 a:active, .schools h3 a:hover {
+    opacity: 0.5;
+}
 .schools p {
     margin-bottom: 10px;
 }
