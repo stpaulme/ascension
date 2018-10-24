@@ -1073,7 +1073,7 @@ h2.post-title {
 }
 
 .post-feed .post-feed-post-title a:link, .post-feed .post-feed-post-title a:visited, .post-feed .entry-title a:link, .post-feed .entry-title a:visited {
-    color: inherit;
+    color: $asc_dark_gray !important;
 }
 
 .post-feed .post-feed-post-title a:active, .post-feed .post-feed-post-title a:hover, .post-feed .entry-title a:active, .post-feed .entry-title a:hover {
@@ -1379,6 +1379,8 @@ h2.post-title {
 */
 
 .sidebar-post-feed-posts h3, .sidebar-post-feed-posts h4 { margin-bottom: 10px; }
+.sidebar-post-feed-post h4 a:link, .sidebar-post-feed-post h4 a:visited { color: inherit; }
+.sidebar-post-feed-post h4 a:active, .sidebar-post-feed-post h4 a:hover { opacity: 0.5; }
 .sidebar-post-feed-post { margin-bottom: 30px; }
 .sidebar-post-feed-post:last-child { margin-bottom: 0; }
 
@@ -1387,6 +1389,12 @@ h2.post-title {
 */
 
 .sidebar-post-feed-events h3 { margin-bottom: 15px; }
+.sidebar-post-feed-events li h4 a:link, .sidebar-post-feed-events li h4 a:visited {
+    color: $asc_dark_gray !important;
+}
+.sidebar-post-feed-events li h4 a:active, .sidebar-post-feed-events li h4 a:hover {
+    opacity: 0.5;
+}
 .sidebar-post-feed-events .ecs-event {
     border-bottom: 1px solid $asc_gray;
     margin-bottom: 15px;
