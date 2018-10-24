@@ -681,7 +681,6 @@ h2.post-title {
 .sidebar-module { margin-bottom: 60px; }
 @media (min-width: 768px) {
     .module { margin-bottom: 70px; }
-    .sidebar-module:nth-last-child(2) { margin-bottom: 0; }
 }
 @media (min-width: 992px) {
     .module { margin-bottom: 80px; }
@@ -1378,7 +1377,6 @@ h2.post-title {
 /*
 * — Sidebar CTA —
 */
-
 .sidebar-cta h3 { margin-bottom: 10px; }
 
 /*
