@@ -866,6 +866,12 @@ h2.post-title {
     line-height: 1.1;
     margin-bottom: 15px;
 }
+.cta-pair h3 a:link, .cta-pair h3 a:visited {
+    color: inherit;
+}
+.cta-pair h3 a:active, .cta-pair h3 a:hover {
+    opacity: 0.5;
+}
 .cta-pair p {
     font-size: 1rem;
     line-height: 1.5;
