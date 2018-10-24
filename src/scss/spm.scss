@@ -302,8 +302,8 @@ body {
     margin-bottom: 0;
 }
 .sidebar-content p + ol, .sidebar-content p + ul {
-    margin-top: -1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
     .title-band {
