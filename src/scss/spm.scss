@@ -1234,12 +1234,13 @@ h2.post-title {
 
 .blurb { margin-bottom: 30px; }
 .blurb:last-child { margin-bottom: 0; }
-.blurb p { margin-bottom: 0; }
+
+.blurb p { margin-bottom: 0.5rem; }
+.blurb p:last-child { margin-bottom: 0; }
 
 @media (min-width: 768px) {
     .overview { margin-bottom: 40px; }
     .overview h1 { font-size: 2.25rem; }
-    .blurb { margin-bottom: 0; }
 }
 
 @media (min-width: 992px) {
