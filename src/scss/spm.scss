@@ -1072,8 +1072,12 @@ h2.post-title {
     margin-bottom: 10px;
 }
 
-.post-feed .post-feed-post-title, .post-feed .entry-title a {
+.post-feed .post-feed-post-title a:link, .post-feed .post-feed-post-title a:visited, .post-feed .entry-title a:link, .post-feed .entry-title a:visited {
     color: inherit;
+}
+
+.post-feed .post-feed-post-title a:active, .post-feed .post-feed-post-title a:hover, .post-feed .entry-title a:active, .post-feed .entry-title a:hover {
+    opacity: 0.5;
 }
 
 @media (min-width: 768px) {
