@@ -82,6 +82,10 @@ body {
     text-align: right;
 }
 
+.navbar-primary li {
+    height: 100%;
+}
+
 .navbar-secondary a:link, .navbar-secondary a:visited { color: #fff; }
 .navbar-secondary a:active, .navbar-secondary a:hover { opacity: 1; }
 
@@ -94,7 +98,7 @@ body {
 .sub-menu {
     background-color: $asc_lightest_gray;
     color: $dark;
-    line-height: 1.2;
+    line-height: 1.75;
     padding: 15px 0;
 }
 .sub-menu ul {
@@ -285,12 +289,21 @@ body {
 .main {
     margin-bottom: 40px;
 }
+.main p {
+    margin-bottom: 1rem;
+}
 .main ol a, .main p a, .main ul a {
     font-weight: bold;
 }
+.main li {
+    margin-bottom: 10px;
+}
+.main li:last-child {
+    margin-bottom: 0;
+}
 .sidebar-content p + ol, .sidebar-content p + ul {
-    margin-top: -1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
     .title-band {
@@ -397,7 +410,8 @@ body {
 }
 
 .buttons li {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
 }
 
 .buttons li:nth-child(2) {
@@ -428,7 +442,8 @@ body {
     padding: 0 0 3px 0;
 }
 .categories li {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
 }
 .categories a:link, .categories a:visited {
     color: inherit;
@@ -442,8 +457,7 @@ body {
     position: relative;
 }
 
-/*
-.navbar-primary .current-menu-item:after, .navbar-primary .current-page-ancestor:after {
+.navbar-primary .current-menu-item:not(.menu-item-type-custom):after, .navbar-primary .current-page-ancestor:not(.menu-item-type-custom):after {
     position: absolute;
     right: 0;
     left: 0;
@@ -456,7 +470,6 @@ body {
     border-right: 10px solid transparent;
     border-bottom: 10px solid $asc_lightest_gray;
 }
-*/
 
 .current-sub-menu-item {
     border-bottom: 2px solid $primary;
@@ -618,7 +631,8 @@ h3.post-title a:hover {
     padding: 0;
 }
 .post-breadcrumbs li {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
 }
 .post-breadcrumbs li:after {
     content: ' / ';
@@ -667,14 +681,14 @@ h2.post-title {
 .sidebar-module { margin-bottom: 60px; }
 @media (min-width: 768px) {
     .module { margin-bottom: 70px; }
-    .sidebar-module:nth-last-child(2) { margin-bottom: 0; }
 }
 @media (min-width: 992px) {
     .module { margin-bottom: 80px; }
     .sidebar-module:nth-last-child(2) { margin-bottom: 60px; }
 }
 
-.sidebar-content .module { margin-bottom: 1.5rem; }
+.sidebar-content .module { margin-bottom: 2rem; }
+.sidebar-content .module.image-gallery { margin-bottom: 4rem; }
 .sidebar-content .module p:last-child { margin-bottom: 0; }
 .sidebar-content .module:last-child { margin-bottom: 0; }
 
@@ -863,6 +877,12 @@ h2.post-title {
     font-weight: bold;
     line-height: 1.1;
     margin-bottom: 15px;
+}
+.cta-pair h3 a:link, .cta-pair h3 a:visited {
+    color: inherit;
+}
+.cta-pair h3 a:active, .cta-pair h3 a:hover {
+    opacity: 0.5;
 }
 .cta-pair p {
     font-size: 1rem;
@@ -1064,8 +1084,12 @@ h2.post-title {
     margin-bottom: 10px;
 }
 
-.post-feed .post-feed-post-title, .post-feed .entry-title a {
-    color: inherit;
+.post-feed .post-feed-post-title a:link, .post-feed .post-feed-post-title a:visited, .post-feed .entry-title a:link, .post-feed .entry-title a:visited {
+    color: $asc_dark_gray !important;
+}
+
+.post-feed .post-feed-post-title a:active, .post-feed .post-feed-post-title a:hover, .post-feed .entry-title a:active, .post-feed .entry-title a:hover {
+    opacity: 0.5;
 }
 
 @media (min-width: 768px) {
@@ -1210,12 +1234,13 @@ h2.post-title {
 
 .blurb { margin-bottom: 30px; }
 .blurb:last-child { margin-bottom: 0; }
-.blurb p { margin-bottom: 0; }
+
+.blurb p { margin-bottom: 0.5rem; }
+.blurb p:last-child { margin-bottom: 0; }
 
 @media (min-width: 768px) {
     .overview { margin-bottom: 40px; }
     .overview h1 { font-size: 2.25rem; }
-    .blurb { margin-bottom: 0; }
 }
 
 @media (min-width: 992px) {
@@ -1268,6 +1293,12 @@ h2.post-title {
     line-height: 1.2;
     margin-bottom: 10px;
     padding-bottom: 5px;
+}
+.schools h3 a:link, .schools h3 a:visited {
+    color: inherit;
+}
+.schools h3 a:active, .schools h3 a:hover {
+    opacity: 0.5;
 }
 .schools p {
     margin-bottom: 10px;
@@ -1347,7 +1378,6 @@ h2.post-title {
 /*
 * — Sidebar CTA —
 */
-
 .sidebar-cta h3 { margin-bottom: 10px; }
 
 /*
@@ -1361,6 +1391,8 @@ h2.post-title {
 */
 
 .sidebar-post-feed-posts h3, .sidebar-post-feed-posts h4 { margin-bottom: 10px; }
+.sidebar-post-feed-post h4 a:link, .sidebar-post-feed-post h4 a:visited { color: inherit; }
+.sidebar-post-feed-post h4 a:active, .sidebar-post-feed-post h4 a:hover { opacity: 0.5; }
 .sidebar-post-feed-post { margin-bottom: 30px; }
 .sidebar-post-feed-post:last-child { margin-bottom: 0; }
 
@@ -1369,6 +1401,12 @@ h2.post-title {
 */
 
 .sidebar-post-feed-events h3 { margin-bottom: 15px; }
+.sidebar-post-feed-events li h4 a:link, .sidebar-post-feed-events li h4 a:visited {
+    color: $asc_dark_gray !important;
+}
+.sidebar-post-feed-events li h4 a:active, .sidebar-post-feed-events li h4 a:hover {
+    opacity: 0.5;
+}
 .sidebar-post-feed-events .ecs-event {
     border-bottom: 1px solid $asc_gray;
     margin-bottom: 15px;
