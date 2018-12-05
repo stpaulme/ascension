@@ -1238,9 +1238,17 @@ h2.post-title {
 .blurb p { margin-bottom: 0.5rem; }
 .blurb p:last-child { margin-bottom: 0; }
 
+.page-template-custom-portal-landing .overview {
+    margin-top: 30px;
+}
+
 @media (min-width: 768px) {
     .overview { margin-bottom: 40px; }
     .overview h1 { font-size: 2.25rem; }
+    .page-template-custom-portal-landing .overview {
+        margin-top: 40px;
+    }
+    
 }
 
 @media (min-width: 992px) {
