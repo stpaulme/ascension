@@ -4,6 +4,9 @@
 <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" {{ site.language_attributes }}> <!--<![endif]-->
 <head>
+    {% if options.ga|length > 0 %}
+        {{options.ga}}
+    {% endif %}
     <meta charset="{{ site.charset }}" />
         <title>   
             {% if wp_title %}
