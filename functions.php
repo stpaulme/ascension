@@ -49,6 +49,7 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'spm_register_post_types' ) );
 		add_action( 'init', array( $this, 'spm_register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'spm_enqueue' ) );
+		add_action( 'wp_head', array( $this, 'spm_kill_tribe_noindex' ) );
 		
 		parent::__construct();
 	}
@@ -75,6 +76,10 @@ class StarterSite extends TimberSite {
 		if( function_exists('acf_add_options_page') ) {
 			acf_add_options_page();
 		}
+	}
+	
+	function spm_kill_tribe_noindex() {
+		remove_action('wp_head', array(TribeEvents::instance(), 'noindex_months'));
 	}
 
 	function spm_register_nav_menus() {
