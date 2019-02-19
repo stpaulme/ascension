@@ -41,6 +41,7 @@ class StarterSite extends TimberSite {
 		if ( spm_is_local() == false ) {
 			add_filter( 'acf/settings/show_admin', array( $this, '__return_false' ) );
 		}
+		add_filter( 'tribe_events_add_no_index_meta', array( $this, '__return_false' ) );
 		add_filter( 'upload_mimes', array( $this, 'cc_mime_types' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
@@ -49,7 +50,6 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'spm_register_post_types' ) );
 		add_action( 'init', array( $this, 'spm_register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'spm_enqueue' ) );
-		add_action( 'wp_head', array( $this, 'spm_kill_tribe_noindex' ) );
 		
 		parent::__construct();
 	}
@@ -76,10 +76,6 @@ class StarterSite extends TimberSite {
 		if( function_exists('acf_add_options_page') ) {
 			acf_add_options_page();
 		}
-	}
-	
-	function spm_kill_tribe_noindex() {
-		remove_action('wp_head', array(TribeEvents::instance(), 'noindex_months'));
 	}
 
 	function spm_register_nav_menus() {
