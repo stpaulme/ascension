@@ -41,6 +41,12 @@
   margin-bottom: 20px;
 }
 
+@media (min-width: 768px) {
+  .gform_wrapper .ginput_recaptcha {
+    margin-top: 20px;
+  }
+}
+
 .gform_wrapper .button {
   @extend .btn;
   @extend .btn-primary;
