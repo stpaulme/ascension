@@ -41,7 +41,11 @@
                 {% endif %}
 
                 {% if options.phone %}
-                <li><a href="tel:{{options.phone}}">{{options.phone}}</a></li>
+                <li>Phone: <a href="tel:{{options.phone}}">{{options.phone}}</a></li>
+                {% endif %}
+
+                {% if options.fax %}
+                <li>Fax: {{options.fax}}</li>
                 {% endif %}
 
                 {% if options.social_media %}
