@@ -19,6 +19,7 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+		add_filter( 'embed_oembed_html', array( $this, 'wrap_embeds' ) );
 		add_filter( 'pre_get_posts', array( $this, 'spm_custom_archives' ) );
 		add_filter( 'acf/settings/show_admin', array( $this, 'spm_acf_show_admin' ) );
 		add_filter( 'tribe_events_add_no_index_meta', array( $this, '__return_false' ) );
@@ -177,6 +178,10 @@ class StarterSite extends TimberSite {
 		wp_enqueue_script( 'popper', get_template_directory_uri() . '/src/js/popper.min.js' );
 		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/src/js/bootstrap.min.js', array( 'jquery' ) );
 		
+	}
+
+	function wrap_embeds( $html ) {
+		return '<div class="er-container">' . $html . '</div>';
 	}
 
 	function add_to_context( $context ) {
