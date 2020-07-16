@@ -6,7 +6,7 @@
             "key": "field_5ba7e07f5ab9a",
             "label": "Announcement",
             "name": "announcement",
-            "type": "text",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,11 +15,43 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "Announcement:",
-            "append": "",
-            "maxlength": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5f10bfb1b9264",
+                    "label": "Copy",
+                    "name": "copy",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "Announcement:",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f10bfc3b9265",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         },
         {
             "key": "field_5ba3aae7e0bcb",
@@ -252,9 +284,7 @@
                         "WI": "Wisconsin",
                         "WY": "Wyoming"
                     },
-                    "default_value": [
-                        "MN"
-                    ],
+                    "default_value": "MN",
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
@@ -450,5 +480,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570715802
+    "modified": 1594933208
 }

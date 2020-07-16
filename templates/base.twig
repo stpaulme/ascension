@@ -38,9 +38,17 @@
 
 		{% include 'partial/colors.twig' %}
 
-		{% if options.announcement %}
+		{% if options.announcement.copy|length > 0 %}
 		<div class="alert alert-dismissible fade show" role="alert">
-			<p><span>Announcement:</span> {{options.announcement}}</p>
+			<p>
+				<span>Announcement:</span>
+
+				{{options.announcement.copy}}
+
+				{% if options.announcement.link.url %}
+					<a class="btn btn-primary" href="{{ options.announcement.link.url }}">{{ options.announcement.link.title }}</a>
+				{% endif %}
+			</p>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
