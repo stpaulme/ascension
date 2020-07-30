@@ -1,64 +1,72 @@
-var gulp    = require('gulp');
-var sass    = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
-// var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
-var concat  = require('gulp-concat');
+const del = require("del");
+const { src, dest, series, parallel, watch } = require("gulp");
+const autoprefixer = require("gulp-autoprefixer");
+const babel = require("gulp-babel");
+const cache = require("gulp-cache");
+const cleanCSS = require("gulp-clean-css");
+const concat = require("gulp-concat");
+const imagemin = require("gulp-imagemin");
+const rename = require("gulp-rename");
+const sass = require("gulp-sass");
+const uglify = require("gulp-uglify");
 
-var paths = {
-    styles: {
-        // Where are the SCSS files?
-        src: 'src/scss/*.scss',
-        // Where should the compiled file go?
-        dest: 'src/css'
-    },
-    js: {
-        // Where are the JS files?
-        src: [
-            'node_modules/bootstrap/dist/js/bootstrap.min.js',
-            'node_modules/popper.js/dist/popper.min.js',
-        ],
-        // Where should the JS files go?
-        dest: 'src/js'
-    }
+const paths = {
+  dest: "dist",
+  css: {
+    src: "src/scss/**/*.scss",
+    dest: "src/css",
+  },
+  js: {
+    src: ["src/js/**/*.js"],
+    dest: "src/js",
+  },
+};
+
+sass.compiler = require("node-sass"); // default compiler
+
+async function clean(cb) {
+  await del(paths.dest);
+
+  cb();
 }
 
-function style() {
-    return gulp.src(paths.styles.src)
+function css(cb) {
+  src(paths.css.src)
+    .pipe(
+      sass({
+        outputStyle: "expanded",
+      })
+    )
+    .on("error", sass.logError)
+    .pipe(
+      autoprefixer({
+        cascade: false,
+      })
+    )
+    .pipe(
+      cleanCSS({
+        compatibility: "ie8",
+      })
+    )
+    .pipe(concat("spm.css"))
+    .pipe(dest(paths.css.dest));
 
-        // .pipe(sourcemaps.init())
-
-            .pipe(sass()).on('error', sass.logError)
-            .pipe(autoprefixer({
-                browsers: ['last 2 versions'],
-                cascade: false
-            }))
-            .pipe(cssnano())
-            .pipe(concat('spm.css'))
-
-        // .pipe(sourcemaps.write())
-
-    .pipe(gulp.dest(paths.styles.dest))
+  cb();
 }
 
-exports.style = style
+function js(cb) {
+  src(paths.js.src).pipe(dest(paths.js.dest));
 
-function js() {
-    return gulp.src(paths.js.src)
-    
-        .pipe(gulp.dest(paths.js.dest))
+  cb();
 }
 
-exports.js = js
+function watcher(cb) {
+  watch(paths.css.src).on("change", series(css));
+  watch(paths.js.src).on("change", series(js));
 
-function watch() {
-    gulp.watch(paths.styles.src, style)
+  cb();
 }
 
-exports.watch = watch
+exports.default = series(clean, parallel(css, js), watcher);
 
-gulp.task('default', function() {
-    style()
-    js()
-    watch()
-});
+exports.build = series(clean, parallel(css, js));
