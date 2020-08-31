@@ -22,14 +22,11 @@ body {
 }
 
 .mobile-menu-button-container {
-  height: 100%;
+  padding-top: 20px;
   padding-right: 15px;
 }
 
 #mobile-menu-button {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   display: inline-block;
 }
 
