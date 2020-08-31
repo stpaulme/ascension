@@ -67,8 +67,7 @@
 											</a>
 										</div>
 
-										
-										<div class="{{ options.desktop_navigation_style == 'mobile_menu' ? 'd-none' : 'd-none d-lg-block' }} col-lg-9 col-xl-10 navbars">
+										<div class="{{ options.desktop_navigation_style == 'mobile_menu' ? 'd-none' : 'd-none d-lg-block' }} col navbars">
 
 											<div class="h-100 d-flex flex-column justify-content-between">				
 												<ul class="navbar-secondary">
@@ -94,7 +93,7 @@
 
 										</div>
 
-										<div class="col-4 col-md-8 {{ options.desktop_navigation_style == 'mobile_menu' ? '' : 'd-lg-none' }} text-right">
+										<div class="col {{ options.desktop_navigation_style == 'mobile_menu' ? '' : 'd-lg-none' }} text-right">
 											<div class="mobile-menu-button-container">
 												<a id="mobile-menu-button" href="#">
 													{% if 'Academy' in site.name %}
