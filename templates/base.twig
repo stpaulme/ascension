@@ -58,8 +58,6 @@
 					<header class="header" role="banner">
 						{% block header %}
 
-								
-
 									<div class="row">
 
 										<div class="col-8 col-md-4 col-lg-3 col-xl-2">
@@ -70,7 +68,7 @@
 										</div>
 
 										
-										<div class="d-none d-lg-block col-lg-9 col-xl-10 navbars">
+										<div class="{{ options.desktop_navigation_style == 'mobile_menu' ? 'd-none' : 'd-none d-lg-block' }} col-lg-9 col-xl-10 navbars">
 
 											<div class="h-100 d-flex flex-column justify-content-between">				
 												<ul class="navbar-secondary">
@@ -96,7 +94,7 @@
 
 										</div>
 
-										<div class="col-4 col-md-8 d-lg-none text-right">
+										<div class="col-4 col-md-8 {{ options.desktop_navigation_style == 'mobile_menu' ? '' : 'd-lg-none' }} text-right">
 											<div class="mobile-menu-button-container">
 												<a id="mobile-menu-button" href="#">
 													{% if 'Academy' in site.name %}
@@ -123,8 +121,6 @@
 										</div>
 									
 									</div>
-
-							
 
 						{% endblock %}
 					</header>
