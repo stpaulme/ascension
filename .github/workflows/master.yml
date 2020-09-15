@@ -32,6 +32,7 @@ jobs:
           rsync -chav --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             --exclude /deploy_key \
+            --exclude /README.md \
             --exclude /node_modules/ \
             --exclude /.git/ \
             --exclude /.github/ \
@@ -47,6 +48,7 @@ jobs:
           rsync -chav --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             --exclude /deploy_key \
+            --exclude /README.md \
             --exclude /node_modules/ \
             --exclude /.git/ \
             --exclude /.github/ \
@@ -62,6 +64,7 @@ jobs:
           rsync -chav --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             --exclude /deploy_key \
+            --exclude /README.md \
             --exclude /node_modules/ \
             --exclude /.git/ \
             --exclude /.github/ \
@@ -77,6 +80,7 @@ jobs:
           rsync -chav --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             --exclude /deploy_key \
+            --exclude /README.md \
             --exclude /node_modules/ \
             --exclude /.git/ \
             --exclude /.github/ \
@@ -92,6 +96,7 @@ jobs:
           rsync -chav --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             --exclude /deploy_key \
+            --exclude /README.md \
             --exclude /node_modules/ \
             --exclude /.git/ \
             --exclude /.github/ \
