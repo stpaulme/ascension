@@ -39,10 +39,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b8003db49ff2",
-            "label": "Embedded Content",
-            "name": "embed",
-            "type": "oembed",
+            "key": "field_61ae4b790a2c7",
+            "label": "Embed Type",
+            "name": "embed_type",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -51,8 +51,68 @@
                 "class": "",
                 "id": ""
             },
+            "choices": {
+                "url": "URL",
+                "code": "Code Snippet"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5b8003db49ff2",
+            "label": "URL",
+            "name": "embed",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61ae4b790a2c7",
+                        "operator": "==",
+                        "value": "url"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "width": "",
             "height": ""
+        },
+        {
+            "key": "field_61ae4c39c88a1",
+            "label": "Code Snippet",
+            "name": "code_snippet",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61ae4b790a2c7",
+                        "operator": "==",
+                        "value": "code"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -70,7 +130,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": false,
     "description": "",
-    "modified": 1535488863
+    "show_in_rest": 0,
+    "modified": 1638813167
 }
