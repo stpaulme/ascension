@@ -260,3 +260,6 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
+
+// GF: Enable legacy markup
+add_filter('gform_enable_legacy_markup', '__return_true');
