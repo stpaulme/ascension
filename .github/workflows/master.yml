@@ -25,7 +25,7 @@ jobs:
 
       - name: Sync acamn.org
         env:
-          dest: "acamn@34.66.217.167:/sites/acamn.org/files/wp-content/themes/ascension"
+          dest: "acamn@35.202.227.133:/sites/acamn.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
@@ -41,7 +41,7 @@ jobs:
 
       - name: Sync ascensionmpls.org
         env:
-          dest: "ascensionmpls@34.66.217.167:/sites/ascensionmpls.org/files/wp-content/themes/ascension"
+          dest: "ascensionmpls@35.202.227.133:/sites/ascensionmpls.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
@@ -57,7 +57,7 @@ jobs:
 
       - name: Sync ascensionschoolmn.org
         env:
-          dest: "ascensionschoolmn@34.66.217.167:/sites/ascensionschoolmn.org/files/wp-content/themes/ascension"
+          dest: "ascensionschoolmn@35.202.227.133:/sites/ascensionschoolmn.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
@@ -73,7 +73,7 @@ jobs:
 
       - name: Sync johnpaulschoolmn.org
         env:
-          dest: "ascension@34.66.217.167:/sites/johnpaulschoolmn.org/files/wp-content/themes/ascension"
+          dest: "ascension@35.202.227.133:/sites/johnpaulschoolmn.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
@@ -89,7 +89,7 @@ jobs:
 
       - name: Sync stpclaverschool.org
         env:
-          dest: "claver@34.66.217.167:/sites/stpclaverschool.org/files/wp-content/themes/ascension"
+          dest: "claver@35.202.227.133:/sites/stpclaverschool.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
