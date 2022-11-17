@@ -15,7 +15,9 @@ if (!isset($timberContext)) {
 }
 
 $timberContext['content'] = ob_get_contents();
-$timberContext['current'] = $queried_object->ID;
+if (isset($queried_object->ID)) {
+    $timberContext['current'] = $queried_object->ID;
+}
 $timberContext['title'] = 'Events';
 ob_end_clean();
 
