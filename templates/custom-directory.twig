@@ -6,6 +6,12 @@
 
 		<div class="row">
 
+			{% if post.meta('copy')|length > 0 %}
+				<div class="col-12">
+					<p class="description">{{ post.meta('copy') }}</p>
+				</div>
+			{% endif %}
+
 			{% if post.slug == 'staff' or post.slug == 'leadership' %}
 				<div class="col-12">
 				{% endif %}
