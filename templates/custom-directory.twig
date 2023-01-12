@@ -1,3 +1,29 @@
 {% extends "base.twig" %}
 
-{% block content %}{% endblock %}
+{% block content %}
+
+	<div class="container">
+
+		<div class="row">
+
+			{% if post.copy|length > 0 %}
+				<div class="col-12">
+					<p class="description">{{ post.copy }}</p>
+				</div>
+			{% endif %}
+
+			{% if post.slug == 'staff' or post.slug == 'leadership' %}
+				<div class="col-12">
+				{% endif %}
+
+				{% if post.slug == 'staff' or post.slug == 'leadership' %}
+				</div>
+			{% endif %}
+
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+{% endblock %}
