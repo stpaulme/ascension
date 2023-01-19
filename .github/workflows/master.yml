@@ -102,3 +102,19 @@ jobs:
             --exclude /.github/ \
             --exclude /.gitignore \
             ./ ${{env.dest}}
+
+      - name: Sync stpascalschool.org
+        env:
+          dest: "pascal@35.202.227.133:/sites/stpascalschool.org/files/wp-content/themes/ascension"
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+          rsync -chav --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            --exclude /deploy_key \
+            --exclude /README.md \
+            --exclude /node_modules/ \
+            --exclude /.git/ \
+            --exclude /.github/ \
+            --exclude /.gitignore \
+            ./ ${{env.dest}}
