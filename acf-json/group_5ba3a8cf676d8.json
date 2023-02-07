@@ -6,6 +6,7 @@
             "key": "field_5ba7e07f5ab9a",
             "label": "Announcement",
             "name": "announcement",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -21,6 +22,7 @@
                     "key": "field_5f10bfb1b9264",
                     "label": "Copy",
                     "name": "copy",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -40,6 +42,7 @@
                     "key": "field_5f10bfc3b9265",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -57,17 +60,17 @@
             "key": "field_5ba3aae7e0bcb",
             "label": "Header Logo",
             "name": "header_logo",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -75,12 +78,14 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_5ba3ab07e0bcc",
             "label": "Footer Logo",
             "name": "footer_logo",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -102,9 +107,35 @@
             "mime_types": ""
         },
         {
+            "key": "field_63e2a930edfe8",
+            "label": "Footer Logo 2",
+            "name": "footer_logo_2",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
             "key": "field_5f4d051c8850f",
             "label": "Desktop Navigation Style",
             "name": "desktop_navigation_style",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -130,6 +161,7 @@
             "key": "field_5ba9a1281b732",
             "label": "Primary Color",
             "name": "color_primary",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -139,12 +171,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5ba9a1491b733",
             "label": "Secondary Color",
             "name": "color_secondary",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -154,12 +189,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5ba9a1591b734",
             "label": "Tertiary Color",
             "name": "color_tertiary",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -169,12 +207,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5ba3affcc33f6",
             "label": "Location",
             "name": "location",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -190,6 +231,7 @@
                     "key": "field_5ba3a8d5e0bc4",
                     "label": "Address Line 1",
                     "name": "address_line_1",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -209,6 +251,7 @@
                     "key": "field_5ba3aa3de0bc8",
                     "label": "Address Line 2",
                     "name": "address_line_2",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -228,6 +271,7 @@
                     "key": "field_5ba3a947e0bc5",
                     "label": "City",
                     "name": "city",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -247,6 +291,7 @@
                     "key": "field_5ba3a956e0bc6",
                     "label": "State",
                     "name": "state",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -321,6 +366,7 @@
                     "key": "field_5ba3a9b7e0bc7",
                     "label": "Zip",
                     "name": "zip",
+                    "aria-label": "",
                     "type": "number",
                     "instructions": "",
                     "required": 0,
@@ -342,6 +388,7 @@
                     "key": "field_5ba3b5acb1410",
                     "label": "Google Map URL",
                     "name": "google_map_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -360,6 +407,7 @@
             "key": "field_5ba3aac5e0bca",
             "label": "General Phone",
             "name": "phone",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -379,6 +427,7 @@
             "key": "field_5d9f37bf6c977",
             "label": "General Fax",
             "name": "fax",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -398,6 +447,7 @@
             "key": "field_5ba3aab3e0bc9",
             "label": "General Email",
             "name": "email",
+            "aria-label": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -416,6 +466,7 @@
             "key": "field_5ba3ab3e46646",
             "label": "Social Media",
             "name": "social_media",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -430,11 +481,13 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Social Media Channel",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5ba3ab3e46647",
                     "label": "URL",
                     "name": "url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -445,12 +498,14 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5ba3ab3e46646"
                 },
                 {
                     "key": "field_5ba3ab3e46648",
                     "label": "Copy",
                     "name": "copy",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -464,7 +519,8 @@
                     "placeholder": "Follow us on...",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5ba3ab3e46646"
                 }
             ]
         },
@@ -472,6 +528,7 @@
             "key": "field_5c475a188d12c",
             "label": "Google Analytics Tracking Code",
             "name": "ga",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -503,7 +560,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1598883215
+    "show_in_rest": 0,
+    "modified": 1675799274
 }

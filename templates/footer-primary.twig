@@ -1,107 +1,124 @@
-<div class="row footer-primary">
-    <!-- Address -->
-    <div class="col-md-4 offset-md-0 col-lg-3">
-        <div class="footer-primary-content footer-contact">
-            <ul>
+<div
+	class="row footer-primary">
+	<!-- Address -->
+	<div class="col-md-4 offset-md-0 col-lg-3">
+		<div class="footer-primary-content footer-contact">
+			<ul>
 
-                {% if options.location %}
-                {% set google_map_url = options.location.google_map_url %}
+				{% if options.location %}
+					{% set google_map_url = options.location.google_map_url %}
 
-                <li>
+					<li>
 
-                {{google_map_url ? '<a href="'~google_map_url~'" target="_blank">' }}
+						{{google_map_url ? '<a href="'~google_map_url~'" target="_blank">' }}
 
-                    {% if options.location.address_line_1 %}
-                    {{options.location.address_line_1}}<br>
-                    {% endif %}
+						{% if options.location.address_line_1 %}
+							{{options.location.address_line_1}}<br>
+						{% endif %}
 
-                    {% if options.location.address_line_2 %}
-                    {{options.location.address_line_2}}<br>
-                    {% endif %}
+						{% if options.location.address_line_2 %}
+							{{options.location.address_line_2}}<br>
+						{% endif %}
 
-                    {% if options.location.city %}
-                    {{options.location.city}},
-                    {% endif %}
+						{% if options.location.city %}
+							{{options.location.city}},
+						{% endif %}
 
-                    {% if options.location.state %}
-                    <abbr title="{{options.location.state.label}}">{{options.location.state.value}}</abbr>
-                    {% endif %}
+						{% if options.location.state %}
+							<abbr title="{{options.location.state.label}}">{{options.location.state.value}}</abbr>
+						{% endif %}
 
-                    {% if options.location.zip %}
-                    {{options.location.zip}}
-                    {% endif %}
+						{% if options.location.zip %}
+							{{options.location.zip}}
+						{% endif %}
 
-                {{options.location.google_map_url ? '</a>' }}
+						{{options.location.google_map_url ? '</a>' }}
 
-                </li>
-                {% endif %}
+					</li>
+				{% endif %}
 
-                {% if options.email %}
-                <li><a href="mailto:{{options.email}}">{{options.email}}</a></li>
-                {% endif %}
+				{% if options.email %}
+					<li>
+						<a href="mailto:{{options.email}}">{{options.email}}</a>
+					</li>
+				{% endif %}
 
-                {% if options.phone %}
-                <li>Phone: <a href="tel:{{options.phone}}">{{options.phone}}</a></li>
-                {% endif %}
+				{% if options.phone %}
+					<li>Phone:
+						<a href="tel:{{options.phone}}">{{options.phone}}</a>
+					</li>
+				{% endif %}
 
-                {% if options.fax %}
-                <li>Fax: {{options.fax}}</li>
-                {% endif %}
+				{% if options.fax %}
+					<li>Fax:
+						{{options.fax}}</li>
+				{% endif %}
 
-                {% if options.social_media %}
-                    {% for channel in options.social_media %}
-                    <li class="footer-contact-social"><a href="{{channel.url}}" target="_blank">{{channel.copy}}</a></li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-    <!-- Menu -->
-    <div class="col-md-4 offset-md-0 col-lg-3">
-        <div class="footer-primary-content footer-primary-menu">
-            {% include 'menu.twig' with {'menu': footer_primary.get_items,} %}
-        </div>
-    </div>
-    <!-- Extra Menu -->
-    {% if footer_secondary.get_items %}
-        <div class="col-md-4 offset-md-0 col-lg-3">
-            <div class="footer-primary-content footer-secondary-menu">
-                {% include 'menu.twig' with {'menu': footer_secondary.get_items,} %}
-            </div>
-        </div>
-    {% endif %}
+				{% if options.social_media %}
+					{% for channel in options.social_media %}
+						<li class="footer-contact-social">
+							<a href="{{channel.url}}" target="_blank">{{channel.copy}}</a>
+						</li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	<!-- Menu -->
+	<div class="col-md-4 offset-md-0 col-lg-3">
+		<div class="footer-primary-content footer-primary-menu">
+			{% include 'menu.twig' with {'menu': footer_primary.get_items,} %}
+		</div>
+	</div>
+	<!-- Extra Menu -->
+	{% if footer_secondary.get_items %}
+		<div class="col-md-4 offset-md-0 col-lg-3">
+			<div class="footer-primary-content footer-secondary-menu">
+				{% include 'menu.twig' with {'menu': footer_secondary.get_items,} %}
+			</div>
+		</div>
+	{% endif %}
 
-        <!-- Newsletter -->
-        <div class="col-md-6 offset-md-0 {{footer_secondary.get_items ? 'col-lg-3' : 'col-lg-3 offset-lg-3' }}">
-            <div class="footer-primary-content footer-newsletter">
-                <h4>Sign Up for Our Newsletter</h4>
-                {% filter shortcodes %}
-                [gravityform id={{newsletter}} title=false description=false]
-                {% endfilter %}
-            </div>
-        </div>
-        <!-- Logo -->
-        <div class="col-md-5 offset-md-1 col-lg-3 offset-lg-9">
-            <div class="footer-logo">
-                {% if options.header_logo or options.footer_logo %}
-                
-                    {% if options.footer_logo %}
-                        {% set logo = TimberImage(options.footer_logo) %}
-                    {% else %}
-                        {% set logo = TimberImage(options.header_logo) %} 
-                    {% endif %}
+	<!-- Newsletter -->
+	<div class="col-md-6 offset-md-0 {{footer_secondary.get_items ? 'col-lg-3' : 'col-lg-3 offset-lg-3' }}">
+		<div class="footer-primary-content footer-newsletter">
+			<h4>Sign Up for Our Newsletter</h4>
+			{% filter shortcodes %}
+				[gravityform id={{newsletter}}
+				title=false description=false]
+			{% endfilter %}
+		</div>
+	</div>
+	<!-- Logo -->
+	<div class="col-md-5 offset-md-1 col-lg-3 offset-lg-9">
+		<div class="footer-logo">
+			{% if options.header_logo or options.footer_logo %}
+				{% if options.footer_logo %}
+					{% set logo = TimberImage(options.footer_logo) %}
+				{% else %}
+					{% set logo = TimberImage(options.header_logo) %}
+				{% endif %}
 
-                    <a href="{{site.link}}"><img src="{{logo.src}}" alt="{{logo.alt}}"></a>
+				<a href="{{ site.link }}"><img src="{{ logo.src }}" alt="{{ logo.alt }}"></a>
+			{% endif %}
 
-                {% endif %}
+			{% set logo_2 = TimberImage(options.footer_logo_2) %}
 
-                <div id="google_translate_element" class="mt-3"></div>
-            <script type="text/javascript">
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
-                }
-            </script>
-		    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-            </div>
-        </div>
+			{% if logo_2.src %}
+				<img src="{{ logo_2.src }}" alt="{{ logo_2.alt }}">
+			{% endif %}
+
+			<div id="google_translate_element"></div>
+			<script type="text/javascript">
+				function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'en',
+includedLanguages: 'es',
+layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+}, 'google_translate_element');
+}
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		</div>
+	</div>
 </div>
