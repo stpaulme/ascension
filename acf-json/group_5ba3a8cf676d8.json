@@ -107,6 +107,22 @@
             "mime_types": ""
         },
         {
+            "key": "field_649a02896af72",
+            "label": "Footer Logo Link",
+            "name": "footer_logo_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_63e2a930edfe8",
             "label": "Footer Logo 2",
             "name": "footer_logo_2",
@@ -563,5 +579,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675799274
+    "modified": 1687814814
 }

@@ -99,7 +99,13 @@
 					{% set logo = TimberImage(options.header_logo) %}
 				{% endif %}
 
-				<a href="{{ site.link }}"><img src="{{ logo.src }}" alt="{{ logo.alt }}"></a>
+				{% if options.footer_logo_link.url %}
+					<a href="{{ options.footer_logo_link.url }}" target="{{ options.footer_logo_link.target }}">
+				{% endif %}
+						<img src="{{ logo.src }}" alt="{{ logo.alt }}">
+				{% if options.footer_logo_link.url %}
+					</a>
+				{% endif %}
 			{% endif %}
 
 			{% set logo_2 = TimberImage(options.footer_logo_2) %}
