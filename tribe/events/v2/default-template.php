@@ -14,6 +14,7 @@ if (!defined('ABSPATH')) {
 }
 
 $context = Timber::get_context();
+$context['title'] = 'Events';
 $context['tribe_markup'] = tribe(Template_Bootstrap::class)->get_view_html();
 
 Timber::render(array('events.twig'), $context);
