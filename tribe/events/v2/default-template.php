@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 $context = Timber::get_context();
+$context['title'] = 'Events';
 
 if (is_singular('tribe_event_series')) {
     $series_filters = new Series_Filters();
