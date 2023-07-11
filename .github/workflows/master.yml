@@ -105,7 +105,7 @@ jobs:
 
       - name: Sync stpascalschool.org
         env:
-          dest: "pascal@35.202.227.133:/sites/stpascalschool.org/files/wp-content/themes/ascension"
+          dest: "pascal@34.66.217.167:/sites/stpascalschool.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
