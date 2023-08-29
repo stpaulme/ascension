@@ -1748,3 +1748,9 @@ h2.post-title {
   line-height: 1.2;
   margin-bottom: 8px;
 }
+
+.wysiwyg {
+  :last-child {
+    margin-bottom: 0;
+  }
+}

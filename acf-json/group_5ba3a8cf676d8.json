@@ -479,6 +479,26 @@
             "append": ""
         },
         {
+            "key": "field_64ee0c7d93f48",
+            "label": "Footer Info",
+            "name": "footer_info",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_5ba3ab3e46646",
             "label": "Social Media",
             "name": "social_media",
@@ -619,5 +639,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689093436
+    "modified": 1693322398
 }
