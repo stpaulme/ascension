@@ -1,51 +1,55 @@
 <div class="module cta-pair">
-    <div class="container">
+	<div class="container">
+		{% if module.heading %}
+			<div class="row">
+				<div class="col">
+					<h2>{{module.heading}}</h2>
+				</div>
+			</div>
+		{% endif %}
 
-        {% if module.heading %}
-        <div class="row">
-            <div class="col">
-                <h2>{{module.heading}}</h2>
-            </div>
-        </div>
-        {% endif %}
+		<div class="row">
+			{% for cta in module.cta_pair %}
+				<div class="col-md-12 col-lg-6 cta">
 
-        <div class="row">
+					{% if cta.image %}
+						<img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image mw-100">
+					{% endif %}
 
-            {% for cta in module.cta_pair %}
-            <div class="col-md-12 col-lg-6 cta">
-                {% if cta.image %}
-                <img src="{{TimberImage(cta.image).src|resize(1000,555)}}" class="card-image-top cta-image mw-100">
-                {% endif %}
+					{% if cta.media_type == 'video' and cta.video %}
+						<div class="er-container">
+							{{ cta.video }}
+						</div>
+					{% endif %}
 
-                <div class="row no-gutters cta-content {{cta.image ? 'cta-content-with-image'}}">
-                    <div class="{{cta.image ? 'col-10 offset-1' : 'col-12'}}">
-                        {% if cta.heading %}
-                            <h3>
-                                {% if cta.link %}
-                                    <a href="{{cta.link.url}}" target="{{cta.link.target}}">
-                                {% endif %}
+					<div class="row no-gutters cta-content">
+						<div class="col-12">
+							{% if cta.heading %}
+								<h3>
+									{% if cta.link %}
+										<a href="{{cta.link.url}}" target="{{cta.link.target}}">
+										{% endif %}
 
-                                {{cta.heading}}
+										{{cta.heading}}
 
-                                {% if cta.link %}
-                                    </a>
-                                {% endif %}
-                            </h3>
-                        {% endif %}
+										{% if cta.link %}
+										</a>
+									{% endif %}
+								</h3>
+							{% endif %}
 
-                        {% if cta.copy %}
-                        <p>{{cta.copy}}</p>
-                        {% endif %}
-                        
-                        {% if cta.link %}
-                        <a class="btn btn-primary" href="{{cta.link.url}}" target="{{cta.link.target}}">{{cta.link.title}}</a>
-                        {% endif %}
-                    </div>
-                </div>             
-            </div>
-            {% endfor %}
+							{% if cta.copy %}
+								<p>{{cta.copy}}</p>
+							{% endif %}
 
-        </div>
+							{% if cta.link %}
+								<a class="btn btn-primary" href="{{cta.link.url}}" target="{{cta.link.target}}">{{cta.link.title}}</a>
+							{% endif %}
+						</div>
+					</div>
 
-    </div>
-</div>  
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
