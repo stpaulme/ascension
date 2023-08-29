@@ -1059,11 +1059,6 @@ h2.post-title {
   border-bottom: 6px solid $primary;
 }
 
-// For CTAs with images only...
-.cta-pair .cta-content-with-image {
-  margin-top: -30px;
-}
-
 .cta-pair .cta-content div {
   background-color: $white;
   padding: 30px !important;
@@ -1095,11 +1090,6 @@ h2.post-title {
 @media (min-width: 768px) {
   .cta-pair .cta:last-child {
     margin-bottom: 0 !important;
-  }
-
-  // For CTAs with images only
-  .cta-pair .cta-content-with-image {
-    margin-top: -60px;
   }
 
   .cta-pair h3 {
@@ -1757,4 +1747,10 @@ h2.post-title {
   display: block;
   line-height: 1.2;
   margin-bottom: 8px;
+}
+
+.wysiwyg {
+  :last-child {
+    margin-bottom: 0;
+  }
 }

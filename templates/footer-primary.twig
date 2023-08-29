@@ -54,6 +54,14 @@
 						{{options.fax}}</li>
 				{% endif %}
 
+				{% if options.footer_info %}
+					<li>
+						<div class="wysiwyg">
+							{{options.footer_info}}
+						</div>
+					</li>
+				{% endif %}
+
 				{% if options.social_media %}
 					{% for channel in options.social_media %}
 						<li class="footer-contact-social">
@@ -101,9 +109,9 @@
 
 				{% if options.footer_logo_link.url %}
 					<a href="{{ options.footer_logo_link.url }}" target="{{ options.footer_logo_link.target }}">
-				{% endif %}
-						<img src="{{ logo.src }}" alt="{{ logo.alt }}">
-				{% if options.footer_logo_link.url %}
+					{% endif %}
+					<img src="{{ logo.src }}" alt="{{ logo.alt }}">
+					{% if options.footer_logo_link.url %}
 					</a>
 				{% endif %}
 			{% endif %}
