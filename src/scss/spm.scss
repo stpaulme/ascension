@@ -37,6 +37,16 @@ body {
   margin: 20px 0 20px 30px;
 }
 
+.header-translate {
+  margin: 16px 30px;
+}
+
+@media (min-width: 992px) {
+  .header-translate {
+    text-align: right;
+  }
+}
+
 .navbars ul {
   list-style: none;
   margin: 0;
