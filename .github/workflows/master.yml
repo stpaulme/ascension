@@ -76,7 +76,7 @@ jobs:
 
       - name: Sync johnpaulschoolmn.org
         env:
-          dest: "ascension@50.217.254.172:/sites/johnpaulschoolmn.org/files/wp-content/themes/ascension"
+          dest: "johnpaulschoolmn@50.217.254.172:/sites/johnpaulschoolmn.org/files/wp-content/themes/ascension"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
