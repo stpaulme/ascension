@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages.
  *
@@ -21,12 +22,16 @@
  * @since    Timber 0.1
  */
 
+if (! class_exists('Timber')) {
+    return;
+}
+
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 
-if ( is_page( 'Privacy Policy' ) ) {
+if (is_page('Privacy Policy')) {
     $context['title'] = $post->name;
 }
 
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
+Timber::render(array('page-' . $post->post_name . '.twig', 'page.twig'), $context);

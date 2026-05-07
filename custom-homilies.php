@@ -1,8 +1,14 @@
 <?php
+
 /**
  * Template Name: Homilies
  */
+
 $queried_object = get_queried_object();
+
+if (! class_exists('Timber')) {
+    return;
+}
 
 $context = Timber::get_context();
 $post = new TimberPost();
@@ -11,7 +17,7 @@ $parent_page_args = array(
     'post_type'         => 'page',
     'page_id'           => $post->post_parent,
 );
-$parent_page = Timber::get_posts( $parent_page_args );
+$parent_page = Timber::get_posts($parent_page_args);
 
 $other_page_args = array(
     'post_type'         => 'page',
@@ -20,9 +26,9 @@ $other_page_args = array(
     'order'             => 'ASC',
     'orderby'           => 'menu_order'
 );
-$other_pages = Timber::get_posts( $other_page_args );
+$other_pages = Timber::get_posts($other_page_args);
 
-$menu_items = array_merge( $parent_page, $other_pages );
+$menu_items = array_merge($parent_page, $other_pages);
 
 $context['post'] = $post;
 $context['menu_items'] = $menu_items;
@@ -38,4 +44,4 @@ $sidebar_context = array();
 $sidebar_context['post'] = $post;
 $context['sidebar'] = Timber::get_sidebar('sidebar.twig', $sidebar_context);
 
-Timber::render( array( 'custom-homilies.twig' ), $context );
+Timber::render(array('custom-homilies.twig'), $context);

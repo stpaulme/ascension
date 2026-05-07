@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages.
  *
@@ -21,10 +22,14 @@
  * @since    Timber 0.1
  */
 
+if (! class_exists('Timber')) {
+	return;
+}
+
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 $context['title'] = $post->title;
 $context['contact_form'] = spm_get_form_id('Contact');
 
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
+Timber::render(array('page-' . $post->post_name . '.twig', 'page.twig'), $context);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (Not Found)
  *
@@ -9,8 +10,13 @@
  * @since    Timber 0.1
  */
 
+if (! class_exists('Timber')) {
+	return;
+}
+
 $context = Timber::get_context();
 $post = new TimberPost();
 
 $context['title'] = 'Page Not Found';
-Timber::render( '404.twig', $context );
+
+Timber::render('404.twig', $context);

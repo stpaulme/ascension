@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  * This is the most generic template file in a WordPress theme
@@ -13,14 +14,18 @@
  * @since   Timber 0.1
  */
 
+if (! class_exists('Timber')) {
+	return;
+}
+
 $context = Timber::get_context();
 $context['title'] = 'News';
 $context['posts'] = new Timber\PostQuery();
 
 $sidebar_context = array();
-$sidebar_context['categories'] = Timber::get_terms('category', array( 'hide_empty' => true ));
+$sidebar_context['categories'] = Timber::get_terms('category', array('hide_empty' => true));
 $context['sidebar'] = Timber::get_sidebar('sidebar-news.twig', $sidebar_context);
 
-$templates = array( 'index.twig' );
+$templates = array('index.twig');
 
-Timber::render( $templates, $context );
+Timber::render($templates, $context);

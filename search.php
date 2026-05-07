@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Search results page
  *
@@ -9,10 +10,14 @@
  * @since   Timber 0.1
  */
 
-$templates = array( 'search.twig' );
+$templates = array('search.twig');
+
+if (! class_exists('Timber')) {
+	return;
+}
 
 $context          = Timber::get_context();
 $context['title'] = 'Search results for ' . get_search_query();
 $context['posts'] = new Timber\PostQuery();
 
-Timber::render( $templates, $context );
+Timber::render($templates, $context);

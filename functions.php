@@ -128,7 +128,6 @@ class StarterSite extends TimberSite
             'has_archive' => false,
             'rewrite' => array('slug' => 'liturgy/homilies'),
         ));
-
     }
 
     public function spm_register_taxonomies()
@@ -192,7 +191,6 @@ class StarterSite extends TimberSite
 
         wp_enqueue_script('popper', get_template_directory_uri() . '/src/js/popper.min.js');
         wp_enqueue_script('bootstrap', get_template_directory_uri() . '/src/js/bootstrap.min.js', array('jquery'));
-
     }
 
     public function wrap_embeds($html)
@@ -278,7 +276,6 @@ class StarterSite extends TimberSite
         $twig->addExtension(new Twig_Extension_StringLoader());
         return $twig;
     }
-
 }
 
 new StarterSite();
@@ -315,8 +312,8 @@ function spm_tec_load_missing_assets_on_series()
         wp_enqueue_style('tribe-events-pro-views-v2-print-css', WP_PLUGIN_URL . '/events-calendar-pro/src/resources/css/views-print.min.css');
 
         // JS
-        wp_enqueue_script('tribe-common-js', WP_PLUGIN_URL . '/the-events-calendar/common/src/resources/js/tribe-common.min.js', );
-        wp_enqueue_script('tribe-events-views-v2-breakpoints-js', WP_PLUGIN_URL . '/the-events-calendar/src/resources/js/views/breakpoints.min.js', array('jquery'), );
+        wp_enqueue_script('tribe-common-js', WP_PLUGIN_URL . '/the-events-calendar/common/src/resources/js/tribe-common.min.js',);
+        wp_enqueue_script('tribe-events-views-v2-breakpoints-js', WP_PLUGIN_URL . '/the-events-calendar/src/resources/js/views/breakpoints.min.js', array('jquery'),);
     }
 }
 add_action('wp_enqueue_scripts', 'spm_tec_load_missing_assets_on_series');

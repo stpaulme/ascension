@@ -1,9 +1,14 @@
 <?php
+
 /**
  * Template Name: Portal Landing
  */
 
 $queried_object = get_queried_object();
+
+if (! class_exists('Timber')) {
+    return;
+}
 
 $context = Timber::get_context();
 $post = new TimberPost();
@@ -12,7 +17,7 @@ $this_page_args = array(
     'post_type'         => 'page',
     'page_id'           => $post->id,
 );
-$this_page = Timber::get_posts( $this_page_args );
+$this_page = Timber::get_posts($this_page_args);
 
 $other_page_args = array(
     'post_type'         => 'page',
@@ -21,18 +26,18 @@ $other_page_args = array(
     'order'             => 'ASC',
     'orderby'           => 'menu_order'
 );
-$other_pages = Timber::get_posts( $other_page_args );
+$other_pages = Timber::get_posts($other_page_args);
 
-$menu_items = array_merge( $this_page, $other_pages );
+$menu_items = array_merge($this_page, $other_pages);
 
 $context['post'] = $post;
 $context['template'] = 'landing';
 $context['menu_items'] = $menu_items;
 $context['current'] = $queried_object->ID;
 
-if ( post_password_required( $post->ID ) ) {
+if (post_password_required($post->ID)) {
     $context['title'] = $post->name;
-	Timber::render( array( 'portal-password.twig' ), $context );
+    Timber::render(array('portal-password.twig'), $context);
 } else {
-	Timber::render( array( 'custom-landing.twig' ), $context );
+    Timber::render(array('custom-landing.twig'), $context);
 }
