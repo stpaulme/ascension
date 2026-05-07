@@ -10,8 +10,8 @@
       
         {% for image in module.gallery %}
         
+          {% if image %}
           {% set image = TimberImage(image) %}
-        
           <div class="carousel-item {{loop.index == 1 ? 'active'}}">
             <img class="d-block w-100" src="{{image.src|letterbox(900, 600, '#000')}}" alt="{{image.alt}}" />
 
@@ -22,6 +22,7 @@
             {% endif %}
 
           </div>
+          {% endif %}
           
         {% endfor %}
       
@@ -41,8 +42,10 @@
 
     <div class="d-flex flex-nowrap indicators">
         {% for image in module.gallery %}
+          {% if image %}
           {% set image = TimberImage(image) %}
           <div data-target="#{{carousel}}" data-slide-to="{{loop.index0}}" class="{{loop.index == 1 ? 'active'}}"><img class="mw-100" src="{{image.src|letterbox(150, 100, '#fff')}}" alt="{{image.alt}}"></div>
+          {% endif %}
         {% endfor %}
       </div>
 </div>

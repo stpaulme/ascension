@@ -11,9 +11,11 @@
 
     <div class="card-group">
         {% for school in module.schools %}
-        {% set image = TimberImage(school.image) %}
         <div class="card">
+            {% if school.image %}
+            {% set image = TimberImage(school.image) %}
             <img alt="{{image.alt}}" class="card-img-top" src="{{image.src|resize(390, 220)}}">
+            {% endif %}
             <div class="card-body">
                 <h3 class="card-title"><a href="{{school.link.url}}" target="{{school.link.target}}">{{school.heading}}</a></h3>
                 <p class="card-text">{{school.copy}}</p>

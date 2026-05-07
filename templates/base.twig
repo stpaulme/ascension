@@ -69,10 +69,12 @@
 										</div>
 
 										<div class="col-8 col-md-4 col-lg-3 col-xl-2">
-											{% set logo = TimberImage(options.header_logo) %} 
+											{% if options.header_logo %}
+											{% set logo = TimberImage(options.header_logo) %}
 											<a href="{{site.url}}" rel="home" title="{{site.title}}">
 												<img alt="{{logo.alt}}" src="{{logo.src}}" class="header-logo">
 											</a>
+											{% endif %}
 										</div>
 
 										<div class="{{ options.desktop_navigation_style == 'mobile_menu' ? 'd-none' : 'd-none d-lg-block' }} col navbars">

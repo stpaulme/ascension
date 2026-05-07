@@ -1,7 +1,9 @@
 <div class="module hero">
 
+    {% if module.image %}
     {% set image = TimberImage(module.image) %}
     <img alt="{{image.alt}}" class="mw-100" src="{{image.src|resize(3088, 1448, 'center')}}">
+    {% endif %}
 
     <div class="container">
         <div class="row">

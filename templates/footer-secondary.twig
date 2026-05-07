@@ -19,10 +19,9 @@
 			<a href="{{ site.link }}"><img src="{{ logo.src }}" alt="{{ logo.alt }}"></a>
 		{% endif %}
 
+		{% if options.footer_logo_2 %}
 		{% set logo_2 = TimberImage(options.footer_logo_2) %}
-
-		{% if logo_2.src %}
-			<img src="{{ logo_2.src }}" alt="{{ logo_2.alt }}">
+		<img src="{{ logo_2.src }}" alt="{{ logo_2.alt }}">
 		{% endif %}
 	</div>
 
